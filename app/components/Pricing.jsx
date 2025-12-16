@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Pricing({ fadeUp }) {
   return (
-    <section id="pricing" className="mt-8 pb-16">
+    <div className="mt-8 pb-16">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.div
           initial="hidden"
@@ -66,6 +66,6 @@ export default function Pricing({ fadeUp }) {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

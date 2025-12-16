@@ -1,0 +1,37 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Navbar() {
+  return (
+    <header className="sticky top-0 md:top-4 z-30">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between py-4 backdrop-blur-sm bg-black/20 border border-white/5 rounded-full px-4">
+          <Link href="#" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg overflow-hidden">
+              <Image src="/logo.jpg" alt="Logo" width={40} height={40} />
+            </div>
+            <span className="font-semibold tracking-wide">
+              Smart marketing with CRM
+            </span>
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90">
+            <a href="#features" className="nav-btn">Features</a>
+            <a href="#how" className="nav-btn">How it works</a>
+            <a href="#pricing" className="nav-btn">Pricing</a>
+            <a href="#contact" className="nav-btn">About</a>
+            <Link href="#demo" className="cta-btn">Start free trial</Link>
+          </nav>
+
+          <div className="md:hidden">
+            <Link href="#demo" className="px-4 py-2 rounded-full bg-indigo-600 text-white text-sm">
+              Demo
+            </Link>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}

@@ -21,14 +21,18 @@ async function particlesInit(engine) {
 export default function Page() {
   const fadeUp = {
     hidden: { opacity: 0, y: 18 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
-    <div className="relative min-h-screen bg-[#03040a] text-slate-100 antialiased">
+    <div className='relative min-h-screen bg-[#03040a] text-slate-100 antialiased'>
       {/* PARTICLE BACKGROUND */}
       <Particles
-        id="tsparticles"
+        id='tsparticles'
         init={particlesInit}
         options={{
           fullScreen: { enable: false },
@@ -45,25 +49,45 @@ export default function Page() {
             number: { value: 50, density: { enable: true, area: 800 } },
             color: { value: ["#0ea5e9", "#60a5fa", "#7c3aed"] },
             shape: { type: "circle" },
-            opacity: { value: 0.12, random: { enable: true, minimumValue: 0.05 } },
+            opacity: {
+              value: 0.12,
+              random: { enable: true, minimumValue: 0.05 },
+            },
             size: { value: { min: 1.5, max: 4 }, random: true },
-            links: { enable: true, distance: 160, color: "#0ea5e9", opacity: 0.06, width: 1 },
-            move: { enable: true, speed: 0.9, direction: "none", outModes: { default: "bounce" } },
+            links: {
+              enable: true,
+              distance: 160,
+              color: "#0ea5e9",
+              opacity: 0.06,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 0.9,
+              direction: "none",
+              outModes: { default: "bounce" },
+            },
           },
           detectRetina: true,
         }}
-        style={{ position: "absolute", zIndex: 0, inset: 0, width: "100%", height: "100%" }}
+        style={{
+          position: "absolute",
+          zIndex: 0,
+          inset: 0,
+          width: "100%",
+          height: "100%",
+        }}
       />
 
       {/* NAVBAR */}
       <Navbar />
 
-      <main className="relative z-10">
+      <main className='relative z-10'>
         <Hero fadeUp={fadeUp} />
         <Featuressample fadeUp={fadeUp} />
         <HowItWorks fadeUp={fadeUp} />
         <Testimonials fadeUp={fadeUp} />
-        <Pricing fadeUp={fadeUp} />
+        {/* <Pricing fadeUp={fadeUp} /> */}
         <CTA fadeUp={fadeUp} />
         <Footer />
       </main>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 /**
  * @typedef {Object} HowItWorks
@@ -168,7 +169,7 @@ export default function HowItWorks() {
               boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
             }}
           >
-            Start Your Growth Journey
+            <Link href='/pricing'>Start Your Growth Journey</Link>
           </motion.button>
         </motion.div>
       </div>

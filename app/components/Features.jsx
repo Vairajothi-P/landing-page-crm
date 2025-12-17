@@ -1,35 +1,189 @@
 "use client";
+import { useState } from "react";
 
-import { motion } from "framer-motion";
+const OPERATIONS = {
+  accounting: [
+    "Invoices & Quotations",
+    "Bills & Expenses",
+    "E-Invoice & E-Way Bills",
+    "Inventory Management & Delivery Challans",
+    "GSTR Filing",
+    "Balance Sheet, P&L",
+    "Cost Analysis",
+    "Price Lists",
+    "Order Management"
+  ],
+  manufacturing: [
+    "Work Orders",
+    "Bill of Materials (BOM)",
+    "Production Planning",
+    "Real-Time Inventory",
+    "Multi-warehouse Tracking",
+    "Order Management",
+    "Purchase Orders",
+    "RFQs",
+    "Vendor Management",
+    "Stock Ledger & Batch Tracking"
+  ],
+};
 
-const FEATURES = [
-  { title: "Unified Customer Profiles", desc: "See every customer touchpoint in one place — conversations, purchases, and lifecycle stage." },
-  { title: "Automated Campaigns", desc: "Create behavior-driven email & SMS flows that run on autopilot." },
-  { title: "Lead Scoring & Routing", desc: "Prioritize leads automatically and route them to the right rep." },
-  { title: "Reporting & Insights", desc: "Prebuilt dashboards + custom reports to measure ROI and growth." },
-  { title: "Integrations", desc: "Connect your stack — email, payments, analytics, and more." },
-  { title: "GDPR & Security", desc: "Enterprise-grade controls and compliance tools out of the box." },
-];
+const MANAGEMENT = {
+  crm: [
+    "Leads & Contacts",
+    "Deal & Pipeline Management",
+    "Ticketing System",
+    "Tasks & Follow-Ups",
+    "Email Integration",
+    "Goals & Campaigns (CRM-related)",
+    "IVR & Cloud Telephony",
+    "Call Recordings"
+  ],
+  hrms: [
+    "Salary Structure",
+    "Attendance Tracking (Selfie, Biometric)",
+    "Payroll Processing",
+    "Tax (PF/ESI) Compliance",
+    "Payslip Generation",
+    "Leave Management"
+  ],
+  project: [
+    "Task Assignment",
+    "Priority Levels",
+    "Team Collaboration",
+    "Time Tracking",
+    "Image/Video Attachments",
+    "Progress Reports"
+  ],
+  field_service: [
+    "Work Orders",
+    "Service Locations",
+    "Technician Scheduling",
+    "Service History",
+    "Customer Feedback",
+    "Real-Time Service Updates"
+  ]
+};
 
-export default function Features({ fadeUp }) {
+const GROWTH = {
+  gtm_engine: [
+    "Demand-Based Lead Reach-out",
+    "AI Lead Generation Workflows",
+    "Prioritization by Deal Score",
+    "Automated Follow-ups",
+    "Predictive Nurturing"
+  ],
+  marketing: [
+    "Personalized Email Campaigns",
+    "WhatsApp & SMS Marketing",
+    "Lead Nurturing Sequences",
+    "Customer Retargeting",
+    "AI-based Segmentation"
+  ],
+  ad_exchange: [
+    "Launch Ads Across Google, Meta, LinkedIn",
+    "Programmatic Ad Exchange Integration",
+    "AI Budget Optimization",
+    "Ad → Lead → Deal Tracking",
+    "Real-Time ROAS Analytics",
+    "Auto-generated Creatives & Ad Copy"
+  ],
+  revenue: [
+    "Campaign ROI Dashboard",
+    "Customer Acquisition Cost (CAC)",
+    "Funnel Analytics",
+    "Pipeline Revenue Forecasting",
+    "Attribution (Channel → Lead → Revenue)"
+  ]
+};
+
+export default function FeaturesMegaMenu() {
+const [activeSection, setActiveSection] = useState("operations");
+const [activeItem, setActiveItem] = useState("accounting");
   return (
-    <section id="features" className="scroll-mt-28 mt-8 pb-16">
-      <div className="max-w-7xl mx-auto px-6">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center">
-              <h2 className="text-3xl font-bold text-white">Everything marketing teams need</h2>
-              <p className="mt-3 text-slate-300 max-w-2xl mx-auto">From lead capture to nurture workflows and analytics — built to scale with your business.</p>
-            </motion.div>
+    <div className="relative group">
+      {/* Navbar Button */}
+      <button className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition cursor-pointer">
+        Features
+      </button>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {FEATURES.map((f, idx) => (
-                <motion.div key={f.title} whileHover={{ y: -8 }} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0, transition: { delay: idx * 0.06 } }} className="p-6 rounded-xl border border-white/6 shadow-sm bg-gradient-to-b from-white/2 to-transparent backdrop-blur-md">
-                  <div className="w-12 h-12 rounded-md bg-white/6 flex items-center justify-center font-semibold text-sky-300">✓</div>
-                  <h3 className="mt-4 font-semibold text-lg text-white">{f.title}</h3>
-                  <p className="mt-2 text-sm text-slate-300">{f.desc}</p>
-                </motion.div>
-              ))}
+      {/* Mega Menu */}
+      <div
+        className="absolute left-1/2 top-full z-50 w-screen max-w-4xl
+                   -translate-x-1/2 mt-2 opacity-0 pointer-events-none
+                   group-hover:opacity-100 group-hover:pointer-events-auto
+                   transition-all duration-200"
+      >
+        <div className="bg-black rounded-xl shadow-xl border border-white p-10">
+          <div className="grid grid-cols-3 gap-16">
+
+            {/* LEFT SIDE */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 uppercase">
+                OPerations
+              </h3>
+
+              <div className="text-sm">
+                <ul className="space-y-3">
+                  <li className="hover:text-white hover:underline cursor">
+                    Accounting & Finance
+                  </li>
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    Manufacturing Operations
+                  </li>
+                </ul>
+              </div>
             </div>
+            {/* CENTER */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 uppercase">
+                Management
+              </h3>
+
+              <div className="text-sm">
+                <ul className="space-y-3">
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    CRM (Customer Management)
+                  </li>
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    HRMS & Payroll
+                  </li>
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    Task & Project Management
+                  </li>
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    Field Service Management
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 uppercase">
+                Growth
+              </h3>
+
+              <div className="text-sm">
+                <ul className="space-y-3">
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    GTM Engine
+                  </li>
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    Marketing Automation
+                  </li>
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    Ad Exchange & GTM Engine
+                  </li>
+                  <li className="hover:text-white hover:underline cursor-pointer">
+                    Revenue Intelligence
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
-    </section>
+        </div>
+      </div>
+    </div>
   );
 }

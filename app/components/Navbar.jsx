@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Features from "./Features";
 
 export default function Navbar() {
   return (
@@ -18,11 +19,11 @@ export default function Navbar() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90">
-            <a href="#features" className="nav-btn">Features</a>
-            <a href="#how" className="nav-btn">How it works</a>
-            <a href="#pricing" className="nav-btn">Pricing</a>
-            <a href="#contact" className="nav-btn">About</a>
-            <Link href="#demo" className="cta-btn">Start free trial</Link>
+          <Features />         
+            <a href="#how" className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition">How it works</a>
+            <a href="#pricing" className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition">Pricing</a>
+            <a href="#contact" className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition">About</a>
+            <Link href="#demo" className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-400 to-indigo-500 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition">Start free trial</Link>
           </nav>
 
           <div className="md:hidden">

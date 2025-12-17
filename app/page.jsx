@@ -1,12 +1,11 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Features from "./components/Features";
+import FeaturesSample from "./components/FeaturesSample";
 import HowItWorks from "./components/HowItWorks";
 import Testimonials from "./components/Testimonials";
 import Pricing from "./components/Pricing";
@@ -60,7 +59,7 @@ export default function Page() {
 
       <main className="relative z-10">
         <Hero fadeUp={fadeUp} />
-        <Features fadeUp={fadeUp} />
+        <FeaturesSample fadeUp={fadeUp} />
         <HowItWorks fadeUp={fadeUp} />
         <Testimonials fadeUp={fadeUp} />
         <Pricing fadeUp={fadeUp} />

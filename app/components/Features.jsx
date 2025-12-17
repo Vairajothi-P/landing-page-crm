@@ -97,8 +97,8 @@ const GROWTH = {
 };
 
 export default function FeaturesMegaMenu() {
-const [activeSection, setActiveSection] = useState("operations");
-const [activeItem, setActiveItem] = useState("accounting");
+const [hoveredOperation, setHoveredOperation] = useState(null);
+
   return (
     <div className="relative group">
       {/* Navbar Button */}
@@ -124,9 +124,25 @@ const [activeItem, setActiveItem] = useState("accounting");
 
               <div className="text-sm">
                 <ul className="space-y-3">
-                  <li className="hover:text-white hover:underline cursor">
+                  <li
+                    onMouseEnter={() => setHoveredOperation("accounting")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     Accounting & Finance
+                    {hoveredOperation === "accounting" && (
+      <div className="absolute top-full left-0 mt-2 bg-gray-900 p-4 rounded-xl shadow-lg w-64 z-50">
+        <ul className="space-y-2 text-sm">
+          {OPERATIONS.accounting.map((item) => (
+            <li key={item} className="hover:text-white cursor-pointer">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
                   </li>
+
                   <li className="hover:text-white hover:underline cursor-pointer">
                     Manufacturing Operations
                   </li>

@@ -13,21 +13,23 @@ export default function Navbar() {
             <div className='w-10 h-10 rounded-lg overflow-hidden'>
               <Image src='/logo.jpg' alt='Logo' width={40} height={40} />
             </div>
-            <span className='font-semibold tracking-wide'>
-              Smart marketing with CRM
-            </span>
+            <Link href='/'>
+              <span className='font-semibold tracking-wide text-white'>
+                Smart marketing with CRM
+              </span>
+            </Link>
           </Link>
 
           <nav className='hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90'>
             <Features />
             <a
-              href='/'
+              href='/#how'
               className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
             >
               How it works
             </a>
             <a
-              href='/'
+              href='/pricing'
               className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
             >
               Pricing

@@ -2,80 +2,176 @@
 
 import { motion } from "framer-motion";
 
-export default function HowItWorks({ fadeUp }) {
+/**
+ * @typedef {Object} HowItWorks
+ * @property {number} id
+ * @property {string} title
+ * @property {string} description
+ * @property {string} icon
+ * @property {string} color
+ */
+
+/** @type {HowItWorks[]} */
+const HowItWorkss = [
+  {
+    id: 1,
+    title: "Discovery",
+    description: "Understand your GTM challenges and current state",
+    icon: "🔍",
+    color: "#6366f1",
+  },
+  {
+    id: 2,
+    title: "Strategy",
+    description: "Build your personalized growth blueprint",
+    icon: "📋",
+    color: "#8b5cf6",
+  },
+  {
+    id: 3,
+    title: "Implementation",
+    description: "Execute with precision and speed",
+    icon: "⚙️",
+    color: "#ec4899",
+  },
+  {
+    id: 4,
+    title: "Optimization",
+    description: "Refine processes and scale faster",
+    icon: "📈",
+    color: "#14b8a6",
+  },
+  {
+    id: 5,
+    title: "Growth",
+    description: "Achieve measurable exponential results",
+    icon: "🚀",
+    color: "#10b981",
+  },
+];
+
+export default function HowItWorks() {
   return (
-    <section id="how" className="scroll-mt-28 mt-8 pb-16">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+    <div className='w-full bg-black py-32 px-6' id='how'>
+      <div className='max-w-3xl mx-auto'>
+        {/* Header */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className='text-center mb-32'
         >
-          <h3 className="text-2xl font-bold text-white">How it works</h3>
-          <p className="mt-3 text-slate-300">
-            Launch campaigns fast with a three-step workflow that connects data,
-            automation, and measurement.
+          <h2 className='text-5xl font-bold text-white mb-4'>
+            Our GTM Workflow
+          </h2>
+          <p className='text-lg text-slate-400'>
+            5 proven stages to transform your strategy into results
           </p>
-          <ol className="mt-6 space-y-4 text-sm text-slate-300">
-            <li>
-              <strong>1. Capture:</strong> Collect leads from forms, ads, and
-              integrations.
-            </li>
-            <li>
-              <strong>2. Automate:</strong> Segment and trigger personalized
-              journeys.
-            </li>
-            <li>
-              <strong>3. Measure:</strong> Track performance with dashboards and
-              ROI reports.
-            </li>
-          </ol>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="md:col-span-2"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="p-6 rounded-xl bg-white/4 border border-white/6">
-              <h4 className="font-semibold text-white">
-                Drag & drop journey builder
-              </h4>
-              <p className="mt-2 text-sm text-slate-300">
-                Build multi-step flows visually — no code required.
-              </p>
-            </div>
+        {/* Vertical Timeline */}
+        <div className='relative'>
+          {/* Center Line */}
+          <div className='absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-800 via-blue-500/50 to-slate-800' />
 
-            <div className="p-6 rounded-xl bg-white/4 border border-white/6">
-              <h4 className="font-semibold text-white">
-                Personalization at scale
-              </h4>
-              <p className="mt-2 text-sm text-slate-300">
-                Dynamic content and behavioral triggers for relevant messaging.
-              </p>
-            </div>
+          {/* Steps */}
+          <div className='space-y-20'>
+            {HowItWorkss.map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: false, margin: "-100px" }}
+                className={`flex items-center gap-8 ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                }`}
+              >
+                {/* Content */}
+                <div className='flex-1'>
+                  <motion.div
+                    whileHover={{ x: index % 2 === 0 ? 10 : -10 }}
+                    className='bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-lg p-6 hover:border-slate-700 transition-colors'
+                  >
+                    <div className='flex items-center gap-3 mb-2'>
+                      <span className='text-2xl'>{step.icon}</span>
+                      <h3
+                        className='text-xl font-bold'
+                        style={{ color: step.color }}
+                      >
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className='text-slate-400 text-sm'>{step.description}</p>
+                  </motion.div>
+                </div>
 
-            <div className="p-6 rounded-xl bg-white/4 border border-white/6">
-              <h4 className="font-semibold text-white">Realtime analytics</h4>
-              <p className="mt-2 text-sm text-slate-300">
-                Monitor conversions and pipeline impact in realtime dashboards.
-              </p>
-            </div>
+                {/* Center Circle */}
+                <motion.div
+                  className='absolute left-1/2 transform -translate-x-1/2'
+                  whileInView={{ scale: 1 }}
+                  initial={{ scale: 0 }}
+                  transition={{ duration: 0.4 }}
+                  viewport={{ once: false, margin: "-100px" }}
+                >
+                  <motion.div
+                    animate={{
+                      boxShadow: `0 0 20px ${step.color}88`,
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className='w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10 border-4'
+                    style={{
+                      backgroundColor: step.color,
+                      borderColor: "#0f0f0f",
+                    }}
+                  >
+                    {step.id}
+                  </motion.div>
+                </motion.div>
 
-            <div className="p-6 rounded-xl bg-white/4 border border-white/6">
-              <h4 className="font-semibold text-white">
-                Permissions & workflows
-              </h4>
-              <p className="mt-2 text-sm text-slate-300">
-                Role-based access and approvals for teams of any size.
-              </p>
-            </div>
+                {/* Empty space for alignment */}
+                <div className='flex-1' />
+              </motion.div>
+            ))}
           </div>
+
+          {/* Bottom decoration */}
+          <motion.div
+            initial={{ opacity: 0, scaleY: 0 }}
+            whileInView={{ opacity: 1, scaleY: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className='absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-12 w-0 h-0'
+            style={{
+              borderLeft: "8px solid transparent",
+              borderRight: "8px solid transparent",
+              borderTop: "16px solid #10b981",
+              filter: "drop-shadow(0 0 8px #10b98144)",
+            }}
+          />
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: false }}
+          className='text-center mt-32'
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className='px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition duration-300'
+            style={{
+              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+            }}
+          >
+            Start Your Growth Journey
+          </motion.button>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

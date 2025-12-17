@@ -97,7 +97,7 @@ const GROWTH = {
 };
 
 export default function FeaturesMegaMenu() {
-const [hoveredOperation, setHoveredOperation] = useState(null);
+  const [hoveredOperation, setHoveredOperation] = useState(null);
 
   return (
     <div className="relative group">
@@ -108,7 +108,7 @@ const [hoveredOperation, setHoveredOperation] = useState(null);
 
       {/* Mega Menu */}
       <div
-        className="absolute left-1/2 top-full z-50 w-screen max-w-4xl
+        className="absolute left-1/2 top-full w-screen max-w-4xl
                    -translate-x-1/2 mt-2 opacity-0 pointer-events-none
                    group-hover:opacity-100 group-hover:pointer-events-auto
                    transition-all duration-200"
@@ -131,20 +131,35 @@ const [hoveredOperation, setHoveredOperation] = useState(null);
                   >
                     Accounting & Finance
                     {hoveredOperation === "accounting" && (
-      <div className="absolute top-full left-0 mt-2 bg-gray-900 p-4 rounded-xl shadow-lg w-64 z-50">
-        <ul className="space-y-2 text-sm">
-          {OPERATIONS.accounting.map((item) => (
-            <li key={item} className="hover:text-white cursor-pointer">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {OPERATIONS.accounting.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
 
-                  <li className="hover:text-white hover:underline cursor-pointer">
+                  <li
+                    onMouseEnter={() => setHoveredOperation("manufacturing")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     Manufacturing Operations
+                    {hoveredOperation === "manufacturing" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {OPERATIONS.manufacturing.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
                 </ul>
               </div>
@@ -157,17 +172,80 @@ const [hoveredOperation, setHoveredOperation] = useState(null);
 
               <div className="text-sm">
                 <ul className="space-y-3">
-                  <li className="hover:text-white hover:underline cursor-pointer">
+                  <li
+                    onMouseEnter={() => setHoveredOperation("crm")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     CRM (Customer Management)
+                    {hoveredOperation === "crm" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {MANAGEMENT.crm.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
-                  <li className="hover:text-white hover:underline cursor-pointer">
+
+                  <li
+                    onMouseEnter={() => setHoveredOperation("hrms")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     HRMS & Payroll
+                    {hoveredOperation === "hrms" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {MANAGEMENT.hrms.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
-                  <li className="hover:text-white hover:underline cursor-pointer">
+
+                  <li
+                    onMouseEnter={() => setHoveredOperation("project")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     Task & Project Management
+                    {hoveredOperation === "project" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {MANAGEMENT.project.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
-                  <li className="hover:text-white hover:underline cursor-pointer">
+
+                  <li
+                    onMouseEnter={() => setHoveredOperation("field_service")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     Field Service Management
+                    {hoveredOperation === "field_service" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {MANAGEMENT.field_service.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
                 </ul>
               </div>
@@ -181,17 +259,80 @@ const [hoveredOperation, setHoveredOperation] = useState(null);
 
               <div className="text-sm">
                 <ul className="space-y-3">
-                  <li className="hover:text-white hover:underline cursor-pointer">
+                  <li
+                    onMouseEnter={() => setHoveredOperation("gtm_engine")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     GTM Engine
+                    {hoveredOperation === "gtm_engine" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {GROWTH.gtm_engine.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
-                  <li className="hover:text-white hover:underline cursor-pointer">
+
+                  <li
+                    onMouseEnter={() => setHoveredOperation("marketing")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     Marketing Automation
+                    {hoveredOperation === "marketing" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {GROWTH.marketing.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
-                  <li className="hover:text-white hover:underline cursor-pointer">
+
+                  <li
+                    onMouseEnter={() => setHoveredOperation("ad_exchange")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     Ad Exchange & GTM Engine
+                    {hoveredOperation === "ad_exchange" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {GROWTH.ad_exchange.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
-                  <li className="hover:text-white hover:underline cursor-pointer">
+
+                  <li
+                    onMouseEnter={() => setHoveredOperation("revenue")}
+                    onMouseLeave={() => setHoveredOperation(null)}
+                    className="hover:text-white hover:underline cursor-pointer"
+                  >
                     Revenue Intelligence
+                    {hoveredOperation === "revenue" && (
+                      <div className="absolute top-full left-0 mt-2 bg-black p-4 rounded-xl shadow-lg w-64 z-50">
+                        <ul className="space-y-2 text-sm">
+                          {GROWTH.revenue.map((item) => (
+                            <li key={item} className="hover:text-white cursor-pointer">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </li>
                 </ul>
               </div>

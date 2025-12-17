@@ -1,16 +1,17 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import FeaturesSample from "./components/FeaturesSample";
 import HowItWorks from "./components/HowItWorks";
 import Testimonials from "./components/Testimonials";
 import Pricing from "./components/Pricing";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
+import Featuressample from "./components/FeaturesSample";
 
 // Particle init
 async function particlesInit(engine) {
@@ -59,7 +60,7 @@ export default function Page() {
 
       <main className="relative z-10">
         <Hero fadeUp={fadeUp} />
-        <FeaturesSample fadeUp={fadeUp} />
+        <Featuressample fadeUp={fadeUp} />
         <HowItWorks fadeUp={fadeUp} />
         <Testimonials fadeUp={fadeUp} />
         <Pricing fadeUp={fadeUp} />

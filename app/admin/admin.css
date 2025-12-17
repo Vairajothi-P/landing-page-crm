@@ -1,0 +1,188 @@
+body {
+  background: radial-gradient(circle at 20% 20%, #1f2937, #0b1021 45%),
+    radial-gradient(circle at 80% 0%, #1e3a8a 10%, transparent 35%), #060913;
+  color: #e5e7eb;
+  font-family: "Geist", "Geist Sans", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.admin-content {
+  background: linear-gradient(145deg, #0d1224 0%, #0b0f1d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-header h1 {
+  color: #f8fafc;
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.admin-header p {
+  color: #94a3b8;
+  font-size: 16px;
+  margin: 10px 0 0;
+}
+
+.customers-table,
+table {
+  width: 100%;
+}
+
+.customers-table {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 16px;
+  overflow-x: auto;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.customers-table::-webkit-scrollbar {
+  height: 10px;
+}
+
+.customers-table::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+
+.customers-table::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #2563eb, #8b5cf6);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+table thead {
+  background: linear-gradient(
+    90deg,
+    rgba(37, 99, 235, 0.12),
+    rgba(109, 40, 217, 0.12)
+  );
+  backdrop-filter: blur(6px);
+}
+
+table th {
+  color: #e2e8f0;
+  padding: 14px 12px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+table td {
+  color: #cbd5e1;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 15px;
+}
+
+table tbody tr {
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-1px);
+}
+
+table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table td:first-child {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+table thead th:first-child {
+  border-top-left-radius: 10px;
+}
+
+table thead th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.message-cell {
+  max-width: 320px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.loading,
+.no-data {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 18px;
+  padding: 40px 0;
+}
+
+.error {
+  background: rgba(248, 113, 113, 0.1);
+  color: #fecdd3;
+  padding: 14px 16px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 20px 16px 48px;
+  }
+
+  .admin-content {
+    padding: 24px;
+  }
+
+  .admin-header h1 {
+    font-size: 32px;
+  }
+
+  .admin-header p {
+    font-size: 15px;
+  }
+
+  table {
+    min-width: 640px;
+  }
+
+  table th,
+  table td {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+}

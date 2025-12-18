@@ -1,0 +1,486 @@
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+
+
+type SubFeature = {
+  id: string;
+  title: string;
+  description: string;
+  image: string; // placeholder path or URL
+  features: string[];
+  benefits: string[];
+  layer: "operations" | "management" | "growth";
+};
+
+type Layer = {
+  id: "operations" | "management" | "growth";
+  title: string;
+  description: string;
+  subFeatures: Pick<SubFeature, "id" | "title">[];
+};
+
+const LAYERS: Layer[] = [
+  {
+    id: "operations",
+    title: "Operations Layer",
+    description:
+      "Run core operations with precision—finance, inventory, purchasing, and production.",
+    subFeatures: [
+      { id: "accounting-finance", title: "Accounting & Finance" },
+      { id: "Manufacturing-Operations", title: "Manufacturing Operations" }
+    ],
+  },
+  {
+    id: "management",
+    title: "Management Layer",
+    description:
+      "Empower teams with CRM, HRMS, and project execution to deliver results faster.",
+    subFeatures: [
+      { id: "crm", title: "CRM (Customer Management)" },
+      { id: "hrms-payroll", title: "HRMS & Payroll" },
+      { id: "Task-Project-Management", title: "Task & Project Management" },
+      { id: "Field-Service-Management", title: "Field Service Management" },
+    ],
+  },
+  {
+    id: "growth",
+    title: "Growth Layer",
+    description:
+      "Scale acquisition and revenue with AI GTM and automated campaign orchestration.",
+    subFeatures: [
+      { id: "GTM-Engine", title: "GTM Engine" },
+      { id: "Marketing-Automation", title: "Marketing Automation" },
+      { id: "Ad-Exchange-GTM-Engine", title: "Ad Exchange & GTM Engine" },
+      { id: "Revenue-Intelligence", title: "Revenue Intelligence" }
+    ],
+  },
+];
+
+const SUB_FEATURES: SubFeature[] = [
+  // Example data (full)
+  {
+    id: "accounting-finance",
+    title: "Accounting & Finance",
+    description:
+      "Automate invoicing, expense tracking, and compliance, gain real-time financial insights, and improve accuracy in reporting and decision-making.",
+    image: "/purchase.jpg",
+    features: [
+      "● Invoices & Quotations",
+      "● Bills & Expenses",
+      "● E-Invoice & E-Way Bills",
+      "● GSTR Filing",
+      "● Balance Sheet, P&L",
+      "● Cost Analysis",
+      "● Price Lists",
+      "● Order Management",
+    ],
+    benefits: [
+      "● Ensure faster billing and accurate revenue tracking with streamlined invoices and quotations",
+      "● Gain better cost control and visibility by managing bills, expenses, and price lists centrally",
+      "● Stay compliant and audit-ready with automated e-invoicing, e-way bills, and GSTR filings",
+      "● Make informed financial decisions using real-time balance sheets, P&L statements, and cost analysis",
+    ],
+    layer: "operations",
+  },
+  // Additional supported sub-features (placeholders)
+  {
+    id: "Manufacturing-Operations",
+    title: "Manufacturing Operations ",
+    description:
+      "Monitor production, materials, and work orders in real time, optimize scheduling, reduce downtime, and control costs efficiently.",
+    image: "inventory.jpg",
+    features: [
+      "● Work Orders",
+      "● Bill of Materials (BOM)",
+      "● Production Planning",
+      "● Real-Time Inventory",
+      "● Multi-warehouse Tracking",
+      "● OrderManagement",
+      "● Purchase Orders",
+      "● RFQs",
+      "● Vendor Management",
+      "● Stock Ledger & Batch Tracking",
+    ],
+    benefits: [
+      "● Improve production efficiency and on-time delivery with structured work orders, BOM control, and optimized production planning",
+      "● Reduce stockouts, overproduction, and wastage through real-time inventory visibility and multi-warehouse tracking",
+      "● Lower procurement costs and lead times using streamlined purchase orders, RFQs, and vendor management",
+      "● Maintain full traceability and quality control with stock ledgers and batch-level tracking",
+    ],
+    layer: "operations",
+  },
+  {
+    id: "crm",
+    title: "CRM (Customer Management)",
+    description:
+      "Centralize leads, contacts, and deals, automate follow-ups, and gain actionable insights to boost sales efficiency and customer satisfaction.",
+    image: "/crm.jpg",
+    features: [
+      "● Leads & Contacts",
+      "● Deal & Pipeline Management",
+      "● Ticketing System",
+      "● Tasks & Follow-Ups",
+      "● Email Integration",
+      "● Goals & Campaigns (CRM-related)",
+      "● IVR & Cloud Telephony",
+      "● Call Recordings",
+    ],
+    benefits: [
+      "● Increase lead conversion and deal closure rates with centralized leads, contacts, and pipeline visibility",
+      "● Improve customer satisfaction and retention through efficient ticketing, timely task management, and follow-ups",
+      "● Boost sales team productivity and accountability with integrated emails, goals, and campaign tracking",
+      "● Enhance communication effectiveness using IVR, cloud telephony, and call recordings for better engagement and quality control",
+    ],
+    layer: "management",
+  },
+  {
+    id: "hrms-payroll",
+    title: "HRMS & Payroll",
+    description:
+      "Manage employee records, leave, performance, and payroll compliance in one place.",
+    image: "/hrms.gif",
+    features: [
+      "● Salary Structure ",
+      "● Attendance Tracking (Selfie, Biometric)",
+      "● Payroll Processing ",
+      "● Tax (PF/ESI) Compliance",
+      "● Payslip Generation ",
+      "● Leave Management",
+  
+    ],
+    benefits: [
+      "● Ensure timely, accurate, and compliant payroll processing with automated salary structures and statutory calculations",
+      "● Reduce manual HR workload and errors using real-time attendance tracking and integrated payroll workflows",
+      "● Improve employee transparency and satisfaction through self-service payslips, leave visibility, and attendance records",
+      "● Stay audit-ready and compliant with built-in PF/ESI tax management and detailed payroll reports",
+    ],
+    layer: "management",
+  },
+  {
+    id: "Task-Project-Management",
+    title: "Task & Project Management",
+    description:
+      "Assign and track tasks, prioritize work, and collaborate efficiently to ensure on-time delivery and maximize team productivity.",
+    image: "/hrms.gif",
+    features: [
+      "● Task Assignment",
+      "● Priority Levels",
+      "● Team Collaboration",
+      "● Time Tracking",
+      "● Image/Video Attachments",
+      "● Progress Reports"
+    ],
+    benefits: [
+      "● Improve team productivity and on-time delivery with clear task assignments, priorities, and collaboration",
+      "● Enhance planning accuracy and accountability through real-time time tracking and progress visibility",
+      "● Reduce miscommunication and rework by sharing image and video attachments directly within tasks",
+      "● Gain actionable project insights using progress reports to track performance and identify bottlenecks early",
+    ],
+    layer: "management",
+  },
+  {
+    id: "Field-Service-Management",
+    title: "Field Service Management",
+    description:
+      "Optimize technician scheduling, track work orders in real time, and enhance customer satisfaction with timely updates and complete service history.",
+    image: "/hrms.gif",
+    features: [
+      "● Work Orders",
+      "● Service Locations",
+      "● Technician Scheduling",
+      "● Service History",
+      "● Customer Feedback",
+      "● Real-Time Service Updates",
+    ],
+    benefits: [
+      "● Improve first-time fix rates and service efficiency with structured work orders and complete service history",
+      "● Reduce response times and travel inefficiencies through optimized technician scheduling and location-based assignments",
+      "● Enhance customer satisfaction and trust with real-time service updates and feedback tracking",
+      "● Increase operational visibility and control by monitoring service activities across locations in real time",
+    ],
+    layer: "management",
+  },
+  {
+    id: "GTM-Engine",
+    title: "GTM Engine",
+    description:
+      "Streamline go-to-market campaigns by launching ads across channels, optimizing budgets with AI, and tracking full-funnel performance in real time.",
+    image: "/gtm.jpg",
+    features: [
+      "● Demand-Based Lead Reach-out ",
+      "● AI Lead Generation Workflows ",
+      "● Prioritization by Deal Score ",
+      "● Automated Follow-ups",
+      "● Predictive Nurturing",
+    ],
+    benefits: [
+      "● Increase revenue predictability with AI-driven lead prioritization and deal scoring",
+      "● Reduce customer acquisition costs through automated, demand-based outreach",
+      "● Accelerate deal closures with timely follow-ups and predictive nurturing",
+      "● Improve sales efficiency and ROI by focusing on high-value, high-probability opportunities",
+    ],
+    layer: "growth",
+  },
+  {
+    id: "Marketing-Automation",
+    title: "Marketing Automation",
+    description:
+      "Automate personalized campaigns across email, SMS, and WhatsApp, nurture leads intelligently, and boost engagement and conversions with AI-driven segmentation.",
+    image: "/revenue.jpg",
+    features: [
+      "● Personalized Email Campaigns",
+      "● WhatsApp & SMS Marketing",
+      "● Lead Nurturing Sequences",
+      "● Customer Retargeting",
+      "● AI-based Segmentation"
+    ],
+    benefits: [
+      "● Increase campaign engagement and conversions with personalized email, WhatsApp, and SMS outreach",
+      "● Shorten sales cycles and improve lead quality through automated, stage-based lead nurturing sequences",
+      "● Recover lost opportunities and boost ROI using intelligent customer retargeting",
+      "● Improve targeting accuracy and relevance with AI-based audience segmentation",
+    ],
+    layer: "growth",
+  },
+  {
+    id: "Ad-Exchange-GTM-Engine",
+    title: "Ad Exchange & GTM Engine",
+    description:
+      "Launch and optimize ads across multiple platforms, track full-funnel conversions, and maximize ROI with AI-driven budget and creative automation.",
+    image: "/revenue.jpg",
+    features: [
+      "● Launch Ads Across Google, Meta, LinkedIn",
+      "● Programmatic Ad Exchange Integration",
+      "● AI Budget Optimization",
+      "● Ad → Lead → Deal Tracking",
+      "● Real-Time ROAS Analytics",
+      "● Auto-generated Creatives & Ad Copy",
+    ],
+    benefits: [
+      "● Maximize ad reach and speed to market by launching campaigns across Google, Meta, and LinkedIn from a single platform",
+      "● Improve marketing ROI and cost efficiency with AI-driven budget optimization and programmatic ad buying",
+      "● Gain full funnel visibility and accountability by tracking ads through lead and deal conversion",
+      "● Make faster, data-backed decisions using real-time ROAS and performance analytics",
+    ],
+    layer: "growth",
+  },
+  {
+    id: "revenue-intelligence",
+    title: "Revenue Intelligence & Analytics",
+    description:
+      "Consolidate pipeline and campaign data to gain actionable insights, predict revenue trends, and minimize business risks.",
+    image: "/revenue.jpg",
+    features: [
+      "● Campaign ROI Dashboard",
+      "● Customer Acquisition Cost (CAC)",
+      "● Funnel Analytics",
+      "● Pipeline Revenue Forecasting",
+      "● Attribution (Channel → Lead → Revenue)",
+    ],
+    benefits: [
+      "● Maximize revenue growth and profitability with a centralized campaign ROI dashboard",
+      "● Optimize marketing spend and efficiency by tracking Customer Acquisition Cost (CAC)",
+      "● Identify bottlenecks and improve conversion rates using detailed funnel analytics",
+      "● Forecast revenue accurately and plan strategically with pipeline revenue insights",
+    ],
+    layer: "growth",
+  },
+];
+
+export default function FeaturesSection() {
+  const [activeLayer, setActiveLayer] = useState<Layer["id"]>("operations");
+  const [selectedSubFeatureId, setSelectedSubFeatureId] = useState<string | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+
+  const filteredSubFeatures = useMemo(
+    () => SUB_FEATURES.filter((sf) => sf.layer === activeLayer),
+    [activeLayer]
+  );
+
+  const selectedSubFeature = useMemo(
+    () => SUB_FEATURES.find((sf) => sf.id === selectedSubFeatureId) || null,
+    [selectedSubFeatureId]
+  );
+
+  // Smooth scroll into view when a sub-feature panel opens
+  useEffect(() => {
+    if (selectedSubFeature && panelRef.current) {
+      panelRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [selectedSubFeature]);
+
+  const handleBackToFeatures = () => {
+    setSelectedSubFeatureId(null);
+    // Smooth scroll back to the sub-features grid
+    if (panelRef.current) {
+      window.scrollTo({ top: panelRef.current.offsetTop - 120, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section className="relative py-20 bg-gradient-to-b from-gray-950 to-gray-900">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold text-white">Features</h2>
+          <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
+            Explore product capabilities across Operations, Management, and Growth—built for modern SaaS.
+          </p>
+        </motion.div>
+
+        {/* Layer tabs */}
+        <div className="flex justify-center gap-3 mb-10">
+          {LAYERS.map((layer) => {
+            const isActive = activeLayer === layer.id;
+            return (
+              <button
+                key={layer.id}
+                onClick={() => {
+                  setActiveLayer(layer.id);
+                  setSelectedSubFeatureId(null);
+                }}
+                className={[
+                  "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium",
+                  isActive
+                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+                    : "border-white/10 bg-white/4 text-white hover:scale-105"
+                ].join(" ")}
+              >
+                {layer.title}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Layer description */}
+        <div className="max-w-3xl mx-auto text-center mb-8">
+          <p className="text-slate-300 mb-6">{LAYERS.find((l) => l.id === activeLayer)?.description}</p>
+        </div>
+        
+        
+        {/* Sub-features grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-12">
+          {filteredSubFeatures.map((sf) => (
+            <motion.button
+              key={sf.id}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setSelectedSubFeatureId(sf.id)}
+              className="text-left bg-white/4 border border-white/10 rounded-xl p-5 text-white transition-shadow hover:shadow-lg hover:shadow-indigo-500/20"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <h4 className="text-lg font-semibold">{sf.title}</h4>
+                <span className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-white">
+                  View
+                </span>
+              </div>
+              <p className="text-slate-300 mt-2 line-clamp-2">
+                {/* Match description via look-up for consistency */}
+                {SUB_FEATURES.find((s) => s.id === sf.id)?.description}
+              </p>
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Detailed feature panel */}
+        {/* Detailed feature panel */}
+<div ref={panelRef}>
+  <AnimatePresence mode="wait">
+    {selectedSubFeature && (
+      <motion.div
+        key={selectedSubFeature.id}
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 24 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white/4 border border-white/10 rounded-2xl p-8 md:p-10 shadow-xl"
+      >
+        {/* Back to features */}
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-2xl md:text-3xl font-bold text-white">
+            {selectedSubFeature.title}
+          </h3>
+          <button
+            onClick={handleBackToFeatures}
+            className="text-sm font-medium px-4 py-2 rounded-lg border border-white/10 bg-white/4 text-white hover:scale-105 transition-all"
+          >
+            Back to Features
+          </button>
+        </div>
+
+        {/* Description */}
+        <p className="text-slate-300 mb-6">{selectedSubFeature.description}</p>
+
+        {/* Horizontal Features + Image */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start mb-8">
+          {/* Left: Key capabilities / Features */}
+          <div className="md:w-1/2">
+            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-white mb-3">
+              Key capabilities
+            </div>
+            <ul className="grid grid-cols-1 gap-3">
+              {selectedSubFeature.features.map((feat, idx) => (
+                <li
+                  key={idx}
+                  className="bg-white/4 border border-white/10 rounded-lg p-4 md:h-10 flex items-center justify-start w-full md:w-[90%]"
+                >
+                  <div className="text-white font-medium">{feat}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="md:w-1/2 mt-9 relative h-full w-full rounded-xl overflow-hidden bg-white/5 border border-white/10"
+          >
+            <img
+              src={selectedSubFeature.image}
+              alt={`${selectedSubFeature.title} screenshot`}
+              className="w-full h-full object-cover opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-sky-400/10 to-indigo-500/10 mix-blend-soft-light" />
+          </motion.div>
+        </div>
+
+        {/* Benefits / Business outcomes */}
+        <div>
+          <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-white mb-3">
+            Business outcomes
+          </div>
+          <ul className="grid grid-cols-2 gap-3">
+            {selectedSubFeature.benefits.map((benefit, idx) => (
+              <li
+                key={idx}
+                className="bg-white/4 border border-white/10 rounded-lg p-4"
+              >
+                <div className="text-white font-medium">{benefit}</div>
+                <p className="text-slate-300 text-sm mt-1">
+                  {idx === 0
+                    ? "Measure impact with inventory turns, cycle time, and forecast accuracy."
+                    : ""}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
+
+      </div>
+    </section>
+  );
+}

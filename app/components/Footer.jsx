@@ -2,6 +2,7 @@
 
 export default function Footer() {
   return (
+    <div id='footer'>
     <footer className="text-white px-5 py-5 rounded-t-2xl">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
         <div className="space-y-6 ml-3">
@@ -45,5 +46,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </div>
   );
 }

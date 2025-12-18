@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Features from "./Features";
 
 export default function Navbar() {
   return (
@@ -21,7 +20,12 @@ export default function Navbar() {
           </Link>
 
           <nav className='hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90'>
-            <Features />
+            <a
+              href='/features'
+              className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
+            >
+              Features
+            </a>
             <a
               href='/#how'
               className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
@@ -35,14 +39,14 @@ export default function Navbar() {
               Pricing
             </a>
             <a
-              href='/'
+              href='/#footer'
               className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
             >
               About
             </a>
             <Link
               href='/form'
-              className='inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-400 to-indigo-500 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition'
+              className='inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition'
             >
               Start free trial
             </Link>

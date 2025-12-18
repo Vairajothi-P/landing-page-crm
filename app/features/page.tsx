@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import Navbar from "../components/Navbar";
 
 
 type SubFeature = {
@@ -337,6 +337,9 @@ export default function FeaturesSection() {
   };
 
   return (
+    <div className='min-h-screen bg-black'>
+      <Navbar />
+
     <section className="relative py-20 bg-gradient-to-b from-gray-950 to-gray-900">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section header */}
@@ -498,5 +501,6 @@ export default function FeaturesSection() {
 
       </div>
     </section>
+    </div>
   );
 }

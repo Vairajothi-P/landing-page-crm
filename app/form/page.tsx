@@ -300,7 +300,7 @@ export default function RequestDemo() {
                     marginBottom: "8px",
                   }}
                 >
-                  Role <span style={{ color: "#e53e3e" }}>*</span>
+                  Role
                 </label>
                 <input
                   type='text'
@@ -308,7 +308,6 @@ export default function RequestDemo() {
                   name='Role'
                   value={form.Role}
                   onChange={handleChange}
-                  required
                   placeholder='e.g., Product Manager, Developer'
                   style={{
                     width: "100%",
@@ -345,7 +344,7 @@ export default function RequestDemo() {
                     marginBottom: "8px",
                   }}
                 >
-                  Message <span style={{ color: "#e53e3e" }}>*</span>
+                  Message
                 </label>
                 <textarea
                   id='Message'
@@ -354,7 +353,6 @@ export default function RequestDemo() {
                   value={form.Message}
                   onChange={handleChange}
                   rows={5}
-                  required
                   style={{
                     width: "100%",
                     padding: "14px 16px",

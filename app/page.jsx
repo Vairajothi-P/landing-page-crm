@@ -29,7 +29,7 @@ export default function Page() {
   };
 
   return (
-    <div className='relative min-h-screen bg-[#03040a] text-slate-100 antialiased'>
+    <div className='relative min-h-screen bg-[#03040a] dark:bg-[#03040a] light:bg-white text-slate-100 dark:text-slate-100 light:text-slate-900 antialiased'>
       {/* PARTICLE BACKGROUND */}
       <Particles
         id='tsparticles'

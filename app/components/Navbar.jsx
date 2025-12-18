@@ -8,38 +8,39 @@ export default function Navbar() {
   return (
     <header className='sticky top-0 md:top-4 z-30'>
       <div className='max-w-7xl mx-auto px-6'>
-        <div className='flex items-center justify-between py-4 backdrop-blur-sm bg-black/20 border border-white/5 rounded-full px-4'>
+        <div className='flex items-center justify-between py-4 backdrop-blur-sm bg-black/20 dark:bg-black/20 light:bg-white/80 border border-white/5 dark:border-white/5 light:border-slate-200 rounded-full px-4'>
           <Link href='#' className='flex items-center gap-3'>
             <div className='w-10 h-10 rounded-lg overflow-hidden'>
               <Image src='/logo.jpg' alt='Logo' width={40} height={40} />
             </div>
             <Link href='/'>
-              <span className='font-semibold tracking-wide text-white'>
+              <span className='font-semibold tracking-wide text-white dark:text-white light:text-slate-900'>
                 Smart marketing with CRM
               </span>
             </Link>
           </Link>
 
-          <nav className='hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90'>
+          <nav className='hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90 dark:text-slate-200/90 light:text-slate-700'>
             <Features />
             <a
               href='/#how'
-              className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
+              className='inline-flex items-center gap-3 rounded-full border border-white/8 dark:border-white/8 light:border-slate-300 px-5 py-3 text-slate-200 dark:text-slate-200 light:text-slate-700 hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-slate-100 transition'
             >
               How it works
             </a>
             <a
               href='/pricing'
-              className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
+              className='inline-flex items-center gap-3 rounded-full border border-white/8 dark:border-white/8 light:border-slate-300 px-5 py-3 text-slate-200 dark:text-slate-200 light:text-slate-700 hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-slate-100 transition'
             >
               Pricing
             </a>
             <a
               href='/'
-              className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
+              className='inline-flex items-center gap-3 rounded-full border border-white/8 dark:border-white/8 light:border-slate-300 px-5 py-3 text-slate-200 dark:text-slate-200 light:text-slate-700 hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-slate-100 transition'
             >
               About
             </a>
+
             <Link
               href='/form'
               className='inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-400 to-indigo-500 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition'

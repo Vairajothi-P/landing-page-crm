@@ -66,7 +66,7 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Accounting & Finance",
     description:
       "Automate invoicing, expense tracking, and compliance, gain real-time financial insights, and improve accuracy in reporting and decision-making.",
-    image: "/purchase.jpg",
+    image: "/acc.jpg",
     features: [
       "● Invoices & Quotations",
       "● Bills & Expenses",
@@ -91,7 +91,7 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Manufacturing Operations ",
     description:
       "Monitor production, materials, and work orders in real time, optimize scheduling, reduce downtime, and control costs efficiently.",
-    image: "inventory.jpg",
+    image:"/manufacturing.jpg",
     features: [
       "● Work Orders",
       "● Bill of Materials (BOM)",
@@ -141,7 +141,7 @@ const SUB_FEATURES: SubFeature[] = [
     title: "HRMS & Payroll",
     description:
       "Manage employee records, leave, performance, and payroll compliance in one place.",
-    image: "/hrms.gif",
+    image: "/hrms.jpg",
     features: [
       "● Salary Structure ",
       "● Attendance Tracking (Selfie, Biometric)",
@@ -164,14 +164,16 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Task & Project Management",
     description:
       "Assign and track tasks, prioritize work, and collaborate efficiently to ensure on-time delivery and maximize team productivity.",
-    image: "/hrms.gif",
+    image: "/task.jpg",
     features: [
       "● Task Assignment",
       "● Priority Levels",
       "● Team Collaboration",
       "● Time Tracking",
       "● Image/Video Attachments",
-      "● Progress Reports"
+      "● Progress Reports",
+      "● Deadline & Milestone Management",
+      "● Role-Based Access Control"
     ],
     benefits: [
       "● Improve team productivity and on-time delivery with clear task assignments, priorities, and collaboration",
@@ -186,7 +188,7 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Field Service Management",
     description:
       "Optimize technician scheduling, track work orders in real time, and enhance customer satisfaction with timely updates and complete service history.",
-    image: "/hrms.gif",
+    image: "/field.jpg",
     features: [
       "● Work Orders",
       "● Service Locations",
@@ -194,6 +196,8 @@ const SUB_FEATURES: SubFeature[] = [
       "● Service History",
       "● Customer Feedback",
       "● Real-Time Service Updates",
+      "● Inventory & Spare Parts Management",
+      "● GPS Tracking & Route Optimization"
     ],
     benefits: [
       "● Improve first-time fix rates and service efficiency with structured work orders and complete service history",
@@ -215,6 +219,9 @@ const SUB_FEATURES: SubFeature[] = [
       "● Prioritization by Deal Score ",
       "● Automated Follow-ups",
       "● Predictive Nurturing",
+      "● Multi-Channel Outreach (Email, WhatsApp, SMS)",
+      "● Conversion & Funnel Analytics",
+      "● Revenue Forecasting & Pipeline Insights"
     ],
     benefits: [
       "● Increase revenue predictability with AI-driven lead prioritization and deal scoring",
@@ -229,13 +236,16 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Marketing Automation",
     description:
       "Automate personalized campaigns across email, SMS, and WhatsApp, nurture leads intelligently, and boost engagement and conversions with AI-driven segmentation.",
-    image: "/revenue.jpg",
+    image: "/market.jpg",
     features: [
       "● Personalized Email Campaigns",
       "● WhatsApp & SMS Marketing",
       "● Lead Nurturing Sequences",
       "● Customer Retargeting",
-      "● AI-based Segmentation"
+      "● AI-based Segmentation",
+      "● Campaign Performance Analytics",
+      "● Behavioral Trigger Automation",
+      "● A/B Testing & Optimization"
     ],
     benefits: [
       "● Increase campaign engagement and conversions with personalized email, WhatsApp, and SMS outreach",
@@ -250,7 +260,7 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Ad Exchange & GTM Engine",
     description:
       "Launch and optimize ads across multiple platforms, track full-funnel conversions, and maximize ROI with AI-driven budget and creative automation.",
-    image: "/revenue.jpg",
+    image: "/ad.jpg",
     features: [
       "● Launch Ads Across Google, Meta, LinkedIn",
       "● Programmatic Ad Exchange Integration",
@@ -258,6 +268,8 @@ const SUB_FEATURES: SubFeature[] = [
       "● Ad → Lead → Deal Tracking",
       "● Real-Time ROAS Analytics",
       "● Auto-generated Creatives & Ad Copy",
+      "● Audience Targeting & Lookalike Modeling",
+      "● Cross-Channel Attribution & Conversion Tracking"
     ],
     benefits: [
       "● Maximize ad reach and speed to market by launching campaigns across Google, Meta, and LinkedIn from a single platform",
@@ -279,6 +291,10 @@ const SUB_FEATURES: SubFeature[] = [
       "● Funnel Analytics",
       "● Pipeline Revenue Forecasting",
       "● Attribution (Channel → Lead → Revenue)",
+      "● Customer Lifetime Value (CLV) Analysis",
+      "● Win/Loss Deal Insights",
+      "● AI Revenue Risk & Opportunity Alerts",
+      "● Deal Velocity & Sales Cycle Analysis"
     ],
     benefits: [
       "● Maximize revenue growth and profitability with a centralized campaign ROI dashboard",
@@ -420,17 +436,17 @@ export default function FeaturesSection() {
         <p className="text-slate-300 mb-6">{selectedSubFeature.description}</p>
 
         {/* Horizontal Features + Image */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8 min-h-[360px]">
           {/* Left: Key capabilities / Features */}
-          <div className="md:w-1/2">
-            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-white mb-3">
+          <div className="flex flex-col">
+            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-white mb-3">
               Key capabilities
             </div>
-            <ul className="grid grid-cols-1 gap-3">
+            <ul className="flex flex-col gap-3 flex-1">
               {selectedSubFeature.features.map((feat, idx) => (
                 <li
                   key={idx}
-                  className="bg-white/4 border border-white/10 rounded-lg p-4 md:h-10 flex items-center justify-start w-full md:w-[90%]"
+                  className="bg-white/4 border border-white/10 rounded-lg px-4 py-3 flex items-center text-white"
                 >
                   <div className="text-white font-medium">{feat}</div>
                 </li>
@@ -443,12 +459,12 @@ export default function FeaturesSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:w-1/2 mt-9 relative h-full w-full rounded-xl overflow-hidden bg-white/5 border border-white/10"
+            className="relative w-full h-full min-h-[360px] rounded-xl overflow-hidden bg-white/5 border border-white/10"
           >
             <img
               src={selectedSubFeature.image}
               alt={`${selectedSubFeature.title} screenshot`}
-              className="w-full h-full object-cover opacity-90"
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-sky-400/10 to-indigo-500/10 mix-blend-soft-light" />
           </motion.div>

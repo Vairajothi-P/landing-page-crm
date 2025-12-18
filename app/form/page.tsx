@@ -27,21 +27,35 @@ export default function RequestDemo() {
     setLoading(true);
 
     try {
+      // Save to Supabase
       const { error } = await supabase.from("request_demo").insert([form]);
       if (error) {
         console.error("Supabase error:", error);
         alert(`Error: ${error.message}`);
-      } else {
-        alert("Success! We'll get back to you soon.");
-        setForm({
-          Name: "",
-          Email: "",
-          Phone: "",
-          Company: "",
-          Role: "",
-          Message: "",
-        });
+        setLoading(false);
+        return;
       }
+
+      // Send email via Resend
+      const emailResponse = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!emailResponse.ok) {
+        console.error("Email sending failed, but data was saved to database");
+      }
+
+      alert("Success! We'll get back to you soon.");
+      setForm({
+        Name: "",
+        Email: "",
+        Phone: "",
+        Company: "",
+        Role: "",
+        Message: "",
+      });
     } catch (err) {
       console.error("Submission error:", err);
       alert(`Error: ${err instanceof Error ? err.message : "Unknown error"}`);
@@ -205,7 +219,7 @@ export default function RequestDemo() {
                   value={form.Phone}
                   onChange={handleChange}
                   required
-                  placeholder='+1 (555) 000-0000'
+                  placeholder='+91 00000-00000'
                   style={{
                     width: "100%",
                     padding: "14px 16px",
@@ -286,7 +300,7 @@ export default function RequestDemo() {
                     marginBottom: "8px",
                   }}
                 >
-                  Role <span style={{ color: "#e53e3e" }}>*</span>
+                  Role
                 </label>
                 <input
                   type='text'
@@ -294,7 +308,6 @@ export default function RequestDemo() {
                   name='Role'
                   value={form.Role}
                   onChange={handleChange}
-                  required
                   placeholder='e.g., Product Manager, Developer'
                   style={{
                     width: "100%",
@@ -331,7 +344,7 @@ export default function RequestDemo() {
                     marginBottom: "8px",
                   }}
                 >
-                  Message <span style={{ color: "#e53e3e" }}>*</span>
+                  Message
                 </label>
                 <textarea
                   id='Message'
@@ -340,7 +353,6 @@ export default function RequestDemo() {
                   value={form.Message}
                   onChange={handleChange}
                   rows={5}
-                  required
                   style={{
                     width: "100%",
                     padding: "14px 16px",

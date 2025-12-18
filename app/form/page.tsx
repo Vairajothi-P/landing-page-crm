@@ -27,21 +27,35 @@ export default function RequestDemo() {
     setLoading(true);
 
     try {
+      // Save to Supabase
       const { error } = await supabase.from("request_demo").insert([form]);
       if (error) {
         console.error("Supabase error:", error);
         alert(`Error: ${error.message}`);
-      } else {
-        alert("Success! We'll get back to you soon.");
-        setForm({
-          Name: "",
-          Email: "",
-          Phone: "",
-          Company: "",
-          Role: "",
-          Message: "",
-        });
+        setLoading(false);
+        return;
       }
+
+      // Send email via Resend
+      const emailResponse = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!emailResponse.ok) {
+        console.error("Email sending failed, but data was saved to database");
+      }
+
+      alert("Success! We'll get back to you soon.");
+      setForm({
+        Name: "",
+        Email: "",
+        Phone: "",
+        Company: "",
+        Role: "",
+        Message: "",
+      });
     } catch (err) {
       console.error("Submission error:", err);
       alert(`Error: ${err instanceof Error ? err.message : "Unknown error"}`);

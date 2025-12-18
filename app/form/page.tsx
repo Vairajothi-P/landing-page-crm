@@ -219,7 +219,7 @@ export default function RequestDemo() {
                   value={form.Phone}
                   onChange={handleChange}
                   required
-                  placeholder='+1 (555) 000-0000'
+                  placeholder='+91 00000-00000'
                   style={{
                     width: "100%",
                     padding: "14px 16px",

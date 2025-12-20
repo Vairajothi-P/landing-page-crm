@@ -337,23 +337,25 @@ export default function FeaturesSection() {
   };
 
   return ( 
-    <section className="relative w-full bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden">
+    <section className="relative min-h-screen w-full scroll-smooth bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white overflow-x-hidden">
+      
       <Navbar />
-      <div className="max-w-6xl mx-auto py-5 px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-0">
          {/* Header row */}
 <motion.div
   initial={{ opacity: 0, y: -16 }}                                               
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
-  className="mt-10 mb-12 flex items-center justify-between"
+  className="mt-16 mb-10 flex flex-col sm:flex-row items-center gap-4"
 >
   {/* Back Button */}
   <button
     onClick={() => window.history.back()}
-    className="absolute flex px-4 py-2 border rounded-full text-black  items-center gap-2 bg-gradient-to-r from-sky-400 to-indigo-500 hover:gap-3 transition-all cursor-pointer">
+    className="sm:absolute sm:left-20 flex px-4 py-2 border rounded-full text-black items-center gap-2 bg-gradient-to-r from-sky-400 to-indigo-500">
     <span className="text-lg">←</span>   
   Back
-  </button>
+  </button>           
+
 
   {/* Heading */}
   <div className="text-center flex-1">
@@ -475,7 +477,7 @@ export default function FeaturesSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative w-full h-full min-h-[360px] rounded-xl overflow-hidden bg-white/5 border border-white/10"
+            className="relative w-full min-h-[240px] md:min-h-[360px] rounded-xl overflow-hidden"
           >
             <img
               src={selectedSubFeature.image}
@@ -491,7 +493,7 @@ export default function FeaturesSection() {
           <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-black mb-3">
             Business outcomes
           </div>
-          <ul className="grid grid-cols-2 gap-3">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {selectedSubFeature.benefits.map((benefit, idx) => (
               <li
                 key={idx}

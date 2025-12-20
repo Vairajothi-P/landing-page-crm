@@ -20,6 +20,12 @@ export default function Navbar() {
           <nav className='hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90'>
             
             <a
+              href='/'
+              className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
+            >
+              Home
+            </a>
+            <a
               href='/features'
               className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition'
             >

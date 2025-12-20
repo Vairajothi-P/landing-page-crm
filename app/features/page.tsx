@@ -337,7 +337,7 @@ export default function FeaturesSection() {
   };
 
   return ( 
-    <section className="relative bg-gradient-to-b from-purple-900 via-indigo-800 to-indigo-950">
+    <section className="relative w-full bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden">
       <Navbar />
       <div className="max-w-6xl mx-auto py-5 px-6">
          {/* Header row */}

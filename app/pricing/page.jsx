@@ -6,13 +6,8 @@ import Plans from "../components/Plans";
 
 export default function PricingPage() {
   return (
-    <div className='min-h-screen bg-black'>
-      <Navbar />
-
-      <div
-        className='relative w-full bg-black text-white py-32 px-6 overflow-hidden'
-        id='pricing'
-      >
+      <div id='pricing' className='relative w-full bg-gradient-to-br from-purple-900 via-indigo-800 to-indigo-950 text-white px-6 overflow-hidden'>
+        <Navbar />
         {/* Background Decorative Elements */}
         <div className='absolute inset-0 pointer-events-none'>
           <div className='absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl' />
@@ -20,7 +15,7 @@ export default function PricingPage() {
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl' />
         </div>
 
-        <div className='relative max-w-7xl mx-auto'>
+        <div className='relative max-w-7xl mx-auto mt-8'>
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -125,7 +120,7 @@ export default function PricingPage() {
             </div>
 
             {/* Growth & Marketing Add-Ons Section */}
-            <div>
+            <div className='mb-16'>
               <h3 className='text-2xl font-bold mb-6 text-purple-300'>
                 Growth & Marketing Add-Ons
               </h3>
@@ -160,7 +155,6 @@ export default function PricingPage() {
         </div>
       </div>
       
-    </div>
   );
 }
 

@@ -46,7 +46,7 @@ export default function Hero({ fadeUp }) {
               Request demo
             </a>
             <a
-              href='#features'
+              href='/pricing'
               className='inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/3 transition'
             >
               Explore features

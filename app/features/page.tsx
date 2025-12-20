@@ -337,11 +337,10 @@ export default function FeaturesSection() {
   };
 
   return (
-    <div className='min-h-screen bg-black'>
+    <section className="relative bg-gradient-to-b from-purple-900 via-indigo-800 to-indigo-950">
       <Navbar />
-
-    <section className="relative py-20 bg-gradient-to-b from-gray-950 to-gray-900">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto py-20 px-6">
+        
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
@@ -369,7 +368,7 @@ export default function FeaturesSection() {
                 className={[
                   "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium",
                   isActive
-                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
                     : "border-white/10 bg-white/4 text-white hover:scale-105"
                 ].join(" ")}
               >
@@ -397,7 +396,7 @@ export default function FeaturesSection() {
             >
               <div className="flex items-center justify-between gap-3">
                 <h4 className="text-lg font-semibold">{sf.title}</h4>
-                <span className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-white">
+                <span className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-black">
                   View
                 </span>
               </div>
@@ -442,7 +441,7 @@ export default function FeaturesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8 min-h-[360px]">
           {/* Left: Key capabilities / Features */}
           <div className="flex flex-col">
-            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-white mb-3">
+            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-black mb-3">
               Key capabilities
             </div>
             <ul className="flex flex-col gap-3 flex-1">
@@ -475,7 +474,7 @@ export default function FeaturesSection() {
 
         {/* Benefits / Business outcomes */}
         <div>
-          <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-white mb-3">
+          <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-black mb-3">
             Business outcomes
           </div>
           <ul className="grid grid-cols-2 gap-3">
@@ -501,6 +500,6 @@ export default function FeaturesSection() {
 
       </div>
     </section>
-    </div>
+  
   );
 }

@@ -58,7 +58,7 @@ const HowItWorkss = [
 
 export default function HowItWorks() {
   return (
-    <div className="w-full bg-black py-32 px-6" id="how">
+    <div id="how">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <motion.div

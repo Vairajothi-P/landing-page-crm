@@ -34,41 +34,61 @@ export default function Page() {
         id='tsparticles'
         init={particlesInit}
         options={{
-          fullScreen: { enable: false },
+          fullScreen: { enable: true },
           fpsLimit: 60,
-          background: { color: { value: "transparent" } },
+          background: {
+            color: { value: "#0f172a" }, // deep navy backdrop
+          },
           interactivity: {
             events: {
-              onHover: { enable: true, mode: "repulse" },
-              onClick: { enable: false },
+              onHover: { enable: true, mode: "bubble" },
+              onClick: { enable: true, mode: "repulse" },
             },
-            modes: { repulse: { distance: 120 } },
+            modes: {
+              bubble: { distance: 200, size: 10, duration: 2, opacity: 0.8 },
+              repulse: { distance: 150, duration: 0.4 },
+            },
           },
           particles: {
-            number: { value: 50, density: { enable: true, area: 800 } },
-            color: { value: ["#0ea5e9", "#60a5fa", "#7c3aed"] },
+            number: { value: 90, density: { enable: true, area: 1000 } },
+            color: { value: ["#3b82f6", "#ec4899"] }, // blue + pink neon
             shape: { type: "circle" },
             opacity: {
-              value: 0.12,
-              random: { enable: true, minimumValue: 0.05 },
+              value: 0.3,
+              random: { enable: true, minimumValue: 0.1 },
+              animation: { enable: true, speed: 1, minimumValue: 0.1, sync: false },
             },
-            size: { value: { min: 1.5, max: 4 }, random: true },
+            size: {
+              value: { min: 2, max: 6 },
+              random: true,
+              animation: { enable: true, speed: 2, minimumValue: 1, sync: false },
+            },
             links: {
               enable: true,
               distance: 160,
-              color: "#0ea5e9",
-              opacity: 0.06,
-              width: 1,
+              color: "#3b82f6",
+              opacity: 0.25,
+              width: 1.2,
             },
             move: {
               enable: true,
-              speed: 0.9,
+              speed: 1,
               direction: "none",
-              outModes: { default: "bounce" },
+              random: true,
+              straight: false,
+              outModes: { default: "out" },
+              attract: { enable: true, rotateX: 600, rotateY: 1200 },
+            },
+            glow: {
+              enable: true,
+              color: "#ec4899",
+              blur: 10,
+              strength: 2,
             },
           },
           detectRetina: true,
         }}
+
         style={{
           position: "absolute",
           zIndex: 0,

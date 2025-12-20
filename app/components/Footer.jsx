@@ -16,23 +16,32 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-4 pt-2">
-            <button className="flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition">
+            <button className="flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition cursor-pointer">
               Get In Touch ↗
             </button>
-            <button className="flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition">
-              <a href="#" className="hover:text-white transition">
-                Explore Careers ↗
-              </a>
-            </button>
+            <a
+              href="https://www.pibitech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition text-white"
+            >
+              Explore Career ↗
+            </a>
           </div>
         </div>
 
         {/* CENTER */}
         <div className="flex gap-10 text-sm text-gray-400 md:items-end">
-          <a href="#" className="hover:text-white transition">
+          <a
+              href="https://www.pibitech.com/terms-and-conditions"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition">
             Terms & Conditions
           </a>
-          <a href="#" className="hover:text-white transition">
+          <a href="https://www.pibitech.com/privacy-policy" 
+             target="_blank" rel="noopener noreferrer" 
+             className="hover:text-white transition">
             Privacy Policy
           </a>
         </div>

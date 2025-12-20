@@ -7,8 +7,8 @@ export default function Navbar() {
   return (
     <header className='sticky top-0 md:top-4 z-30'>
       <div className='max-w-7xl mx-auto px-6'>
-        <div className='flex items-center justify-between py-4 backdrop-blur-sm bg-black/20 border border-white/5 rounded-full px-4'>
-          <Link href='#' className='flex items-center gap-3'>
+        <div className='flex items-center justify-between py-4 backdrop-blur-sm bg-black/10 border border-white/5 rounded-full px-4'>
+          <Link href='/' className='flex items-center gap-3'>
             <div className='w-10 h-10 rounded-lg overflow-hidden'>
               <Image src='/logo.jpg' alt='Logo' width={40} height={40} />
             </div>

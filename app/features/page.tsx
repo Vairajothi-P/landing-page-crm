@@ -336,23 +336,37 @@ export default function FeaturesSection() {
     }
   };
 
-  return (
+  return ( 
     <section className="relative bg-gradient-to-b from-purple-900 via-indigo-800 to-indigo-950">
       <Navbar />
-      <div className="max-w-6xl mx-auto py-20 px-6">
-        
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold text-white">Features</h2>
-          <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
-            Explore product capabilities across Operations, Management, and Growth—built for modern SaaS.
-          </p>
-        </motion.div>
+      <div className="max-w-6xl mx-auto py-5 px-6">
+         {/* Header row */}
+<motion.div
+  initial={{ opacity: 0, y: -16 }}                                               
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="mt-10 mb-12 flex items-center justify-between"
+>
+  {/* Back Button */}
+  <button
+    onClick={() => window.history.back()}
+    className="absolute flex px-4 py-2 border rounded-full text-black  items-center gap-2 bg-gradient-to-r from-sky-400 to-indigo-500 hover:gap-3 transition-all cursor-pointer">
+    <span className="text-lg">←</span>   
+  Back
+  </button>
+
+  {/* Heading */}
+  <div className="text-center flex-1">
+    <h2 className="text-4xl font-bold text-white">Features</h2>
+    <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
+      Explore product capabilities across Operations, Management, and Growth—built for modern SaaS.
+    </p>
+  </div>
+
+  {/* Spacer (keeps heading centered) */}
+  <div className="w-[80px]" />
+</motion.div>
+
 
         {/* Layer tabs */}
         <div className="flex justify-center gap-3 mb-10">

@@ -74,7 +74,7 @@ export default function Hero({ fadeUp }) {
             {/* hero image - replace /hero.jpg with your asset in public/ */}
             <div className='relative w-full h-full rounded-lg overflow-hidden'>
               <Image
-                src='/hero2.jpg'
+                src='/hero1.jpg'
                 alt='Hero mockup'
                 fill
                 className='object-cover'

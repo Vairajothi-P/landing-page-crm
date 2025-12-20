@@ -66,7 +66,7 @@ export default function RequestDemo() {
 
   return (
     <>
-      <div className=' bg-[#03040a] text-slate-100 antialiased'>
+      <div className=' bg-sky-950 text-slate-100 antialiased'>
         <Navbar />
         <div
           style={{
@@ -213,7 +213,7 @@ export default function RequestDemo() {
                   Phone <span style={{ color: "#e53e3e" }}>*</span>
                 </label>
                 <input
-                  type='tel'
+                  type='number'
                   id='Phone'
                   name='Phone'
                   value={form.Phone}

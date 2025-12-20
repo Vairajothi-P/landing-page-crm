@@ -13,11 +13,11 @@ export default function CTA({ fadeUp }) {
           variants={fadeUp}
           className="text-3xl font-bold text-white"
         >
-          Ready to grow with Smart marketing with CRM?
+          Ready to grow with Smart Profit Engine?
         </motion.h3>
         <p className="mt-3 text-slate-300">
           Request a demo and see how automation + insights can transform your
-          marketing.
+          journey.
         </p>
         <div className="mt-6">
           <a

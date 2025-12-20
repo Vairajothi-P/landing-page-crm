@@ -6,12 +6,12 @@ const TESTIMONIALS = [
   {
     name: "Amit R.",
     role: "Head of Marketing",
-    text: "Smart marketing with CRM scaled our lead flow 3x in 90 days — the automation workflows are a dream.",
+    text: "Smart manufacturing Engine scaled our lead flow 3x in 90 days — the automation workflows are a dream.",
   },
   {
     name: "Priya S.",
     role: "Growth Lead",
-    text: "Beautiful UI and powerful reporting. Our campaigns convert better and we spend less time on manual work.",
+    text: "Beautiful UI and powerful reporting. Our tasks are automated and we spend less time on manual work.",
   },
 ];
 

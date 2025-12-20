@@ -28,10 +28,10 @@ export default function Page() {
   };
 
   return (
-    <div className='relative min-h-screen bg-[#03040a] dark:bg-[#03040a] light:bg-white text-slate-100 dark:text-slate-100 light:text-slate-900 antialiased'>
+    <div className="relative min-h-screen bg-sky-950 dark:bg-[#03040a] light:bg-sky-950 text-slate-100 dark:text-slate-100 light:text-slate-900 antialiased">
       {/* PARTICLE BACKGROUND */}
       <Particles
-        id='tsparticles'
+        id="tsparticles"
         init={particlesInit}
         options={{
           fullScreen: { enable: false },
@@ -81,7 +81,7 @@ export default function Page() {
       {/* NAVBAR */}
       <Navbar />
 
-      <main className='relative z-10'>
+      <main className="relative z-10">
         <Hero fadeUp={fadeUp} />
         <Featuressample fadeUp={fadeUp} />
         <HowItWorks fadeUp={fadeUp} />

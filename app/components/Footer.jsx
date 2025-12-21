@@ -20,7 +20,7 @@ export default function Footer() {
               href="/form"
               className="inline-flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition text-white"
             >
-              Explore Career ↗
+              Get in Touch ↗
             </a>
             <a
               href="https://www.pibitech.com"

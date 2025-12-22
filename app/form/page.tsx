@@ -137,12 +137,7 @@ export default function RequestDemo() {
   };
 
   return (
-<<<<<<< HEAD
-    <>
-      <div className=' bg-sky-950 text-slate-100 antialiased'>
-        <Navbar />
-=======
-    <div className="relative w-full bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden">
+    <div className='relative w-full from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden'>
       <Navbar />
 
       <div
@@ -152,7 +147,6 @@ export default function RequestDemo() {
           padding: "0 20px",
         }}
       >
->>>>>>> 682adfe08e1dd75983329f8440acca5c84195f4b
         <div
           style={{
             backgroundColor: "#ffffff",
@@ -202,293 +196,95 @@ export default function RequestDemo() {
           </p>
 
           <form onSubmit={handleSubmit}>
-            {[
-              { label: "Name", name: "Name", type: "text", required: true },
-              { label: "Email", name: "Email", type: "email", required: true },
-              { label: "Phone", name: "Phone", type: "tel", required: true },
-              { label: "Company", name: "Company", type: "text", required: true },
-              { label: "Role", name: "Role", type: "text" },
-            ].map((field) => (
-              <div key={field.name} style={{ marginBottom: "24px" }}>
-                <label
-                  style={{
-                    display: "block",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    color: "#2d3748",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {field.label}
-                </label>
+            {fields.map((field) => {
+              if (field.name === "Phone") {
+                return (
+                  <div key={field.name} style={{ marginBottom: "24px" }}>
+                    <label
+                      style={{
+                        display: "block",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        color: "#2d3748",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      {field.label}
+                    </label>
+                    <div style={{ display: "flex", gap: "8px" }}>
+                      <select
+                        value={countryCode}
+                        onChange={(e) => setCountryCode(e.target.value)}
+                        style={{
+                          padding: "14px 16px",
+                          borderRadius: "8px",
+                          border: "2px solid #e2e8f0",
+                          fontSize: "16px",
+                          color: "#1a202c",
+                          width: "160px",
+                        }}
+                      >
+                        {countryCodes.map((cc) => (
+                          <option key={cc.code} value={cc.code}>
+                            {cc.code} ({cc.name})
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type={field.type}
+                        name={field.name}
+                        value={form.Phone}
+                        onChange={handleChange}
+                        required={field.required}
+                        placeholder='00000 00000'
+                        style={{
+                          flex: 1,
+                          padding: "14px 16px",
+                          borderRadius: "8px",
+                          border: "2px solid #e2e8f0",
+                          fontSize: "16px",
+                          color: "#1a202c",
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <div key={field.name} style={{ marginBottom: "24px" }}>
+                    <label
+                      style={{
+                        display: "block",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        color: "#2d3748",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      value={(form as any)[field.name]}
+                      onChange={handleChange}
+                      required={field.required}
+                      style={{
+                        width: "100%",
+                        padding: "14px 16px",
+                        borderRadius: "8px",
+                        border: "2px solid #e2e8f0",
+                        fontSize: "16px",
+                        color: "#1a202c",
+                      }}
+                    />
+                  </div>
+                );
+              }
+            })}
 
-                <input
-                  type={field.type}
-                  name={field.name}
-                  value={(form as any)[field.name]}
-                  onChange={handleChange}
-                  required={field.required}
-                  style={{
-                    width: "100%",
-                    padding: "14px 16px",
-                    borderRadius: "8px",
-                    border: "2px solid #e2e8f0",
-                    fontSize: "16px",
-                    color: "#1a202c",
-                  }}
-                />
-              </div>
-            ))}
-
-<<<<<<< HEAD
-              <div style={{ marginBottom: "24px" }}>
-                <label
-                  htmlFor='Email'
-                  style={{
-                    display: "block",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    color: "#2d3748",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Email <span style={{ color: "#e53e3e" }}>*</span>
-                </label>
-                <input
-                  type='email'
-                  id='Email'
-                  name='Email'
-                  value={form.Email}
-                  onChange={handleChange}
-                  required
-                  placeholder='you@example.com'
-                  style={{
-                    width: "100%",
-                    padding: "14px 16px",
-                    fontSize: "16px",
-                    border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
-                    boxSizing: "border-box",
-                    transition: "all 0.3s ease",
-                    fontFamily: "inherit",
-                    outline: "none",
-                    color: "#1a202c",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-
-              <div style={{ marginBottom: "24px" }}>
-                <label
-                  htmlFor='Phone'
-                  style={{
-                    display: "block",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    color: "#2d3748",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Phone <span style={{ color: "#e53e3e" }}>*</span>
-                </label>
-                <input
-                  type='number'
-                  id='Phone'
-                  name='Phone'
-                  value={form.Phone}
-                  onChange={handleChange}
-                  required
-                  placeholder='+91 00000-00000'
-                  style={{
-                    width: "100%",
-                    padding: "14px 16px",
-                    fontSize: "16px",
-                    border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
-                    boxSizing: "border-box",
-                    transition: "all 0.3s ease",
-                    fontFamily: "inherit",
-                    outline: "none",
-                    color: "#1a202c",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-
-              <div style={{ marginBottom: "24px" }}>
-                <label
-                  htmlFor='Company'
-                  style={{
-                    display: "block",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    color: "#2d3748",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Company <span style={{ color: "#e53e3e" }}>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='Company'
-                  name='Company'
-                  value={form.Company}
-                  onChange={handleChange}
-                  required
-                  placeholder='Your company name'
-                  style={{
-                    width: "100%",
-                    padding: "14px 16px",
-                    fontSize: "16px",
-                    border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
-                    boxSizing: "border-box",
-                    transition: "all 0.3s ease",
-                    fontFamily: "inherit",
-                    outline: "none",
-                    color: "#1a202c",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-
-              <div style={{ marginBottom: "24px" }}>
-                <label
-                  htmlFor='Role'
-                  style={{
-                    display: "block",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    color: "#2d3748",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Role
-                </label>
-                <input
-                  type='text'
-                  id='Role'
-                  name='Role'
-                  value={form.Role}
-                  onChange={handleChange}
-                  placeholder='e.g., Product Manager, Developer'
-                  style={{
-                    width: "100%",
-                    padding: "14px 16px",
-                    fontSize: "16px",
-                    border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
-                    boxSizing: "border-box",
-                    transition: "all 0.3s ease",
-                    fontFamily: "inherit",
-                    outline: "none",
-                    color: "#1a202c",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-
-              <div style={{ marginBottom: "32px" }}>
-                <label
-                  htmlFor='Message'
-                  style={{
-                    display: "block",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    color: "#2d3748",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Message
-                </label>
-                <textarea
-                  id='Message'
-                  name='Message'
-                  placeholder='Briefly describe your requirements...'
-                  value={form.Message}
-                  onChange={handleChange}
-                  rows={5}
-                  style={{
-                    width: "100%",
-                    padding: "14px 16px",
-                    fontSize: "16px",
-                    border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
-                    boxSizing: "border-box",
-                    transition: "all 0.3s ease",
-                    fontFamily: "inherit",
-                    resize: "vertical",
-                    outline: "none",
-                    lineHeight: "1.6",
-                    color: "#1a202c",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-
-              <button
-                type='submit'
-                disabled={loading}
-                onMouseEnter={(e) => {
-                  if (!loading) {
-                    e.currentTarget.style.backgroundColor = "#0056b3";
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 12px rgba(0, 112, 243, 0.4)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!loading) {
-                    e.currentTarget.style.backgroundColor = "#0070f3";
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 2px 8px rgba(0, 112, 243, 0.3)";
-                  }
-                }}
-=======
             <div style={{ marginBottom: "32px" }}>
               <label
->>>>>>> 682adfe08e1dd75983329f8440acca5c84195f4b
                 style={{
                   display: "block",
                   fontSize: "14px",
@@ -525,7 +321,7 @@ export default function RequestDemo() {
             ${
               loading
                 ? "bg-gray-300 cursor-not-allowed"
-                : "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90 hover:scale-[1.01]"
+                : "from-blue-600 via-purple-600 to-pink-600 hover:opacity-90 hover:scale-[1.01]"
             }
   `}
             >

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { supabase } from "@/app/lib/supabase";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 const countryCodes = [
   { code: "+1", name: "US" },
@@ -85,23 +87,34 @@ export default function RequestDemo() {
       const { error } = await supabase.from("request_demo").insert([fullForm]);
       if (error) {
         console.error("Supabase error:", error);
-        alert(`Error: ${error.message}`);
+        toast.error(`Error: ${error.message}`);
         setLoading(false);
         return;
       }
 
-      // Send email via Resend
-      const emailResponse = await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(fullForm),
-      });
+      // Send email via EmailJS
+      const emailParams = {
+        name: fullForm.Name,
+        email: fullForm.Email,
+        phone: fullForm.Phone,
+        company: fullForm.Company,
+        role: fullForm.Role,
+        message: fullForm.Message,
+        time: new Date().toLocaleString(),
+      };
 
-      if (!emailResponse.ok) {
-        console.error("Email sending failed, but data was saved to database");
+      const emailResult = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        emailParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      if (emailResult.status !== 200) {
+        throw new Error("Email sending failed");
       }
 
-      alert("Success! We'll get back to you soon.");
+      toast.success("Success! We'll get back to you soon.");
       setForm({
         Name: "",
         Email: "",
@@ -113,7 +126,9 @@ export default function RequestDemo() {
       setCountryCode("+91");
     } catch (err) {
       console.error("Submission error:", err);
-      alert(`Error: ${err instanceof Error ? err.message : "Unknown error"}`);
+      toast.error(
+        `Error: ${err instanceof Error ? err.message : "Unknown error"}`
+      );
     } finally {
       setLoading(false);
     }

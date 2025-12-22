@@ -6,8 +6,9 @@ import Plans from "../components/Plans";
 
 export default function PricingPage() {
   return (
-    <div id='pricing' className='relative w-full bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden'>
+    <div id='pricing' className='relative w-full min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-2 sm:px-8 lg:px-16 overflow-x-hidden'>
       <Navbar />
+     
 
       {/* Background Decorative Elements */}
       <div className='absolute inset-0 pointer-events-none'>

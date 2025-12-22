@@ -11,14 +11,17 @@ export default function Footer() {
             Contact
           </h3>
 
-          <p className="text-base text-gray-300 hover:underline cursor-pointer">
+          <p className="text-base text-gray-300">
             business@pibitech.com
           </p>
 
           <div className="flex gap-4 pt-2">
-            <button className="flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition cursor-pointer">
-              Get In Touch ↗
-            </button>
+            <a
+              href="/form"
+              className="inline-flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition text-white"
+            >
+              Get in Touch ↗
+            </a>
             <a
               href="https://www.pibitech.com"
               target="_blank"

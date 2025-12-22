@@ -353,7 +353,7 @@ export default function FeaturesSection() {
           {/* Back Button */}
           <button
             onClick={() => window.history.back()}
-            className='flex px-4 py-2 border rounded-full text-black items-center gap-2 bg-linear-to-r from-sky-400 to-indigo-500'
+            className='sm:absolute sm:left-20 flex px-4 py-2 border rounded-full text-black items-center gap-2 bg-gradient-to-r from-sky-400 to-indigo-500'
           >
             <span className='text-lg'>←</span>
             Back
@@ -384,7 +384,7 @@ export default function FeaturesSection() {
                   setSelectedSubFeatureId(null);
                 }}
                 className={[
-                  "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium",
+                  "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium cursor-pointer",
                   isActive
                     ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
                     : "border-white/10 bg-white/4 text-white hover:scale-105",

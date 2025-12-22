@@ -5,8 +5,8 @@ import { useState } from "react";
 
 const FEATURES = [
   {
-    title: "End-to-End Business Visibility",
-    desc: "See every order, customer, production stage, and campaign in one place — from RFQ to invoice to revenue.",
+    title: "Unified Customer Profiles",
+    desc: "See every customer touchpoint in one place — conversations, purchases, and lifecycle stage.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -25,8 +25,8 @@ const FEATURES = [
     color: "blue",
   },
   {
-    title: "Agentic Automation",
-    desc: "Automate quotes, orders, invoicing, follow-ups, approvals, and workflows across teams with one-click execution.",
+    title: "Automated Campaigns",
+    desc: "Create behavior-driven email & SMS flows that run on autopilot.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -45,8 +45,8 @@ const FEATURES = [
     color: "purple",
   },
   {
-    title: "Intelligent Prioritization",
-    desc: "AI-driven deal scoring, demand signals, and pipeline insights help teams focus on the highest-impact opportunities.",
+    title: "Lead Scoring & Routing",
+    desc: "Prioritize leads automatically and route them to the right rep.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -65,8 +65,8 @@ const FEATURES = [
     color: "orange",
   },
   {
-    title: "Revenue Intelligence & Analytics",
-    desc: "Unified dashboards for operations, finance, pipeline, and campaigns — track performance from spend to profit.",
+    title: "Reporting & Insights",
+    desc: "Prebuilt dashboards + custom reports to measure ROI and growth.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -85,8 +85,8 @@ const FEATURES = [
     color: "green",
   },
   {
-    title: "Seamless Integrations",
-    desc: "Connect ERP, CRM, finance, marketing channels, ad platforms, and external systems effortlessly.",
+    title: "Integrations",
+    desc: "Connect your stack — email, payments, analytics, and more.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -105,8 +105,8 @@ const FEATURES = [
     color: "indigo",
   },
   {
-    title: "Enterprise-Grade Security & Compliance",
-    desc: "Built-in controls for manufacturing, finance, and data compliance — secure, auditable, and scalable.",
+    title: "GDPR & Security",
+    desc: "Enterprise-grade controls and compliance tools out of the box.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -233,10 +233,10 @@ export default function Featuressample({ fadeUp }) {
         >
           <motion.div variants={titleVariants}>
             <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 bg-blue-500/10 text-blue-400 border border-blue-500/20">
-              Unified Revenue & Operations Suite
+              Complete Marketing Suite
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-white leading-tight">
-              Everything manufacturers need
+              Everything marketing teams need
             </h2>
           </motion.div>
 
@@ -244,8 +244,8 @@ export default function Featuressample({ fadeUp }) {
             variants={subtitleVariants}
             className="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-400"
           >
-            From factory workflows to GTM execution and revenue analytics -
-            built to scale with manufacturing businesses.
+            From lead capture to nurture workflows and analytics — built to
+            scale with your business.
           </motion.p>
         </motion.div>
 
@@ -332,10 +332,10 @@ export default function Featuressample({ fadeUp }) {
           className="text-center mt-16"
         >
           <motion.a
-            href="/features"
+            href="/form"
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold transition-all bg-blue-600 hover:bg-blue-500 text-white border border-blue-500/50"
+            className="inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
           >
             Explore All Features
             <svg

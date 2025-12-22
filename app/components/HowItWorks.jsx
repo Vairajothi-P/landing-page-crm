@@ -3,6 +3,16 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+/**
+ * @typedef {Object} HowItWorks
+ * @property {number} id
+ * @property {string} title
+ * @property {string} description
+ * @property {string} icon
+ * @property {string} color
+ */
+
+/** @type {HowItWorks[]} */
 const HowItWorkss = [
   {
     id: 1,
@@ -69,7 +79,7 @@ export default function HowItWorks() {
         {/* Vertical Timeline */}
         <div className="relative">
           {/* Center Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 from-slate-800 via-blue-500/50 to-slate-800" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-slate-800 via-blue-500/50 to-slate-800" />
 
           {/* Steps */}
           <div className="space-y-20">
@@ -159,7 +169,7 @@ export default function HowItWorks() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 rounded-full from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+            className="inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
             style={{
               boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
             }}

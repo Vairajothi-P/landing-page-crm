@@ -44,7 +44,7 @@ export default function Navbar() {
             </a>
             <Link
               href="/form"
-              className="inline-flex items-center gap-3 rounded-full from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+              className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
             >
               Start free trial
             </Link>

@@ -28,7 +28,7 @@ export default function Hero({ fadeUp }) {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_8px_48px_rgba(14,165,233,0.08)]">
-            <span className="bg-clip-text text-transparent  from-sky-300 via-indigo-300 to-purple-300 ml-3">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-sky-300 via-indigo-300 to-purple-300 ml-3">
               Profit Engine for smart marketers
             </span>
           </h1>
@@ -41,7 +41,7 @@ export default function Hero({ fadeUp }) {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="/form"
-              className="inline-flex items-center gap-3 rounded-full from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+              className="inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
             >
               Request demo
             </a>
@@ -70,7 +70,7 @@ export default function Hero({ fadeUp }) {
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
-          <div className="w-full rounded-2xl from-white/3 via-white/6 to-transparent p-6 flex items-center justify-center shadow-2xl backdrop-blur-sm border border-white/6">
+          <div className="w-full aspect-4/3 rounded-2xl bg-linear-to-br from-white/3 via-white/6 to-transparent p-6 flex items-center justify-center shadow-2xl backdrop-blur-sm border border-white/6">
             {/* hero image - replace /hero.jpg with your asset in public/ */}
             <div className="relative w-full h-full rounded-lg overflow-hidden">
               <Image

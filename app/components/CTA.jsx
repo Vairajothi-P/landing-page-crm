@@ -21,8 +21,8 @@ export default function CTA({ fadeUp }) {
         </p>
         <div className="mt-6">
           <a
-            href="/form"
-            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+            href="#contact"
+            className="inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
           >
             Request demo
           </a>

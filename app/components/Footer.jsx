@@ -11,7 +11,7 @@ export default function Footer() {
             Contact
           </h3>
 
-          <p className="text-base text-gray-300 hover:underline">
+          <p className="text-base text-gray-300">
             business@pibitech.com
           </p>
 

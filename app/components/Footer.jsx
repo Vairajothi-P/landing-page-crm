@@ -2,50 +2,66 @@
 
 export default function Footer() {
   return (
-    <div id='footer'>
-    <footer className="text-white px-5 py-5 rounded-t-2xl">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
-        <div className="space-y-6 ml-3">
-          <h3 className="text-sm tracking-widest text-gray-300 uppercase mb-2">
+    <footer className="px-6 py-10" id="footer">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
+
+        {/* LEFT */}
+        <div className="space-y-5">
+          <h3 className="text-sm tracking-widest text-gray-400 uppercase">
             Contact
           </h3>
-          <p className="text-base text-gray-300">
+
+          <p className="text-base text-gray-300 hover:underline cursor-pointer">
             business@pibitech.com
           </p>
 
-          <div className="flex gap-4">
-            <button className="flex items-center gap-2 px-5 py-2 border border-white/8 rounded-full hover:bg-white/5 transition">
+          <div className="flex gap-4 pt-2">
+            <button className="flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition cursor-pointer">
               Get In Touch ↗
             </button>
-            <button className="flex items-center gap-2 px-5 py-2 border border-white/8 rounded-full hover:bg-white/5 transition">
-              Explore Careers ↗
-            </button>
+            <a
+              href="https://www.pibitech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2 border border-white/20 rounded-full hover:bg-white/10 transition text-white"
+            >
+              Explore Career ↗
+            </a>
           </div>
         </div>
 
-        <div className="text-center flex items-end gap-10 text-sm tracking-wide text-gray-300">
-          <a href="#" className="hover:text-white transition">
+        {/* CENTER */}
+        <div className="flex gap-10 text-sm text-gray-400 md:items-end">
+          <a
+              href="https://www.pibitech.com/terms-and-conditions"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition">
             Terms & Conditions
           </a>
-          <a href="#" className="hover:text-white transition">
+          <a href="https://www.pibitech.com/privacy-policy" 
+             target="_blank" rel="noopener noreferrer" 
+             className="hover:text-white transition">
             Privacy Policy
           </a>
         </div>
 
-        <div className="space-y-6 text-right mr-3">
-          <p className="text-sm tracking-widest text-gray-300 uppercase mb-2">
+        {/* RIGHT */}
+        <div className="space-y-5 text-left md:text-right">
+          <p className="text-sm tracking-widest text-gray-400 uppercase">
             Follow
           </p>
+
           <a
-            href="https://www.linkedin.com"
+            href="https://in.linkedin.com/company/pi-bi-technologies"
             target="_blank"
-            className="text-lg hover:underline"
+            className="text-base text-gray-300 hover:underline"
           >
             LinkedIn
           </a>
         </div>
+
       </div>
     </footer>
-    </div>
   );
 }

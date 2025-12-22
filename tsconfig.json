@@ -34,7 +34,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-, "app/components/CTA.jsx", "app/features/page.tsx", "app/components/Footer.jsx", "app/components/Hero.jsx", "app/components/HowItWorks.jsx", "app/components/Navbar.jsx", "app/components/ParticleBackground.jsx", "app/components/Pricing.jsx", "app/components/Testimonials.jsx", "app/features/data/landing.js", "app/lib/animations.js"  ],
+, "app/components/CTA.jsx", "app/features/page.tsx", "app/components/Footer.jsx", "app/components/Hero.jsx", "app/components/HowItWorks.jsx", "app/components/Navbar.jsx", "app/components/ParticleBackground.jsx", "app/components/Pricing.jsx", "app/components/Testimonials.jsx", "app/features/data/landing.js", "app/lib/animations.js", "app/form/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]

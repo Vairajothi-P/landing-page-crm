@@ -336,24 +336,37 @@ export default function FeaturesSection() {
     }
   };
 
-  return (
-    <div className='min-h-screen bg-black'>
+  return ( 
+    <section className="relative w-full bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden">
       <Navbar />
+      <div className="max-w-6xl mx-auto py-5 px-6">
+         {/* Header row */}
+<motion.div
+  initial={{ opacity: 0, y: -16 }}                                               
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="mt-10 mb-12 flex items-center justify-between"
+>
+  {/* Back Button */}
+  <button
+    onClick={() => window.history.back()}
+    className="absolute flex px-4 py-2 border rounded-full text-black  items-center gap-2 bg-gradient-to-r from-sky-400 to-indigo-500 hover:gap-3 transition-all cursor-pointer">
+    <span className="text-lg">←</span>   
+  Back
+  </button>
 
-    <section className="relative py-20 bg-gradient-to-b from-gray-950 to-gray-900">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold text-white">Features</h2>
-          <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
-            Explore product capabilities across Operations, Management, and Growth—built for modern SaaS.
-          </p>
-        </motion.div>
+  {/* Heading */}
+  <div className="text-center flex-1">
+    <h2 className="text-4xl font-bold text-white">Features</h2>
+    <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
+      Explore product capabilities across Operations, Management, and Growth—built for modern SaaS.
+    </p>
+  </div>
+
+  {/* Spacer (keeps heading centered) */}
+  <div className="w-[80px]" />
+</motion.div>
+
 
         {/* Layer tabs */}
         <div className="flex justify-center gap-3 mb-10">
@@ -369,7 +382,7 @@ export default function FeaturesSection() {
                 className={[
                   "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium",
                   isActive
-                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
                     : "border-white/10 bg-white/4 text-white hover:scale-105"
                 ].join(" ")}
               >
@@ -397,7 +410,7 @@ export default function FeaturesSection() {
             >
               <div className="flex items-center justify-between gap-3">
                 <h4 className="text-lg font-semibold">{sf.title}</h4>
-                <span className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-white">
+                <span className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-black">
                   View
                 </span>
               </div>
@@ -442,7 +455,7 @@ export default function FeaturesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8 min-h-[360px]">
           {/* Left: Key capabilities / Features */}
           <div className="flex flex-col">
-            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-white mb-3">
+            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-black mb-3">
               Key capabilities
             </div>
             <ul className="flex flex-col gap-3 flex-1">
@@ -475,7 +488,7 @@ export default function FeaturesSection() {
 
         {/* Benefits / Business outcomes */}
         <div>
-          <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-white mb-3">
+          <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-black mb-3">
             Business outcomes
           </div>
           <ul className="grid grid-cols-2 gap-3">
@@ -501,6 +514,6 @@ export default function FeaturesSection() {
 
       </div>
     </section>
-    </div>
+  
   );
 }

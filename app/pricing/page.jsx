@@ -6,161 +6,171 @@ import Plans from "../components/Plans";
 
 export default function PricingPage() {
   return (
-    <div className='min-h-screen bg-black'>
+    <div id='pricing' className='relative w-full bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden'>
       <Navbar />
 
-      <div
-        className='relative w-full bg-black text-white py-32 px-6 overflow-hidden'
-        id='pricing'
-      >
-        {/* Background Decorative Elements */}
-        <div className='absolute inset-0 pointer-events-none'>
-          <div className='absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl' />
-          <div className='absolute bottom-40 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl' />
-          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl' />
-        </div>
+      {/* Background Decorative Elements */}
+      <div className='absolute inset-0 pointer-events-none'>
+        <div className='absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl' />
+        <div className='absolute bottom-40 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl' />
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl' />
+      </div>
 
-        <div className='relative max-w-7xl mx-auto'>
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.6 }}
-            className='text-center mb-20'
+      <div className='relative max-w-7xl mx-auto mt-8'>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+          className="relative text-center mb-20"
+        >
+          {/* Back Button */}
+          <button
+            onClick={() => window.history.back()}
+            className="absolute left-0 top-14 bg-gradient-to-r from-sky-400 to-indigo-500 text-black flex items-center gap-2 px-4 py-2 rounded-full border border-black/20 hover:gap-3 transition-all cursor-pointer"
           >
-            <div className='inline-block mb-6'>
-              <img
-                src='https://img.icons8.com/fluency/96/price-tag.png'
-                alt='Pricing'
-                className='w-16 h-16 mx-auto'
+            <span className="text-lg">←</span>
+            <span className="hidden sm:inline">Back</span>
+          </button>
+
+          {/* Icon */}
+          <div className="text-center">
+            <img
+              src="https://img.icons8.com/fluency/96/price-tag.png"
+              alt="Pricing"
+              className="w-16 h-16 mx-auto"
+            />
+          </div>
+
+          {/* Heading */}
+          <h1 className="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-2">
+            Pricing Plans
+          </h1>
+
+          {/* Description */}
+          <p className="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+            Flexible plans designed for manufacturing teams at every stage.
+            Start with the essentials and add capabilities as you scale.
+          </p>
+        </motion.div>
+
+
+        <Plans />
+
+        {/* Add-ons Marketplace */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className='mt-32'
+        >
+          <div className='text-center mb-12'>
+            <div className='inline-block mb-4'>
+              <svg
+                className='w-12 h-12 mx-auto text-purple-400'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={1.5}
+                  d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'
+                />
+              </svg>
+            </div>
+            <h2 className='text-4xl font-bold mb-4'>Add-Ons Marketplace</h2>
+            <p className='text-slate-300 text-lg max-w-3xl mx-auto mb-12'>
+              Separate purchase for Basic, optional for Professional/Ultimate
+              as noted.
+            </p>
+          </div>
+
+          {/* CRM & HR Add-Ons Section */}
+          <div className='mb-16'>
+            <h3 className='text-2xl font-bold mb-6 text-blue-300'>
+              CRM & HR Add-Ons
+            </h3>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+              <AddonBox
+                icon='🎯'
+                title='CRM Basic'
+                price='₹2,000'
+                period='/month'
+                description='Streamline client management, automate invoicing, and boost accounting efficiency effortlessly.'
+                note='Included in Professional, optional for Basic'
+              />
+              <AddonBox
+                icon='🎯'
+                title='CRM Advanced'
+                price='₹3,500'
+                period='/month'
+                description='Customer 360, Deal AI, Follow-Up Automation for complete customer insights.'
+                note='Included in Ultimate, optional otherwise'
+              />
+              <AddonBox
+                icon='👨‍💼'
+                title='HRMS Basic'
+                price='₹1,500'
+                period='/month'
+                description='Attendance & Leave Management to streamline HR operations.'
+              />
+              <AddonBox
+                icon='👨‍💼'
+                title='HRMS Advanced'
+                price='₹2,000'
+                period='/month'
+                description='Payroll systems automate salaries, reduce errors, track staff, and improve HR operations.'
+              />
+              <AddonBox
+                icon='👷'
+                title='Field Service Management'
+                price='₹2,500'
+                period='/month'
+                description='Field Service projects track costs, invoices, and revenue for accurate accounting.'
               />
             </div>
-            <h1 className='text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-2'>
-              Pricing Plans
-            </h1>
-            <p className='text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed'>
-              Flexible plans designed for manufacturing teams at every stage.
-              Start with the essentials and add capabilities as you scale.
-            </p>
-          </motion.div>
+          </div>
 
-          <Plans />
-
-          {/* Add-ons Marketplace */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className='mt-32'
-          >
-            <div className='text-center mb-12'>
-              <div className='inline-block mb-4'>
-                <svg
-                  className='w-12 h-12 mx-auto text-purple-400'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={1.5}
-                    d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'
-                  />
-                </svg>
-              </div>
-              <h2 className='text-4xl font-bold mb-4'>Add-Ons Marketplace</h2>
-              <p className='text-slate-300 text-lg max-w-3xl mx-auto mb-12'>
-                Separate purchase for Basic, optional for Professional/Ultimate
-                as noted.
-              </p>
+          {/* Growth & Marketing Add-Ons Section */}
+          <div className='mb-16'>
+            <h3 className='text-2xl font-bold mb-6 text-purple-300'>
+              Growth & Marketing Add-Ons
+            </h3>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+              <AddonBox
+                icon='📱'
+                title='Growth Booster Basic'
+                price='₹2,000'
+                period='/month'
+                description='Lead Nurturing Campaigns via Email, WhatsApp, and SMS.'
+                note='Optional for Basic'
+              />
+              <AddonBox
+                icon='🚀'
+                title='Growth Booster Advanced'
+                price='₹2,500'
+                period='/month'
+                description='Advanced marketing automation with AI-powered insights and multi-channel campaigns.'
+                note='Optional for Professional'
+              />
+              <AddonBox
+                icon='📊'
+                title='Analytics & Revenue Intelligence'
+                price='₹3,499'
+                period='/month'
+                description='Revenue Forecasting, ROAS Dashboards, and Marketing Intelligence Reports.'
+                note='Optional for Professional/Ultimate'
+              />
             </div>
-
-            {/* CRM & HR Add-Ons Section */}
-            <div className='mb-16'>
-              <h3 className='text-2xl font-bold mb-6 text-blue-300'>
-                CRM & HR Add-Ons
-              </h3>
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                <AddonBox
-                  icon='🎯'
-                  title='CRM Basic'
-                  price='₹2,000'
-                  period='/month'
-                  description='Streamline client management, automate invoicing, and boost accounting efficiency effortlessly.'
-                  note='Included in Professional, optional for Basic'
-                />
-                <AddonBox
-                  icon='🎯'
-                  title='CRM Advanced'
-                  price='₹3,500'
-                  period='/month'
-                  description='Customer 360, Deal AI, Follow-Up Automation for complete customer insights.'
-                  note='Included in Ultimate, optional otherwise'
-                />
-                <AddonBox
-                  icon='👨‍💼'
-                  title='HRMS Basic'
-                  price='₹1,500'
-                  period='/month'
-                  description='Attendance & Leave Management to streamline HR operations.'
-                />
-                <AddonBox
-                  icon='👨‍💼'
-                  title='HRMS Advanced'
-                  price='₹2,000'
-                  period='/month'
-                  description='Payroll systems automate salaries, reduce errors, track staff, and improve HR operations.'
-                />
-                <AddonBox
-                  icon='👷'
-                  title='Field Service Management'
-                  price='₹2,500'
-                  period='/month'
-                  description='Field Service projects track costs, invoices, and revenue for accurate accounting.'
-                />
-              </div>
-            </div>
-
-            {/* Growth & Marketing Add-Ons Section */}
-            <div>
-              <h3 className='text-2xl font-bold mb-6 text-purple-300'>
-                Growth & Marketing Add-Ons
-              </h3>
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                <AddonBox
-                  icon='📱'
-                  title='Growth Booster Basic'
-                  price='₹2,000'
-                  period='/month'
-                  description='Lead Nurturing Campaigns via Email, WhatsApp, and SMS.'
-                  note='Optional for Basic'
-                />
-                <AddonBox
-                  icon='🚀'
-                  title='Growth Booster Advanced'
-                  price='₹2,500'
-                  period='/month'
-                  description='Advanced marketing automation with AI-powered insights and multi-channel campaigns.'
-                  note='Optional for Professional'
-                />
-                <AddonBox
-                  icon='📊'
-                  title='Analytics & Revenue Intelligence'
-                  price='₹3,499'
-                  period='/month'
-                  description='Revenue Forecasting, ROAS Dashboards, and Marketing Intelligence Reports.'
-                  note='Optional for Professional/Ultimate'
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
-      
     </div>
+
   );
 }
 

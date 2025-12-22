@@ -335,7 +335,11 @@ export default function Featuressample({ fadeUp }) {
             href="/features"
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
+<<<<<<< HEAD
             className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold transition-all bg-blue-600 hover:bg-blue-500 text-white border border-blue-500/50"
+=======
+            className='inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition'
+>>>>>>> 682adfe08e1dd75983329f8440acca5c84195f4b
           >
             Explore All Features
             <svg

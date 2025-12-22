@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 
-
 type SubFeature = {
   id: string;
   title: string;
@@ -30,7 +29,7 @@ const LAYERS: Layer[] = [
       "Run core operations with precision—finance, inventory, purchasing, and production.",
     subFeatures: [
       { id: "accounting-finance", title: "Accounting & Finance" },
-      { id: "Manufacturing-Operations", title: "Manufacturing Operations" }
+      { id: "Manufacturing-Operations", title: "Manufacturing Operations" },
     ],
   },
   {
@@ -54,7 +53,7 @@ const LAYERS: Layer[] = [
       { id: "GTM-Engine", title: "GTM Engine" },
       { id: "Marketing-Automation", title: "Marketing Automation" },
       { id: "Ad-Exchange-GTM-Engine", title: "Ad Exchange & GTM Engine" },
-      { id: "Revenue-Intelligence", title: "Revenue Intelligence" }
+      { id: "Revenue-Intelligence", title: "Revenue Intelligence" },
     ],
   },
 ];
@@ -91,7 +90,7 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Manufacturing Operations ",
     description:
       "Monitor production, materials, and work orders in real time, optimize scheduling, reduce downtime, and control costs efficiently.",
-    image:"/manufacturing.jpg",
+    image: "/manufacturing.jpg",
     features: [
       "● Work Orders",
       "● Bill of Materials (BOM)",
@@ -149,7 +148,6 @@ const SUB_FEATURES: SubFeature[] = [
       "● Tax (PF/ESI) Compliance",
       "● Payslip Generation ",
       "● Leave Management",
-  
     ],
     benefits: [
       "● Ensure timely, accurate, and compliant payroll processing with automated salary structures and statutory calculations",
@@ -173,7 +171,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Image/Video Attachments",
       "● Progress Reports",
       "● Deadline & Milestone Management",
-      "● Role-Based Access Control"
+      "● Role-Based Access Control",
     ],
     benefits: [
       "● Improve team productivity and on-time delivery with clear task assignments, priorities, and collaboration",
@@ -197,7 +195,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Customer Feedback",
       "● Real-Time Service Updates",
       "● Inventory & Spare Parts Management",
-      "● GPS Tracking & Route Optimization"
+      "● GPS Tracking & Route Optimization",
     ],
     benefits: [
       "● Improve first-time fix rates and service efficiency with structured work orders and complete service history",
@@ -221,7 +219,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Predictive Nurturing",
       "● Multi-Channel Outreach (Email, WhatsApp, SMS)",
       "● Conversion & Funnel Analytics",
-      "● Revenue Forecasting & Pipeline Insights"
+      "● Revenue Forecasting & Pipeline Insights",
     ],
     benefits: [
       "● Increase revenue predictability with AI-driven lead prioritization and deal scoring",
@@ -245,7 +243,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● AI-based Segmentation",
       "● Campaign Performance Analytics",
       "● Behavioral Trigger Automation",
-      "● A/B Testing & Optimization"
+      "● A/B Testing & Optimization",
     ],
     benefits: [
       "● Increase campaign engagement and conversions with personalized email, WhatsApp, and SMS outreach",
@@ -269,7 +267,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Real-Time ROAS Analytics",
       "● Auto-generated Creatives & Ad Copy",
       "● Audience Targeting & Lookalike Modeling",
-      "● Cross-Channel Attribution & Conversion Tracking"
+      "● Cross-Channel Attribution & Conversion Tracking",
     ],
     benefits: [
       "● Maximize ad reach and speed to market by launching campaigns across Google, Meta, and LinkedIn from a single platform",
@@ -294,7 +292,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Customer Lifetime Value (CLV) Analysis",
       "● Win/Loss Deal Insights",
       "● AI Revenue Risk & Opportunity Alerts",
-      "● Deal Velocity & Sales Cycle Analysis"
+      "● Deal Velocity & Sales Cycle Analysis",
     ],
     benefits: [
       "● Maximize revenue growth and profitability with a centralized campaign ROI dashboard",
@@ -308,7 +306,9 @@ const SUB_FEATURES: SubFeature[] = [
 
 export default function FeaturesSection() {
   const [activeLayer, setActiveLayer] = useState<Layer["id"]>("operations");
-  const [selectedSubFeatureId, setSelectedSubFeatureId] = useState<string | null>(null);
+  const [selectedSubFeatureId, setSelectedSubFeatureId] = useState<
+    string | null
+  >(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
 
   const filteredSubFeatures = useMemo(
@@ -332,46 +332,48 @@ export default function FeaturesSection() {
     setSelectedSubFeatureId(null);
     // Smooth scroll back to the sub-features grid
     if (panelRef.current) {
-      window.scrollTo({ top: panelRef.current.offsetTop - 120, behavior: "smooth" });
+      window.scrollTo({
+        top: panelRef.current.offsetTop - 120,
+        behavior: "smooth",
+      });
     }
   };
 
-  return ( 
-    <section className="relative min-h-screen w-full scroll-smooth bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white overflow-x-hidden">
-      
+  return (
+    <section className='relative min-h-screen w-full scroll-smooth bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white overflow-x-hidden'>
       <Navbar />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-0">
-         {/* Header row */}
-<motion.div
-  initial={{ opacity: 0, y: -16 }}                                               
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  className="mt-16 mb-10 flex flex-col sm:flex-row items-center gap-4"
->
-  {/* Back Button */}
-  <button
-    onClick={() => window.history.back()}
-    className="sm:absolute sm:left-20 flex px-4 py-2 border rounded-full text-black items-center gap-2 bg-gradient-to-r from-sky-400 to-indigo-500">
-    <span className="text-lg">←</span>   
-  Back
-  </button>           
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-0'>
+        {/* Header row */}
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className='mt-16 mb-10 flex flex-col sm:flex-row items-center gap-4'
+        >
+          {/* Back Button */}
+          <button
+            onClick={() => window.history.back()}
+            className='flex px-4 py-2 border rounded-full text-black items-center gap-2 bg-linear-to-r from-sky-400 to-indigo-500'
+          >
+            <span className='text-lg'>←</span>
+            Back
+          </button>
 
+          {/* Heading */}
+          <div className='text-center flex-1'>
+            <h2 className='text-4xl font-bold text-white'>Features</h2>
+            <p className='text-slate-300 mt-3 max-w-2xl mx-auto'>
+              Explore product capabilities across Operations, Management, and
+              Growth—built for modern SaaS.
+            </p>
+          </div>
 
-  {/* Heading */}
-  <div className="text-center flex-1">
-    <h2 className="text-4xl font-bold text-white">Features</h2>
-    <p className="text-slate-300 mt-3 max-w-2xl mx-auto">
-      Explore product capabilities across Operations, Management, and Growth—built for modern SaaS.
-    </p>
-  </div>
-
-  {/* Spacer (keeps heading centered) */}
-  <div className="w-[80px]" />
-</motion.div>
-
+          {/* Spacer (keeps heading centered) */}
+          <div className='w-[80px]' />
+        </motion.div>
 
         {/* Layer tabs */}
-        <div className="flex justify-center gap-3 mb-10">
+        <div className='flex justify-center gap-3 mb-10'>
           {LAYERS.map((layer) => {
             const isActive = activeLayer === layer.id;
             return (
@@ -385,7 +387,7 @@ export default function FeaturesSection() {
                   "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium",
                   isActive
                     ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
-                    : "border-white/10 bg-white/4 text-white hover:scale-105"
+                    : "border-white/10 bg-white/4 text-white hover:scale-105",
                 ].join(" ")}
               >
                 {layer.title}
@@ -395,28 +397,29 @@ export default function FeaturesSection() {
         </div>
 
         {/* Layer description */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <p className="text-slate-300 mb-6">{LAYERS.find((l) => l.id === activeLayer)?.description}</p>
+        <div className='max-w-3xl mx-auto text-center mb-8'>
+          <p className='text-slate-300 mb-6'>
+            {LAYERS.find((l) => l.id === activeLayer)?.description}
+          </p>
         </div>
-        
-        
+
         {/* Sub-features grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-12">
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-12'>
           {filteredSubFeatures.map((sf) => (
             <motion.button
               key={sf.id}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedSubFeatureId(sf.id)}
-              className="text-left bg-white/4 border border-white/10 rounded-xl p-5 text-white transition-shadow hover:shadow-lg hover:shadow-indigo-500/20"
+              className='text-left bg-white/4 border border-white/10 rounded-xl p-5 text-white transition-shadow hover:shadow-lg hover:shadow-indigo-500/20'
             >
-              <div className="flex items-center justify-between gap-3">
-                <h4 className="text-lg font-semibold">{sf.title}</h4>
-                <span className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-black">
+              <div className='flex items-center justify-between gap-3'>
+                <h4 className='text-lg font-semibold'>{sf.title}</h4>
+                <span className='inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-black'>
                   View
                 </span>
               </div>
-              <p className="text-slate-300 mt-2 line-clamp-2">
+              <p className='text-slate-300 mt-2 line-clamp-2'>
                 {/* Match description via look-up for consistency */}
                 {SUB_FEATURES.find((s) => s.id === sf.id)?.description}
               </p>
@@ -426,96 +429,96 @@ export default function FeaturesSection() {
 
         {/* Detailed feature panel */}
         {/* Detailed feature panel */}
-<div ref={panelRef}>
-  <AnimatePresence mode="wait">
-    {selectedSubFeature && (
-      <motion.div
-        key={selectedSubFeature.id}
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 24 }}
-        transition={{ duration: 0.5 }}
-        className="bg-white/4 border border-white/10 rounded-2xl p-8 md:p-10 shadow-xl"
-      >
-        {/* Back to features */}
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl md:text-3xl font-bold text-white">
-            {selectedSubFeature.title}
-          </h3>
-          <button
-            onClick={handleBackToFeatures}
-            className="text-sm font-medium px-4 py-2 rounded-lg border border-white/10 bg-white/4 text-white hover:scale-105 transition-all"
-          >
-            Back to Features
-          </button>
-        </div>
-
-        {/* Description */}
-        <p className="text-slate-300 mb-6">{selectedSubFeature.description}</p>
-
-        {/* Horizontal Features + Image */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8 min-h-[360px]">
-          {/* Left: Key capabilities / Features */}
-          <div className="flex flex-col">
-            <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-black mb-3">
-              Key capabilities
-            </div>
-            <ul className="flex flex-col gap-3 flex-1">
-              {selectedSubFeature.features.map((feat, idx) => (
-                <li
-                  key={idx}
-                  className="bg-white/4 border border-white/10 rounded-lg px-4 py-3 flex items-center text-white"
-                >
-                  <div className="text-white font-medium">{feat}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right: Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative w-full min-h-[240px] md:min-h-[360px] rounded-xl overflow-hidden"
-          >
-            <img
-              src={selectedSubFeature.image}
-              alt={`${selectedSubFeature.title} screenshot`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-sky-400/10 to-indigo-500/10 mix-blend-soft-light" />
-          </motion.div>
-        </div>
-
-        {/* Benefits / Business outcomes */}
-        <div>
-          <div className="inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-black mb-3">
-            Business outcomes
-          </div>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {selectedSubFeature.benefits.map((benefit, idx) => (
-              <li
-                key={idx}
-                className="bg-white/4 border border-white/10 rounded-lg p-4"
+        <div ref={panelRef}>
+          <AnimatePresence mode='wait'>
+            {selectedSubFeature && (
+              <motion.div
+                key={selectedSubFeature.id}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 24 }}
+                transition={{ duration: 0.5 }}
+                className='bg-white/4 border border-white/10 rounded-2xl p-8 md:p-10 shadow-xl'
               >
-                <div className="text-white font-medium">{benefit}</div>
-                <p className="text-slate-300 text-sm mt-1">
-                  {idx === 0
-                    ? "Measure impact with inventory turns, cycle time, and forecast accuracy."
-                    : ""}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</div>
+                {/* Back to features */}
+                <div className='flex items-center justify-between mb-6'>
+                  <h3 className='text-2xl md:text-3xl font-bold text-white'>
+                    {selectedSubFeature.title}
+                  </h3>
+                  <button
+                    onClick={handleBackToFeatures}
+                    className='text-sm font-medium px-4 py-2 rounded-lg border border-white/10 bg-white/4 text-white hover:scale-105 transition-all'
+                  >
+                    Back to Features
+                  </button>
+                </div>
 
+                {/* Description */}
+                <p className='text-slate-300 mb-6'>
+                  {selectedSubFeature.description}
+                </p>
+
+                {/* Horizontal Features + Image */}
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8 min-h-[360px]'>
+                  {/* Left: Key capabilities / Features */}
+                  <div className='flex flex-col'>
+                    <div className='inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-black mb-3'>
+                      Key capabilities
+                    </div>
+                    <ul className='flex flex-col gap-3 flex-1'>
+                      {selectedSubFeature.features.map((feat, idx) => (
+                        <li
+                          key={idx}
+                          className='bg-white/4 border border-white/10 rounded-lg px-4 py-3 flex items-center text-white'
+                        >
+                          <div className='text-white font-medium'>{feat}</div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Right: Image */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className='relative w-full min-h-[240px] md:min-h-[360px] rounded-xl overflow-hidden'
+                  >
+                    <img
+                      src={selectedSubFeature.image}
+                      alt={`${selectedSubFeature.title} screenshot`}
+                      className='w-full h-full object-cover'
+                    />
+                    <div className='absolute inset-0 bg-gradient-to-tr from-sky-400/10 to-indigo-500/10 mix-blend-soft-light' />
+                  </motion.div>
+                </div>
+
+                {/* Benefits / Business outcomes */}
+                <div>
+                  <div className='inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-black mb-3'>
+                    Business outcomes
+                  </div>
+                  <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+                    {selectedSubFeature.benefits.map((benefit, idx) => (
+                      <li
+                        key={idx}
+                        className='bg-white/4 border border-white/10 rounded-lg p-4'
+                      >
+                        <div className='text-white font-medium'>{benefit}</div>
+                        <p className='text-slate-300 text-sm mt-1'>
+                          {idx === 0
+                            ? "Measure impact with inventory turns, cycle time, and forecast accuracy."
+                            : ""}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
-  
   );
 }

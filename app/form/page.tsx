@@ -2,7 +2,6 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import { supabase } from "@/app/lib/supabase";
-import Navbar from "@/app/components/Navbar";
 import { useRouter } from "next/navigation";
 
 
@@ -78,7 +77,6 @@ export default function RequestDemo() {
 
   return (
     <div className="relative w-full bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-16 overflow-hidden">
-      <Navbar />
 
       <div
         style={{

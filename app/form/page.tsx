@@ -5,6 +5,56 @@ import { supabase } from "@/app/lib/supabase";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
 
+const countryCodes = [
+  { code: "+1", name: "US" },
+  { code: "+1", name: "Canada" },
+  { code: "+7", name: "Russia" },
+  { code: "+20", name: "Egypt" },
+  { code: "+27", name: "South Africa" },
+  { code: "+30", name: "Greece" },
+  { code: "+31", name: "Netherlands" },
+  { code: "+32", name: "Belgium" },
+  { code: "+33", name: "France" },
+  { code: "+34", name: "Spain" },
+  { code: "+36", name: "Hungary" },
+  { code: "+39", name: "Italy" },
+  { code: "+40", name: "Romania" },
+  { code: "+41", name: "Switzerland" },
+  { code: "+43", name: "Austria" },
+  { code: "+44", name: "UK" },
+  { code: "+45", name: "Denmark" },
+  { code: "+46", name: "Sweden" },
+  { code: "+47", name: "Norway" },
+  { code: "+48", name: "Poland" },
+  { code: "+49", name: "Germany" },
+  { code: "+51", name: "Peru" },
+  { code: "+52", name: "Mexico" },
+  { code: "+53", name: "Cuba" },
+  { code: "+54", name: "Argentina" },
+  { code: "+55", name: "Brazil" },
+  { code: "+56", name: "Chile" },
+  { code: "+57", name: "Colombia" },
+  { code: "+58", name: "Venezuela" },
+  { code: "+60", name: "Malaysia" },
+  { code: "+61", name: "Australia" },
+  { code: "+62", name: "Indonesia" },
+  { code: "+63", name: "Philippines" },
+  { code: "+64", name: "New Zealand" },
+  { code: "+65", name: "Singapore" },
+  { code: "+66", name: "Thailand" },
+  { code: "+81", name: "Japan" },
+  { code: "+82", name: "South Korea" },
+  { code: "+84", name: "Vietnam" },
+  { code: "+86", name: "China" },
+  { code: "+90", name: "Turkey" },
+  { code: "+91", name: "India" },
+  { code: "+92", name: "Pakistan" },
+  { code: "+93", name: "Afghanistan" },
+  { code: "+94", name: "Sri Lanka" },
+  { code: "+95", name: "Myanmar" },
+  { code: "+98", name: "Iran" },
+];
+
 export default function RequestDemo() {
   const [form, setForm] = useState({
     Name: "",
@@ -17,6 +67,8 @@ export default function RequestDemo() {
 
   const [loading, setLoading] = useState(false);
 
+  const [countryCode, setCountryCode] = useState("+91");
+
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -27,8 +79,10 @@ export default function RequestDemo() {
     setLoading(true);
 
     try {
+      const fullForm = { ...form, Phone: countryCode + form.Phone };
+
       // Save to Supabase
-      const { error } = await supabase.from("request_demo").insert([form]);
+      const { error } = await supabase.from("request_demo").insert([fullForm]);
       if (error) {
         console.error("Supabase error:", error);
         alert(`Error: ${error.message}`);
@@ -40,7 +94,7 @@ export default function RequestDemo() {
       const emailResponse = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(fullForm),
       });
 
       if (!emailResponse.ok) {
@@ -56,6 +110,7 @@ export default function RequestDemo() {
         Role: "",
         Message: "",
       });
+      setCountryCode("+91");
     } catch (err) {
       console.error("Submission error:", err);
       alert(`Error: ${err instanceof Error ? err.message : "Unknown error"}`);
@@ -212,36 +267,69 @@ export default function RequestDemo() {
                 >
                   Phone <span style={{ color: "#e53e3e" }}>*</span>
                 </label>
-                <input
-                  type='number'
-                  id='Phone'
-                  name='Phone'
-                  value={form.Phone}
-                  onChange={handleChange}
-                  required
-                  placeholder='+91 00000-00000'
-                  style={{
-                    width: "100%",
-                    padding: "14px 16px",
-                    fontSize: "16px",
-                    border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
-                    boxSizing: "border-box",
-                    transition: "all 0.3s ease",
-                    fontFamily: "inherit",
-                    outline: "none",
-                    color: "#1a202c",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e2e8f0";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <select
+                    value={countryCode}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    style={{
+                      padding: "14px 16px",
+                      borderRadius: "8px",
+                      border: "2px solid #e2e8f0",
+                      fontSize: "16px",
+                      color: "#1a202c",
+                      width: "160px",
+                      boxSizing: "border-box",
+                      transition: "all 0.3s ease",
+                      fontFamily: "inherit",
+                      outline: "none",
+                    }}
+                    onFocus={(e) => {
+                      e.target.style.borderColor = "#0070f3";
+                      e.target.style.boxShadow =
+                        "0 0 0 3px rgba(0, 112, 243, 0.1)";
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = "#e2e8f0";
+                      e.target.style.boxShadow = "none";
+                    }}
+                  >
+                    {countryCodes.map((cc) => (
+                      <option key={cc.code + cc.name} value={cc.code}>
+                        {cc.code} ({cc.name})
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type='tel'
+                    id='Phone'
+                    name='Phone'
+                    value={form.Phone}
+                    onChange={handleChange}
+                    required
+                    placeholder='00000 00000'
+                    style={{
+                      flex: 1,
+                      padding: "14px 16px",
+                      fontSize: "16px",
+                      border: "2px solid #e2e8f0",
+                      borderRadius: "8px",
+                      boxSizing: "border-box",
+                      transition: "all 0.3s ease",
+                      fontFamily: "inherit",
+                      outline: "none",
+                      color: "#1a202c",
+                    }}
+                    onFocus={(e) => {
+                      e.target.style.borderColor = "#0070f3";
+                      e.target.style.boxShadow =
+                        "0 0 0 3px rgba(0, 112, 243, 0.1)";
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = "#e2e8f0";
+                      e.target.style.boxShadow = "none";
+                    }}
+                  />
+                </div>
               </div>
 
               <div style={{ marginBottom: "24px" }}>

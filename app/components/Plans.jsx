@@ -250,15 +250,15 @@ function PlanCard({
       transition={{ duration: 0.6 }}
       whileHover={{ y: -8 }}
       className={
-        "relative h-full rounded-3xl border bg-gradient-to-b from-slate-900/80 to-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 flex flex-col" +
+        "relative h-full rounded-3xl border bg-gradient-to-b from-white/80 to-gray-50/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 flex flex-col" +
         (highlight
-          ? " border-blue-500/60 shadow-2xl shadow-blue-900/40 ring-1 ring-blue-400/20"
-          : " border-slate-700/50 hover:border-slate-600/50")
+          ? " border-blue-300/60 shadow-2xl shadow-blue-200/40 ring-1 ring-blue-200/20"
+          : " border-gray-300/50 hover:border-gray-400/50")
       }
     >
       {/* Gradient overlay for highlight */}
       {highlight && (
-        <div className='absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl pointer-events-none' />
+        <div className='absolute inset-0 bg-gradient-to-br from-blue-100/5 via-purple-100/5 to-pink-100/5 rounded-3xl pointer-events-none' />
       )}
 
       {badge ? (
@@ -278,10 +278,10 @@ function PlanCard({
           <span className='text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
             {price}
           </span>
-          <span className='text-slate-400 text-lg'>{period}</span>
+          <span className='text-gray-500 text-lg'>{period}</span>
         </div>
         {blurb ? (
-          <p className='mt-4 text-slate-300 text-base leading-relaxed'>
+          <p className='mt-4 text-gray-600 text-base leading-relaxed'>
             {blurb}
           </p>
         ) : null}
@@ -290,7 +290,7 @@ function PlanCard({
       <div className='relative space-y-8 mb-8 flex-grow'>
         {sections?.map((sec) => (
           <div key={sec.heading}>
-            <h4 className='text-sm font-bold text-blue-300 uppercase tracking-wider mb-3'>
+            <h4 className='text-sm font-bold text-blue-600 uppercase tracking-wider mb-3'>
               {sec.heading}
             </h4>
             <ul className='space-y-2.5'>
@@ -302,7 +302,7 @@ function PlanCard({
                 return (
                   <li
                     key={i}
-                    className='flex gap-3 text-slate-200 text-sm leading-relaxed'
+                    className='flex gap-3 text-gray-700 text-sm leading-relaxed'
                   >
                     {itemIcon ? (
                       <div className='shrink-0 mt-0.5'>
@@ -310,7 +310,7 @@ function PlanCard({
                       </div>
                     ) : (
                       <svg
-                        className='w-5 h-5 text-blue-400 shrink-0 mt-0.5'
+                        className='w-5 h-5 text-blue-500 shrink-0 mt-0.5'
                         fill='none'
                         viewBox='0 0 24 24'
                         stroke='currentColor'
@@ -335,14 +335,14 @@ function PlanCard({
       {/* Add-ons Section */}
       {addons && addons.length > 0 && (
         <div className='relative mb-6'>
-          <h4 className='text-sm font-bold text-purple-300 uppercase tracking-wider mb-4'>
+          <h4 className='text-sm font-bold text-purple-600 uppercase tracking-wider mb-4'>
             {addonsTitle || "Add-Ons"}
           </h4>
           <div className='space-y-3'>
             {addons.map((addon, idx) => (
               <div
                 key={idx}
-                className='rounded-lg border border-slate-600/50 bg-gradient-to-br from-slate-800/60 to-slate-800/30 p-4 hover:border-purple-500/50 transition-all duration-300'
+                className='rounded-lg border border-gray-300/50 bg-gradient-to-br from-gray-50/60 to-gray-100/30 p-4 hover:border-purple-300/50 transition-all duration-300'
               >
                 <div className='flex items-start gap-3'>
                   <div className='shrink-0 mt-0.5'>
@@ -350,14 +350,14 @@ function PlanCard({
                   </div>
                   <div className='flex-1'>
                     <div className='flex items-baseline justify-between gap-2 mb-1'>
-                      <h5 className='font-semibold text-white text-sm'>
+                      <h5 className='font-semibold text-gray-900 text-sm'>
                         {addon.title}
                       </h5>
                       <span className='text-purple-400 font-bold text-xs whitespace-nowrap'>
                         {addon.price}
                       </span>
                     </div>
-                    <p className='text-slate-400 text-xs leading-relaxed'>
+                    <p className='text-gray-500 text-xs leading-relaxed'>
                       {addon.description}
                     </p>
                   </div>
@@ -372,7 +372,7 @@ function PlanCard({
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className='w-full py-4 rounded-xl font-bold text-base bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:shadow-xl hover:shadow-purple-900/50 transition-all duration-300'
+          className='w-full py-4 rounded-xl font-bold text-base bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:shadow-xl hover:shadow-purple-200/50 transition-all duration-300'
         >
           Get Started →
         </motion.button>

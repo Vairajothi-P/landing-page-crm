@@ -6,15 +6,17 @@ import Plans from "../components/Plans";
 
 export default function PricingPage() {
   return (
-    <div id='pricing' className='relative w-full min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white px-2 sm:px-8 lg:px-16 overflow-x-hidden'>
+    <div
+      id='pricing'
+      className='relative w-full min-h-screen bg-gradient-to-br from-gray-100 via-blue-50 to-indigo-50 text-gray-900 px-2 sm:px-8 lg:px-16 overflow-x-hidden'
+    >
       <Navbar />
-     
 
       {/* Background Decorative Elements */}
       <div className='absolute inset-0 pointer-events-none'>
-        <div className='absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl' />
-        <div className='absolute bottom-40 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl' />
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl' />
+        <div className='absolute top-20 left-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl' />
+        <div className='absolute bottom-40 right-10 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl' />
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-200/10 rounded-full blur-3xl' />
       </div>
 
       <div className='relative max-w-7xl mx-auto mt-8'>
@@ -24,38 +26,37 @@ export default function PricingPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6 }}
-          className="relative text-center mb-20"
+          className='relative text-center mb-20'
         >
           {/* Back Button */}
           <button
             onClick={() => window.history.back()}
-            className="absolute left-0 top-14 bg-gradient-to-r from-sky-400 to-indigo-500 text-black flex items-center gap-2 px-4 py-2 rounded-full border border-black/20 hover:gap-3 transition-all cursor-pointer"
+            className='absolute left-0 top-14 bg-gradient-to-r from-sky-400 to-indigo-500 text-black flex items-center gap-2 px-4 py-2 rounded-full border border-black/20 hover:gap-3 transition-all cursor-pointer'
           >
-            <span className="text-lg">←</span>
-            <span className="hidden sm:inline">Back</span>
+            <span className='text-lg'>←</span>
+            <span className='hidden sm:inline'>Back</span>
           </button>
 
           {/* Icon */}
-          <div className="text-center">
+          <div className='text-center'>
             <img
-              src="https://img.icons8.com/fluency/96/price-tag.png"
-              alt="Pricing"
-              className="w-16 h-16 mx-auto"
+              src='https://img.icons8.com/fluency/96/price-tag.png'
+              alt='Pricing'
+              className='w-16 h-16 mx-auto'
             />
           </div>
 
           {/* Heading */}
-          <h1 className="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-2">
+          <h1 className='text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-2'>
             Pricing Plans
           </h1>
 
           {/* Description */}
-          <p className="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className='text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed'>
             Flexible plans designed for manufacturing teams at every stage.
             Start with the essentials and add capabilities as you scale.
           </p>
         </motion.div>
-
 
         <Plans />
 
@@ -84,15 +85,15 @@ export default function PricingPage() {
               </svg>
             </div>
             <h2 className='text-4xl font-bold mb-4'>Add-Ons Marketplace</h2>
-            <p className='text-slate-300 text-lg max-w-3xl mx-auto mb-12'>
-              Separate purchase for Basic, optional for Professional/Ultimate
-              as noted.
+            <p className='text-gray-600 text-lg max-w-3xl mx-auto mb-12'>
+              Separate purchase for Basic, optional for Professional/Ultimate as
+              noted.
             </p>
           </div>
 
           {/* CRM & HR Add-Ons Section */}
           <div className='mb-16'>
-            <h3 className='text-2xl font-bold mb-6 text-blue-300'>
+            <h3 className='text-2xl font-bold mb-6 text-blue-600'>
               CRM & HR Add-Ons
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -138,7 +139,7 @@ export default function PricingPage() {
 
           {/* Growth & Marketing Add-Ons Section */}
           <div className='mb-16'>
-            <h3 className='text-2xl font-bold mb-6 text-purple-300'>
+            <h3 className='text-2xl font-bold mb-6 text-purple-600'>
               Growth & Marketing Add-Ons
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -171,7 +172,6 @@ export default function PricingPage() {
         </motion.div>
       </div>
     </div>
-
   );
 }
 
@@ -195,15 +195,15 @@ function PlanCard({
       transition={{ duration: 0.6 }}
       whileHover={{ y: -8 }}
       className={
-        "relative h-full rounded-3xl border bg-gradient-to-b from-slate-900/80 to-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 flex flex-col" +
+        "relative h-full rounded-3xl border bg-gradient-to-b from-white/80 to-gray-50/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 flex flex-col" +
         (highlight
-          ? " border-blue-500/60 shadow-2xl shadow-blue-900/40 ring-1 ring-blue-400/20"
-          : " border-slate-700/50 hover:border-slate-600/50")
+          ? " border-blue-300/60 shadow-2xl shadow-blue-200/40 ring-1 ring-blue-200/20"
+          : " border-gray-300/50 hover:border-gray-400/50")
       }
     >
       {/* Gradient overlay for highlight */}
       {highlight && (
-        <div className='absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl pointer-events-none' />
+        <div className='absolute inset-0 bg-gradient-to-br from-blue-100/5 via-purple-100/5 to-pink-100/5 rounded-3xl pointer-events-none' />
       )}
 
       {badge ? (
@@ -223,10 +223,10 @@ function PlanCard({
           <span className='text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
             {price}
           </span>
-          <span className='text-slate-400 text-lg'>{period}</span>
+          <span className='text-gray-500 text-lg'>{period}</span>
         </div>
         {blurb ? (
-          <p className='mt-4 text-slate-300 text-base leading-relaxed'>
+          <p className='mt-4 text-gray-600 text-base leading-relaxed'>
             {blurb}
           </p>
         ) : null}
@@ -235,7 +235,7 @@ function PlanCard({
       <div className='relative space-y-8 mb-8 flex-grow'>
         {sections?.map((sec) => (
           <div key={sec.heading}>
-            <h4 className='text-sm font-bold text-blue-300 uppercase tracking-wider mb-3'>
+            <h4 className='text-sm font-bold text-blue-600 uppercase tracking-wider mb-3'>
               {sec.heading}
             </h4>
             <ul className='space-y-2.5'>
@@ -247,7 +247,7 @@ function PlanCard({
                 return (
                   <li
                     key={i}
-                    className='flex gap-3 text-slate-200 text-sm leading-relaxed'
+                    className='flex gap-3 text-gray-700 text-sm leading-relaxed'
                   >
                     {itemIcon ? (
                       <div className='shrink-0 mt-0.5'>
@@ -255,7 +255,7 @@ function PlanCard({
                       </div>
                     ) : (
                       <svg
-                        className='w-5 h-5 text-blue-400 shrink-0 mt-0.5'
+                        className='w-5 h-5 text-blue-500 shrink-0 mt-0.5'
                         fill='none'
                         viewBox='0 0 24 24'
                         stroke='currentColor'
@@ -280,14 +280,14 @@ function PlanCard({
       {/* Add-ons Section */}
       {addons && addons.length > 0 && (
         <div className='relative mb-6'>
-          <h4 className='text-sm font-bold text-purple-300 uppercase tracking-wider mb-4'>
+          <h4 className='text-sm font-bold text-purple-600 uppercase tracking-wider mb-4'>
             {addonsTitle || "Add-Ons"}
           </h4>
           <div className='space-y-3'>
             {addons.map((addon, idx) => (
               <div
                 key={idx}
-                className='rounded-lg border border-slate-600/50 bg-gradient-to-br from-slate-800/60 to-slate-800/30 p-4 hover:border-purple-500/50 transition-all duration-300'
+                className='rounded-lg border border-gray-300/50 bg-gradient-to-br from-gray-50/60 to-gray-100/30 p-4 hover:border-purple-300/50 transition-all duration-300'
               >
                 <div className='flex items-start gap-3'>
                   <div className='shrink-0 mt-0.5'>
@@ -295,14 +295,14 @@ function PlanCard({
                   </div>
                   <div className='flex-1'>
                     <div className='flex items-baseline justify-between gap-2 mb-1'>
-                      <h5 className='font-semibold text-white text-sm'>
+                      <h5 className='font-semibold text-gray-900 text-sm'>
                         {addon.title}
                       </h5>
                       <span className='text-purple-400 font-bold text-xs whitespace-nowrap'>
                         {addon.price}
                       </span>
                     </div>
-                    <p className='text-slate-400 text-xs leading-relaxed'>
+                    <p className='text-gray-500 text-xs leading-relaxed'>
                       {addon.description}
                     </p>
                   </div>
@@ -317,7 +317,7 @@ function PlanCard({
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className='w-full py-4 rounded-xl font-bold text-base bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:shadow-xl hover:shadow-purple-900/50 transition-all duration-300'
+          className='w-full py-4 rounded-xl font-bold text-base bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:shadow-xl hover:shadow-purple-200/50 transition-all duration-300'
         >
           Get Started →
         </motion.button>
@@ -333,7 +333,7 @@ function AddonsCard({ title, items }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.5 }}
-      className='rounded-3xl border border-slate-700/50 bg-gradient-to-br from-slate-900/80 to-slate-900/40 backdrop-blur-xl p-8 hover:border-slate-600/50 transition-all duration-300'
+      className='rounded-3xl border border-gray-300/50 bg-gradient-to-br from-white/80 to-gray-50/40 backdrop-blur-xl p-8 hover:border-gray-400/50 transition-all duration-300'
     >
       <div className='flex items-center gap-3 mb-6'>
         <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center'>
@@ -357,10 +357,10 @@ function AddonsCard({ title, items }) {
         {items.map((it, i) => (
           <li
             key={i}
-            className='flex gap-3 text-slate-200 text-sm leading-relaxed'
+            className='flex gap-3 text-gray-700 text-sm leading-relaxed'
           >
             <svg
-              className='w-5 h-5 text-purple-400 shrink-0 mt-0.5'
+              className='w-5 h-5 text-purple-500 shrink-0 mt-0.5'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -388,26 +388,26 @@ function AddonBox({ icon, title, price, period, description, note }) {
       viewport={{ once: false }}
       transition={{ duration: 0.4 }}
       whileHover={{ y: -4 }}
-      className='rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-900/70 to-slate-900/30 backdrop-blur-lg p-6 hover:border-slate-600/50 hover:shadow-lg hover:shadow-purple-900/20 transition-all duration-300'
+      className='rounded-2xl border border-gray-300/50 bg-gradient-to-br from-white/70 to-gray-50/30 backdrop-blur-lg p-6 hover:border-gray-400/50 hover:shadow-lg hover:shadow-purple-200/20 transition-all duration-300'
     >
       <div className='flex items-start gap-4 mb-4'>
         <div className='w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/15 to-purple-500/15 flex items-center justify-center shrink-0'>
           {getIconSVG(icon)}
         </div>
         <div className='flex-1'>
-          <h4 className='text-lg font-bold text-white mb-1'>{title}</h4>
+          <h4 className='text-lg font-bold text-gray-900 mb-1'>{title}</h4>
           <div className='flex items-baseline gap-1'>
             <span className='text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
               {price}
             </span>
-            <span className='text-slate-400 text-sm'>{period}</span>
+            <span className='text-gray-500 text-sm'>{period}</span>
           </div>
         </div>
       </div>
-      <p className='text-slate-300 text-sm leading-relaxed mb-3'>
+      <p className='text-gray-600 text-sm leading-relaxed mb-3'>
         {description}
       </p>
-      {note && <p className='text-xs text-slate-500 italic'>{note}</p>}
+      {note && <p className='text-xs text-gray-500 italic'>{note}</p>}
     </motion.div>
   );
 }

@@ -24,7 +24,7 @@ export default function Testimonials({ fadeUp }) {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="text-2xl font-bold text-white"
+          className="text-2xl font-bold text-black"
         >
           What customers say
         </motion.h3>
@@ -40,10 +40,10 @@ export default function Testimonials({ fadeUp }) {
                 y: 0,
                 transition: { delay: idx * 0.05 },
               }}
-              className="p-6 rounded-xl bg-white/4 border border-white/6 text-left"
+              className="p-6 rounded-xl bg-white/4 border border-black/6 text-left"
             >
-              <p className="text-slate-100">“{t.text}”</p>
-              <footer className="mt-4 text-sm text-slate-300">
+              <p className="text-black">“{t.text}”</p>
+              <footer className="mt-4 text-sm text-black">
                 — {t.name}, <span>{t.role}</span>
               </footer>
             </motion.blockquote>

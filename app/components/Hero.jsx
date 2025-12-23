@@ -5,87 +5,96 @@ import { motion } from "framer-motion";
 
 export default function Hero({ fadeUp }) {
   return (
-    <section className="pt-10 pb-16">
+    <section className="relative pt-10 pb-16 overflow-hidden bg-[#f7f8fc]">
+
+      {/* ===== EXACT SAAS BACKGROUND (LIKE REFERENCE) ===== */}
+      <div className="absolute inset-0 -z-10">
+
+        {/* Mesh gradient wash */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(139,92,246,0.18),transparent_40%),radial-gradient(circle_at_80%_25%,rgba(56,189,248,0.18),transparent_40%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,1),transparent_65%)]" />
+
+        {/* Purple animated glow */}
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.4, 0.25] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-violet-400/30 blur-[140px]"
+        />
+
+        {/* Blue animated glow */}
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.35, 0.2] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-32 -right-40 w-[600px] h-[600px] rounded-full bg-sky-400/30 blur-[140px]"
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        {/* LEFT */}
+
+        {/* LEFT CONTENT */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/6 px-3 py-1 text-xs font-medium text-sky-300/90 shadow-sm">
-            <svg
-              className="w-3 h-3"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="8"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            </svg>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-violet-100 px-3 py-1 text-xs font-medium text-violet-600 shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-violet-500" />
             Sell Smarter With Automation
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_8px_48px_rgba(14,165,233,0.08)]">
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-sky-300 via-indigo-300 to-purple-300 ml-3">
-              Profit Engine for smart marketers
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
+            Profit Engine for{" "}
+            <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+              modern teams
             </span>
           </h1>
 
-          <p className="mt-6 text-slate-300 max-w-xl">
-            A unified platform that connects growth, management, operations into
-            one system.
+          <p className="mt-6 text-slate-600 max-w-xl">
+            A unified platform that connects growth, management, and operations
+            into one powerful system.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="/form"
-              className="inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+              className="inline-flex items-center gap-3 rounded-full bg-violet-600 text-white px-6 py-3 font-semibold shadow-lg hover:bg-violet-700 transition"
             >
-              Request demo
+              Start Free Trial
             </a>
+
             <a
               href="/features"
-              className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/3 transition"
+              className="inline-flex items-center gap-3 rounded-full border border-slate-300 px-6 py-3 text-slate-700 hover:bg-slate-50 transition"
             >
-              Explore features
+              View Demo
             </a>
           </div>
 
           <div className="mt-8 flex items-center gap-8">
             <div>
-              <p className="text-3xl font-extrabold text-white">3x</p>
-              <p className="text-sm text-slate-400">average lead growth</p>
+              <p className="text-3xl font-extrabold text-slate-900">3x</p>
+              <p className="text-sm text-slate-500">lead growth</p>
             </div>
             <div>
-              <p className="text-3xl font-extrabold text-white">40%</p>
-              <p className="text-sm text-slate-400">reduction in manual work</p>
+              <p className="text-3xl font-extrabold text-slate-900">40%</p>
+              <p className="text-sm text-slate-500">less manual work</p>
             </div>
           </div>
         </motion.div>
 
-        {/* RIGHT */}
+        {/* RIGHT IMAGE */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
         >
-          <div className="w-full aspect-4/3 rounded-2xl bg-linear-to-br from-white/3 via-white/6 to-transparent p-6 flex items-center justify-center shadow-2xl backdrop-blur-sm border border-white/6">
-            {/* hero image - replace /hero.jpg with your asset in public/ */}
-            <div className="relative w-full h-full rounded-lg overflow-hidden">
+          <div className="w-full aspect-4/3 rounded-2xl bg-white p-6 shadow-xl border border-slate-200">
+            <div className="relative w-full h-full rounded-xl overflow-hidden">
               <Image
                 src="/hero2.jpg"
-                alt="Hero mockup"
+                alt="Dashboard preview"
                 fill
                 className="object-cover"
               />
-              {/* neon overlay */}
-              <div className="absolute inset-0 mix-blend-screen pointer-events-none">
-                <div className="absolute -left-16 -top-16 w-64 h-64 rounded-full bg-[conic-gradient(from_180deg_at_50%_50%,rgba(14,165,233,0.12),rgba(124,58,237,0.08),transparent)] blur-2xl opacity-90"></div>
-              </div>
             </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );

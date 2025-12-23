@@ -340,7 +340,7 @@ export default function FeaturesSection() {
   };
 
   return (
-    <section className='relative min-h-screen w-full scroll-smooth bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white overflow-x-hidden'>
+    <section className='relative min-h-screen w-full scroll-smooth bg-white text-black overflow-x-hidden'>
       <Navbar />
       <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-0'>
         {/* Header row */}
@@ -353,7 +353,7 @@ export default function FeaturesSection() {
           {/* Back Button */}
           <button
             onClick={() => window.history.back()}
-            className='flex px-4 py-2 border rounded-full text-black items-center gap-2 bg-linear-to-r from-sky-400 to-indigo-500'
+            className='flex px-4 py-2 border border-black/8 rounded-full text-black items-center gap-2 bg-linear-to-r from-sky-400 to-indigo-500'
           >
             <span className='text-lg'>←</span>
             Back
@@ -361,8 +361,8 @@ export default function FeaturesSection() {
 
           {/* Heading */}
           <div className='text-center flex-1'>
-            <h2 className='text-4xl font-bold text-white'>Features</h2>
-            <p className='text-slate-300 mt-3 max-w-2xl mx-auto'>
+            <h2 className='text-4xl font-bold text-black'>Features</h2>
+            <p className='text-black mt-3 max-w-2xl mx-auto'>
               Explore product capabilities across Operations, Management, and
               Growth—built for modern SaaS.
             </p>
@@ -386,8 +386,8 @@ export default function FeaturesSection() {
                 className={[
                   "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium",
                   isActive
-                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
-                    : "border-white/10 bg-white/4 text-white hover:scale-105",
+                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blupurple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+                    : "border-black/10 bg-black/4 text-black hover:scale-105",
                 ].join(" ")}
               >
                 {layer.title}
@@ -398,7 +398,7 @@ export default function FeaturesSection() {
 
         {/* Layer description */}
         <div className='max-w-3xl mx-auto text-center mb-8'>
-          <p className='text-slate-300 mb-6'>
+          <p className='text-black mb-6'>
             {LAYERS.find((l) => l.id === activeLayer)?.description}
           </p>
         </div>
@@ -411,7 +411,7 @@ export default function FeaturesSection() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedSubFeatureId(sf.id)}
-              className='text-left bg-white/4 border border-white/10 rounded-xl p-5 text-white transition-shadow hover:shadow-lg hover:shadow-indigo-500/20'
+              className='text-left bg-white/4 border border-black/10 rounded-xl p-5 text-black transition-shadow hover:shadow-lg hover:shadow-indigo-500/20'
             >
               <div className='flex items-center justify-between gap-3'>
                 <h4 className='text-lg font-semibold'>{sf.title}</h4>
@@ -419,7 +419,7 @@ export default function FeaturesSection() {
                   View
                 </span>
               </div>
-              <p className='text-slate-300 mt-2 line-clamp-2'>
+              <p className='text-black mt-2 line-clamp-2'>
                 {/* Match description via look-up for consistency */}
                 {SUB_FEATURES.find((s) => s.id === sf.id)?.description}
               </p>
@@ -438,23 +438,23 @@ export default function FeaturesSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 24 }}
                 transition={{ duration: 0.5 }}
-                className='bg-white/4 border border-white/10 rounded-2xl p-8 md:p-10 shadow-xl'
+                className='bg-white/4 border border-black/10 rounded-2xl p-8 md:p-10 shadow-xl'
               >
                 {/* Back to features */}
                 <div className='flex items-center justify-between mb-6'>
-                  <h3 className='text-2xl md:text-3xl font-bold text-white'>
+                  <h3 className='text-2xl md:text-3xl font-bold text-black'>
                     {selectedSubFeature.title}
                   </h3>
                   <button
                     onClick={handleBackToFeatures}
-                    className='text-sm font-medium px-4 py-2 rounded-lg border border-white/10 bg-white/4 text-white hover:scale-105 transition-all'
+                    className='text-sm font-medium px-4 py-2 rounded-lg border border-black/10 bg-black/4 text-black hover:scale-105 transition-all'
                   >
                     Back to Features
                   </button>
                 </div>
 
                 {/* Description */}
-                <p className='text-slate-300 mb-6'>
+                <p className='text-black mb-6'>
                   {selectedSubFeature.description}
                 </p>
 
@@ -469,9 +469,9 @@ export default function FeaturesSection() {
                       {selectedSubFeature.features.map((feat, idx) => (
                         <li
                           key={idx}
-                          className='bg-white/4 border border-white/10 rounded-lg px-4 py-3 flex items-center text-white'
+                          className='bg-white/4 border border-black/10 rounded-lg px-4 py-3 flex items-center text-black'
                         >
-                          <div className='text-white font-medium'>{feat}</div>
+                          <div className='text-black font-medium'>{feat}</div>
                         </li>
                       ))}
                     </ul>
@@ -502,10 +502,10 @@ export default function FeaturesSection() {
                     {selectedSubFeature.benefits.map((benefit, idx) => (
                       <li
                         key={idx}
-                        className='bg-white/4 border border-white/10 rounded-lg p-4'
+                        className='bg-white/4 border border-black/10 rounded-lg p-4'
                       >
-                        <div className='text-white font-medium'>{benefit}</div>
-                        <p className='text-slate-300 text-sm mt-1'>
+                        <div className='text-black font-medium'>{benefit}</div>
+                        <p className='text-black text-sm mt-1'>
                           {idx === 0
                             ? "Measure impact with inventory turns, cycle time, and forecast accuracy."
                             : ""}

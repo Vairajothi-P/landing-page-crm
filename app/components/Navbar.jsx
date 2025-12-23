@@ -5,67 +5,75 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 md:top-4 z-30">
+    <header className="sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between py-4 backdrop-blur-sm bg-black/20 border border-white/5 rounded-full px-4">
-          <Link href="#" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg overflow-hidden">
+        <div className="mt-4 flex items-center justify-between rounded-2xl border border-slate-200/60 bg-white/80 backdrop-blur-xl px-5 py-4 shadow-lg shadow-slate-200/40">
+
+          {/* LOGO */}
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm">
               <Image src="/logo.jpg" alt="Logo" width={40} height={40} />
             </div>
-            <span className="font-semibold tracking-wide text-white">
+            <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-indigo-500 bg-clip-text text-transparent">
               Smart Profit Engine
             </span>
+        </Link>
+
+        {/* DESKTOP NAV */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a
+            href="/"
+            className="text-slate-600 hover:text-violet-600 transition-colors"
+          >
+            Home
+          </a>
+          <a
+            href="/features"
+            className="text-slate-600 hover:text-violet-600 transition-colors"
+          >
+            Features
+          </a>
+          <a
+            href="/#how"
+            className="text-slate-600 hover:text-violet-600 transition-colors"
+          >
+            How it works
+          </a>
+          <a
+            href="/pricing"
+            className="text-slate-600 hover:text-violet-600 transition-colors"
+          >
+            Pricing
+          </a>
+          <a
+            href="/#footer"
+            className="text-slate-600 hover:text-violet-600 transition-colors"
+          >
+            About
+          </a>
+        </nav>
+
+        {/* CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <Link
+            href="/form"
+            className="rounded-full bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700 hover:-translate-y-0.5 transition-all"
+          >
+            Start free trial
           </Link>
+        </div>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-200/90">
-            <a
-              href="/"
-              className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition"
-            >
-              Home
-            </a>
-            <a
-              href="/features"
-              className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition"
-            >
-              Features
-            </a>
-            <a
-              href="/#how"
-              className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition"
-            >
-              How it works
-            </a>
-            <a
-              href="/pricing"
-              className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition"
-            >
-              Pricing
-            </a>
-            <a
-              href="/#footer"
-              className="inline-flex items-center gap-3 rounded-full border border-white/8 px-5 py-3 text-slate-200 hover:bg-white/5 transition"
-            >
-              About
-            </a>
-            <Link
-              href="/form"
-              className="inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
-            >
-              Start free trial
-            </Link>
-          </nav>
-
-          <div className="md:hidden">
-            <Link
-              href="#demo"
-              className="px-4 py-2 rounded-full bg-indigo-600 text-white text-sm"
-            >
-              Demo
-            </Link>
-          </div>
+        {/* MOBILE CTA */}
+        <div className="md:hidden">
+          <Link
+            href="/form"
+            className="rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-md"
+          >
+            Get Started
+          </Link>
         </div>
       </div>
-    </header>
+    </div>
+    </header >
   );
 }

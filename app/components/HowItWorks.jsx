@@ -20,7 +20,7 @@ const HowItWorkss = [
     description:
       "Digitize manufacturing, finance, and order workflows into a single system (Quotes → Sales Orders → Production → Invoicing → Inventory)",
     icon: "🔍",
-    color: "#6366f1",
+    color: "#2B9B7E", // Brand Teal
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const HowItWorkss = [
     description:
       "Centralize CRM, tasks, teams, and customers for real-time control and visibility",
     icon: "📋",
-    color: "#8b5cf6",
+    color: "#0D5B91", // Brand Blue
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const HowItWorkss = [
     description:
       "Automate workflows, follow-ups, approvals, and data movement across departments",
     icon: "⚙️",
-    color: "#ec4899",
+    color: "#1A365D", // Brand Dark Blue
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const HowItWorkss = [
     description:
       "Track performance across operations, pipeline, and campaigns with AI-driven insights",
     icon: "📈",
-    color: "#14b8a6",
+    color: "#2B9B7E",
   },
   {
     id: 5,
@@ -52,13 +52,13 @@ const HowItWorkss = [
     description:
       "Activate GTM, marketing automation, and ad exchange to drive and scale demand",
     icon: "🚀",
-    color: "#10b981",
+    color: "#0D5B91",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <div className='w-full py-32 px-6' id='how'>
+    <div className='w-full py-16 px-6' id='how'>
       <div className='max-w-3xl mx-auto'>
         {/* Header */}
         <motion.div
@@ -66,12 +66,12 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
-          className='text-center mb-32'
+          className='text-center mb-16'
         >
-          <h2 className='text-5xl font-bold text-gray-900 mb-4'>
+          <h2 className='text-5xl font-extrabold text-accent mb-6'>
             Our Smart Workflow
           </h2>
-          <p className='text-lg text-gray-600'>
+          <p className='text-xl text-slate-600 font-medium'>
             5 proven stages to transform your strategy into results
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export default function HowItWorks() {
         {/* Vertical Timeline */}
         <div className='relative'>
           {/* Center Line */}
-          <div className='absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-gray-300 via-blue-500/50 to-gray-300' />
+          <div className='absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-200 via-primary/50 to-slate-200' />
 
           {/* Steps */}
           <div className='space-y-20'>
@@ -90,26 +90,25 @@ export default function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: false, margin: "-100px" }}
-                className={`flex items-center gap-8 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                }`}
+                className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  }`}
               >
                 {/* Content */}
                 <div className='flex-1'>
                   <motion.div
-                    whileHover={{ x: index % 2 === 0 ? 10 : -10 }}
-                    className='bg-gray-100 backdrop-blur-sm border border-gray-300 rounded-lg p-6 hover:border-gray-400 transition-colors'
+                    whileHover={{ scale: 1.02, x: index % 2 === 0 ? 10 : -10 }}
+                    className='bg-white/80 backdrop-blur-sm border border-slate-200 rounded-2xl p-8 shadow-xl hover:border-primary/40 transition-all'
                   >
-                    <div className='flex items-center gap-3 mb-2'>
-                      <span className='text-2xl'>{step.icon}</span>
+                    <div className='flex items-center gap-4 mb-3'>
+                      <span className='text-3xl'>{step.icon}</span>
                       <h3
-                        className='text-xl font-bold'
+                        className='text-2xl font-bold'
                         style={{ color: step.color }}
                       >
                         {step.title}
                       </h3>
                     </div>
-                    <p className='text-gray-600 text-sm'>{step.description}</p>
+                    <p className='text-slate-600 text-md font-medium'>{step.description}</p>
                   </motion.div>
                 </div>
 
@@ -123,13 +122,13 @@ export default function HowItWorks() {
                 >
                   <motion.div
                     animate={{
-                      boxShadow: `0 0 20px ${step.color}88`,
+                      boxShadow: `0 0 25px ${step.color}66`,
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className='w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10 border-4'
+                    className='w-14 h-14 rounded-full flex items-center justify-center font-bold text-white z-10 border-4 shadow-lg'
                     style={{
                       backgroundColor: step.color,
-                      borderColor: "#e5e7eb",
+                      borderColor: "#ffffff",
                     }}
                   >
                     {step.id}
@@ -152,8 +151,8 @@ export default function HowItWorks() {
             style={{
               borderLeft: "8px solid transparent",
               borderRight: "8px solid transparent",
-              borderTop: "16px solid #3b82f6",
-              filter: "drop-shadow(0 0 8px #3b82f644)",
+              borderTop: "16px solid var(--brand-teal)",
+              filter: "drop-shadow(0 0 10px rgba(43, 155, 126, 0.4))",
             }}
           />
         </div>
@@ -164,18 +163,14 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: false }}
-          className='text-center mt-32'
+          className='text-center mt-16'
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className='inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition'
-            style={{
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-            }}
+          <Link
+            href="/form"
+            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-secondary to-primary text-white px-10 py-4 font-bold shadow-2xl hover:shadow-primary/30 transition transform hover:scale-105"
           >
-            <Link href='/pricing'>Start Your Growth Journey</Link>
-          </motion.button>
+            Start Your Growth Journey
+          </Link>
         </motion.div>
       </div>
     </div>

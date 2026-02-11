@@ -250,20 +250,20 @@ function PlanCard({
       transition={{ duration: 0.6 }}
       whileHover={{ y: -8 }}
       className={
-        "relative h-full rounded-3xl border bg-gradient-to-b from-white/80 to-gray-50/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 flex flex-col" +
+        "relative h-full rounded-3xl border bg-white/80 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 flex flex-col" +
         (highlight
-          ? " border-blue-300/60 shadow-2xl shadow-blue-200/40 ring-1 ring-blue-200/20"
-          : " border-gray-300/50 hover:border-gray-400/50")
+          ? " border-primary/40 shadow-2xl shadow-primary/10 ring-2 ring-primary/10"
+          : " border-slate-200 hover:border-primary/30 shadow-lg")
       }
     >
       {/* Gradient overlay for highlight */}
       {highlight && (
-        <div className='absolute inset-0 bg-gradient-to-br from-blue-100/5 via-purple-100/5 to-pink-100/5 rounded-3xl pointer-events-none' />
+        <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent rounded-3xl pointer-events-none' />
       )}
 
       {badge ? (
-        <div className='absolute -top-4 left-1/2 -translate-x-1/2'>
-          <span className='px-5 py-2 text-sm font-bold rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-lg shadow-purple-900/50'>
+        <div className='absolute -top-4 left-1/2 -translate-x-1/2 z-20'>
+          <span className='px-5 py-2 text-sm font-bold rounded-full bg-gradient-to-r from-secondary to-primary text-white shadow-lg shadow-primary/20 whitespace-nowrap'>
             {badge}
           </span>
         </div>
@@ -273,15 +273,15 @@ function PlanCard({
         {/* Icon */}
         <div className='mb-6'>{icon}</div>
 
-        <h3 className='text-2xl font-bold mb-3'>{title}</h3>
+        <h3 className='text-2xl font-bold mb-3 text-accent'>{title}</h3>
         <div className='flex items-baseline gap-2'>
-          <span className='text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+          <span className='text-4xl font-extrabold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent'>
             {price}
           </span>
-          <span className='text-gray-500 text-lg'>{period}</span>
+          <span className='text-slate-500 text-lg font-medium'>{period}</span>
         </div>
         {blurb ? (
-          <p className='mt-4 text-gray-600 text-base leading-relaxed'>
+          <p className='mt-4 text-slate-600 text-base leading-relaxed font-medium'>
             {blurb}
           </p>
         ) : null}
@@ -290,10 +290,10 @@ function PlanCard({
       <div className='relative space-y-8 mb-8 flex-grow'>
         {sections?.map((sec) => (
           <div key={sec.heading}>
-            <h4 className='text-sm font-bold text-blue-600 uppercase tracking-wider mb-3'>
+            <h4 className='text-xs font-bold text-primary uppercase tracking-widest mb-4'>
               {sec.heading}
             </h4>
-            <ul className='space-y-2.5'>
+            <ul className='space-y-3'>
               {sec.items.map((it, i) => {
                 const isObject = typeof it === "object";
                 const itemText = isObject ? it.text : it;
@@ -302,7 +302,7 @@ function PlanCard({
                 return (
                   <li
                     key={i}
-                    className='flex gap-3 text-gray-700 text-sm leading-relaxed'
+                    className='flex gap-3 text-slate-700 text-sm leading-relaxed font-medium'
                   >
                     {itemIcon ? (
                       <div className='shrink-0 mt-0.5'>
@@ -310,7 +310,7 @@ function PlanCard({
                       </div>
                     ) : (
                       <svg
-                        className='w-5 h-5 text-blue-500 shrink-0 mt-0.5'
+                        className='w-5 h-5 text-primary shrink-0 mt-0.5'
                         fill='none'
                         viewBox='0 0 24 24'
                         stroke='currentColor'
@@ -334,15 +334,15 @@ function PlanCard({
 
       {/* Add-ons Section */}
       {addons && addons.length > 0 && (
-        <div className='relative mb-6'>
-          <h4 className='text-sm font-bold text-purple-600 uppercase tracking-wider mb-4'>
+        <div className='relative mb-8'>
+          <h4 className='text-xs font-bold text-secondary uppercase tracking-widest mb-4'>
             {addonsTitle || "Add-Ons"}
           </h4>
           <div className='space-y-3'>
             {addons.map((addon, idx) => (
               <div
                 key={idx}
-                className='rounded-lg border border-gray-300/50 bg-gradient-to-br from-gray-50/60 to-gray-100/30 p-4 hover:border-purple-300/50 transition-all duration-300'
+                className='rounded-xl border border-slate-200 bg-slate-50/50 p-4 hover:border-secondary/30 transition-all duration-300'
               >
                 <div className='flex items-start gap-3'>
                   <div className='shrink-0 mt-0.5'>
@@ -350,14 +350,14 @@ function PlanCard({
                   </div>
                   <div className='flex-1'>
                     <div className='flex items-baseline justify-between gap-2 mb-1'>
-                      <h5 className='font-semibold text-gray-900 text-sm'>
+                      <h5 className='font-bold text-accent text-sm'>
                         {addon.title}
                       </h5>
-                      <span className='text-purple-400 font-bold text-xs whitespace-nowrap'>
+                      <span className='text-secondary font-bold text-xs whitespace-nowrap'>
                         {addon.price}
                       </span>
                     </div>
-                    <p className='text-gray-500 text-xs leading-relaxed'>
+                    <p className='text-slate-500 text-xs leading-relaxed font-medium'>
                       {addon.description}
                     </p>
                   </div>
@@ -372,7 +372,7 @@ function PlanCard({
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className='w-full py-4 rounded-xl font-bold text-base bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:shadow-xl hover:shadow-purple-200/50 transition-all duration-300'
+          className='w-full py-4 rounded-xl font-bold text-base text-white bg-gradient-to-r from-secondary to-primary shadow-lg hover:shadow-primary/20 transition-all'
         >
           Get Started →
         </motion.button>

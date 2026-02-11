@@ -128,46 +128,46 @@ const FEATURES = [
 
 const colorClasses = {
   blue: {
-    iconBg: "bg-blue-500/10",
-    iconText: "text-blue-400",
-    border: "border-blue-500/20",
-    hoverBorder: "group-hover:border-blue-500/40",
-    accent: "bg-blue-500/5",
+    iconBg: "bg-secondary/10",
+    iconText: "text-secondary",
+    border: "border-secondary/20",
+    hoverBorder: "group-hover:border-secondary/40",
+    accent: "bg-secondary/5",
   },
   purple: {
-    iconBg: "bg-purple-500/10",
-    iconText: "text-purple-400",
-    border: "border-purple-500/20",
-    hoverBorder: "group-hover:border-purple-500/40",
-    accent: "bg-purple-500/5",
+    iconBg: "bg-primary/10",
+    iconText: "text-primary",
+    border: "border-primary/20",
+    hoverBorder: "group-hover:border-primary/40",
+    accent: "bg-primary/5",
   },
   orange: {
-    iconBg: "bg-orange-500/10",
-    iconText: "text-orange-400",
-    border: "border-orange-500/20",
-    hoverBorder: "group-hover:border-orange-500/40",
-    accent: "bg-orange-500/5",
+    iconBg: "bg-accent/10",
+    iconText: "text-accent",
+    border: "border-accent/20",
+    hoverBorder: "group-hover:border-accent/40",
+    accent: "bg-accent/5",
   },
   green: {
-    iconBg: "bg-green-500/10",
-    iconText: "text-green-400",
-    border: "border-green-500/20",
-    hoverBorder: "group-hover:border-green-500/40",
-    accent: "bg-green-500/5",
+    iconBg: "bg-primary/10",
+    iconText: "text-primary",
+    border: "border-primary/20",
+    hoverBorder: "group-hover:border-primary/40",
+    accent: "bg-primary/5",
   },
   indigo: {
-    iconBg: "bg-indigo-500/10",
-    iconText: "text-indigo-400",
-    border: "border-indigo-500/20",
-    hoverBorder: "group-hover:border-indigo-500/40",
-    accent: "bg-indigo-500/5",
+    iconBg: "bg-secondary/10",
+    iconText: "text-secondary",
+    border: "border-secondary/20",
+    hoverBorder: "group-hover:border-secondary/40",
+    accent: "bg-secondary/5",
   },
   violet: {
-    iconBg: "bg-violet-500/10",
-    iconText: "text-violet-400",
-    border: "border-violet-500/20",
-    hoverBorder: "group-hover:border-violet-500/40",
-    accent: "bg-violet-500/5",
+    iconBg: "bg-primary/10",
+    iconText: "text-primary",
+    border: "border-primary/20",
+    hoverBorder: "group-hover:border-primary/40",
+    accent: "bg-primary/5",
   },
 };
 
@@ -223,26 +223,26 @@ export default function Featuressample({ fadeUp }) {
   };
 
   return (
-    <section className="py-20 bg-transparent">
+    <section className="py-12 bg-transparent">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <motion.div variants={titleVariants}>
-            <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 bg-blue-500/10 text-blue-400 border border-blue-500/20">
+            <span className="inline-block px-4 py-2 rounded-full text-sm font-bold mb-4 bg-primary/10 text-primary border border-primary/20 uppercase tracking-widest">
               Complete Marketing Suite
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-accent leading-tight">
               Everything marketing teams need
             </h2>
           </motion.div>
 
           <motion.p
             variants={subtitleVariants}
-            className="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-400"
+            className="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-600"
           >
             From lead capture to nurture workflows and analytics — built to
             scale with your business.
@@ -254,7 +254,7 @@ export default function Featuressample({ fadeUp }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {FEATURES.map((feature, idx) => {
             const colors = colorClasses[feature.color];
@@ -264,11 +264,11 @@ export default function Featuressample({ fadeUp }) {
                 variants={itemVariants}
                 onHoverStart={() => setHoveredIndex(idx)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className={`group relative p-8 rounded-xl border transition-all duration-300 bg-slate-900/40 backdrop-blur-sm ${colors.border} ${colors.hoverBorder}`}
+                className={`group relative p-8 rounded-2xl border transition-all duration-300 bg-white shadow-lg hover:shadow-2xl ${colors.border} ${colors.hoverBorder}`}
               >
                 {/* Animated background on hover */}
                 <motion.div
-                  className={`absolute inset-0 rounded-xl ${colors.accent} opacity-0`}
+                  className={`absolute inset-0 rounded-2xl ${colors.accent} opacity-0`}
                   animate={{
                     opacity: hoveredIndex === idx ? 1 : 0,
                   }}
@@ -282,7 +282,7 @@ export default function Featuressample({ fadeUp }) {
                       y: hoveredIndex === idx ? -4 : 0,
                     }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className={`w-14 h-14 rounded-lg flex items-center justify-center mb-5 ${colors.iconBg} ${colors.iconText}`}
+                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-sm ${colors.iconBg} ${colors.iconText}`}
                   >
                     {feature.icon}
                   </motion.div>
@@ -293,25 +293,27 @@ export default function Featuressample({ fadeUp }) {
                       x: hoveredIndex === idx ? 4 : 0,
                     }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="text-xl font-bold mb-3 text-white"
+                    className="text-xl font-bold mb-3 text-accent"
                   >
                     {feature.title}
                   </motion.h3>
 
                   {/* Description */}
-                  <p className="text-sm leading-relaxed text-slate-400">
+                  <p className="text-md leading-relaxed text-slate-600 font-medium">
                     {feature.desc}
                   </p>
 
                   {/* Interactive arrow indicator */}
                   <motion.div
-                    className={`mt-4 flex items-center gap-2 text-sm font-medium ${colors.iconText}`}
+                    className={`mt-6 flex items-center gap-2 text-sm font-bold ${colors.iconText}`}
                     animate={{
                       x: hoveredIndex === idx ? 8 : 0,
                       opacity: hoveredIndex === idx ? 1 : 0,
                     }}
                     transition={{ duration: 0.3 }}
-                  ></motion.div>
+                  >
+                    Learn more →
+                  </motion.div>
                 </div>
 
                 {/* Corner indicator */}
@@ -329,13 +331,13 @@ export default function Featuressample({ fadeUp }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-center mt-16"
+          className="text-center mt-12"
         >
           <motion.a
             href="/form"
-            whileHover={{ scale: 1.02, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-secondary to-primary text-white px-10 py-4 font-bold shadow-lg hover:shadow-primary/20 transition-all"
           >
             Explore All Features
             <svg

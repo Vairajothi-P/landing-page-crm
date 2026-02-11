@@ -11,69 +11,69 @@ export default function Navbar() {
 
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm">
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-slate-100">
               <Image src="/logo.jpg" alt="Logo" width={40} height={40} />
             </div>
-            <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-indigo-500 bg-clip-text text-transparent">
+            <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
               Smart Profit Engine
             </span>
-        </Link>
-
-        {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a
-            href="/"
-            className="text-slate-600 hover:text-violet-600 transition-colors"
-          >
-            Home
-          </a>
-          <a
-            href="/features"
-            className="text-slate-600 hover:text-violet-600 transition-colors"
-          >
-            Features
-          </a>
-          <a
-            href="/#how"
-            className="text-slate-600 hover:text-violet-600 transition-colors"
-          >
-            How it works
-          </a>
-          <a
-            href="/pricing"
-            className="text-slate-600 hover:text-violet-600 transition-colors"
-          >
-            Pricing
-          </a>
-          <a
-            href="/#footer"
-            className="text-slate-600 hover:text-violet-600 transition-colors"
-          >
-            About
-          </a>
-        </nav>
-
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="/form"
-            className="rounded-full bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 hover:bg-violet-700 hover:-translate-y-0.5 transition-all"
-          >
-            Start free trial
           </Link>
-        </div>
 
-        {/* MOBILE CTA */}
-        <div className="md:hidden">
-          <Link
-            href="/form"
-            className="rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-md"
-          >
-            Get Started
-          </Link>
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a
+              href="/"
+              className="text-slate-600 hover:text-primary transition-colors font-semibold"
+            >
+              Home
+            </a>
+            <a
+              href="/features"
+              className="text-slate-600 hover:text-primary transition-colors font-semibold"
+            >
+              Features
+            </a>
+            <a
+              href="/#how"
+              className="text-slate-600 hover:text-primary transition-colors font-semibold"
+            >
+              How it works
+            </a>
+            <a
+              href="/pricing"
+              className="text-slate-600 hover:text-primary transition-colors font-semibold"
+            >
+              Pricing
+            </a>
+            <a
+              href="/#footer"
+              className="text-slate-600 hover:text-primary transition-colors font-semibold"
+            >
+              About
+            </a>
+          </nav>
+
+          {/* CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link
+              href="/form"
+              className="rounded-full bg-gradient-to-r from-secondary to-primary px-7 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-105 transition-all"
+            >
+              Start free trial
+            </Link>
+          </div>
+
+          {/* MOBILE CTA */}
+          <div className="md:hidden">
+            <Link
+              href="/form"
+              className="rounded-full bg-gradient-to-r from-secondary to-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-105 transition-all"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
     </header >
   );
 }

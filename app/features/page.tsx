@@ -340,20 +340,20 @@ export default function FeaturesSection() {
   };
 
   return (
-    <section className='relative min-h-screen w-full scroll-smooth bg-white text-black overflow-x-hidden'>
+    <section className='relative min-h-screen w-full scroll-smooth bg-transparent text-slate-900 overflow-x-hidden'>
       <Navbar />
-      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-0'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0'>
         {/* Header row */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className='mt-16 mb-10 flex flex-col sm:flex-row items-center gap-4'
+          className='mt-16 mb-12 flex flex-col sm:flex-row items-center gap-6'
         >
           {/* Back Button */}
           <button
             onClick={() => window.history.back()}
-            className='flex px-4 py-2 border border-black/8 rounded-full text-black items-center gap-2 bg-linear-to-r from-sky-400 to-indigo-500'
+            className='flex px-6 py-2.5 rounded-full text-white items-center gap-2 bg-gradient-to-r from-secondary to-primary shadow-lg hover:shadow-primary/20 transition-all font-bold'
           >
             <span className='text-lg'>←</span>
             Back
@@ -361,19 +361,19 @@ export default function FeaturesSection() {
 
           {/* Heading */}
           <div className='text-center flex-1'>
-            <h2 className='text-4xl font-bold text-black'>Features</h2>
-            <p className='text-black mt-3 max-w-2xl mx-auto'>
-              Explore product capabilities across Operations, Management, and
-              Growth—built for modern SaaS.
+            <h1 className='text-4xl md:text-5xl font-extrabold text-accent leading-tight'>Product Capabilities</h1>
+            <p className='text-slate-600 mt-4 text-lg font-medium max-w-2xl mx-auto'>
+              Explore how Pi Bi connects Operations, Management, and
+              Growth—built for modern enterprises.
             </p>
           </div>
 
           {/* Spacer (keeps heading centered) */}
-          <div className='w-[80px]' />
+          <div className='hidden sm:block w-[120px]' />
         </motion.div>
 
         {/* Layer tabs */}
-        <div className='flex justify-center gap-3 mb-10'>
+        <div className='flex justify-center flex-wrap gap-4 mb-12'>
           {LAYERS.map((layer) => {
             const isActive = activeLayer === layer.id;
             return (
@@ -384,10 +384,10 @@ export default function FeaturesSection() {
                   setSelectedSubFeatureId(null);
                 }}
                 className={[
-                  "px-5 py-2 rounded-lg border transition-all duration-300 text-sm font-medium",
+                  "px-8 py-3 rounded-full transition-all duration-300 text-sm font-bold shadow-sm",
                   isActive
-                    ? "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blupurple-600 to-pink-600 text-black px-5 py-3 font-semibold shadow-lg transform-gpu hover:scale-[1.03] transition"
-                    : "border-black/10 bg-black/4 text-black hover:scale-105",
+                    ? "bg-gradient-to-r from-secondary to-primary text-white shadow-lg shadow-primary/20 transform-gpu scale-105"
+                    : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-primary/30",
                 ].join(" ")}
               >
                 {layer.title}
@@ -397,29 +397,29 @@ export default function FeaturesSection() {
         </div>
 
         {/* Layer description */}
-        <div className='max-w-3xl mx-auto text-center mb-8'>
-          <p className='text-black mb-6'>
-            {LAYERS.find((l) => l.id === activeLayer)?.description}
+        <div className='max-w-3xl mx-auto text-center mb-12'>
+          <p className='text-lg font-medium text-slate-700 leading-relaxed italic'>
+            "{LAYERS.find((l) => l.id === activeLayer)?.description}"
           </p>
         </div>
 
         {/* Sub-features grid */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-12'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16'>
           {filteredSubFeatures.map((sf) => (
             <motion.button
               key={sf.id}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02, y: -4 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedSubFeatureId(sf.id)}
-              className='text-left bg-white/4 border border-black/10 rounded-xl p-5 text-black transition-shadow hover:shadow-lg hover:shadow-indigo-500/20'
+              className='text-left bg-white border border-slate-200 rounded-2xl p-6 transition-all shadow-lg hover:shadow-2xl hover:border-primary/40 group'
             >
               <div className='flex items-center justify-between gap-3'>
-                <h4 className='text-lg font-semibold'>{sf.title}</h4>
-                <span className='inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gradient-to-r from-sky-400 to-indigo-500 text-black'>
-                  View
+                <h4 className='text-xl font-bold text-accent group-hover:text-primary transition-colors'>{sf.title}</h4>
+                <span className='inline-flex items-center rounded-full px-5 py-2 text-xs font-bold bg-gradient-to-r from-secondary to-primary text-white shadow-md hover:shadow-primary/20 transition-all'>
+                  View Details
                 </span>
               </div>
-              <p className='text-black mt-2 line-clamp-2'>
+              <p className='text-slate-600 mt-3 font-medium line-clamp-2'>
                 {/* Match description via look-up for consistency */}
                 {SUB_FEATURES.find((s) => s.id === sf.id)?.description}
               </p>
@@ -438,40 +438,44 @@ export default function FeaturesSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 24 }}
                 transition={{ duration: 0.5 }}
-                className='bg-white/4 border border-black/10 rounded-2xl p-8 md:p-10 shadow-xl'
+                className='bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-2xl mb-20 relative overflow-hidden'
               >
-                {/* Back to features */}
-                <div className='flex items-center justify-between mb-6'>
-                  <h3 className='text-2xl md:text-3xl font-bold text-black'>
+                {/* Background wash */}
+                <div className='absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl' />
+
+                {/* header */}
+                <div className='flex items-center justify-between mb-8 relative z-10'>
+                  <h3 className='text-3xl md:text-4xl font-extrabold text-accent'>
                     {selectedSubFeature.title}
                   </h3>
                   <button
                     onClick={handleBackToFeatures}
-                    className='text-sm font-medium px-4 py-2 rounded-lg border border-black/10 bg-black/4 text-black hover:scale-105 transition-all'
+                    className='text-sm font-bold px-6 py-2.5 rounded-full text-white bg-gradient-to-r from-secondary to-primary shadow-lg hover:shadow-primary/20 transition-all'
                   >
-                    Back to Features
+                    Close Panel
                   </button>
                 </div>
 
                 {/* Description */}
-                <p className='text-black mb-6'>
+                <p className='text-lg font-medium text-slate-600 mb-10 leading-relaxed max-w-4xl relative z-10'>
                   {selectedSubFeature.description}
                 </p>
 
                 {/* Horizontal Features + Image */}
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8 min-h-[360px]'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-12 relative z-10'>
                   {/* Left: Key capabilities / Features */}
-                  <div className='flex flex-col'>
-                    <div className='inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-3 font-semibold text-black mb-3'>
-                      Key capabilities
+                  <div className='flex flex-col h-full'>
+                    <div className='inline-block rounded-lg bg-secondary/10 border border-secondary/20 px-4 py-2 font-bold text-secondary mb-6 text-sm uppercase tracking-widest self-start'>
+                      Core Capabilities
                     </div>
-                    <ul className='flex flex-col gap-3 flex-1'>
+                    <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1'>
                       {selectedSubFeature.features.map((feat, idx) => (
                         <li
                           key={idx}
-                          className='bg-white/4 border border-black/10 rounded-lg px-4 py-3 flex items-center text-black'
+                          className='bg-slate-50 border border-slate-100 rounded-xl px-5 py-3 flex items-center text-slate-700 font-bold shadow-sm'
                         >
-                          <div className='text-black font-medium'>{feat}</div>
+                          <div className='w-2 h-2 rounded-full bg-secondary mr-3 shrink-0' />
+                          <div className='leading-tight text-sm'>{feat.replace('● ', '')}</div>
                         </li>
                       ))}
                     </ul>
@@ -482,33 +486,33 @@ export default function FeaturesSection() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className='relative w-full min-h-[240px] md:min-h-[360px] rounded-xl overflow-hidden'
+                    className='relative w-full h-full min-h-[300px] lg:min-h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white'
                   >
                     <img
                       src={selectedSubFeature.image}
                       alt={`${selectedSubFeature.title} screenshot`}
                       className='w-full h-full object-cover'
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-sky-400/10 to-indigo-500/10 mix-blend-soft-light' />
+                    <div className='absolute inset-0 bg-gradient-to-tr from-secondary/10 to-primary/10 mix-blend-multiply' />
                   </motion.div>
                 </div>
 
                 {/* Benefits / Business outcomes */}
-                <div>
-                  <div className='inline-block rounded-md bg-gradient-to-r from-sky-400 to-indigo-500 px-3 py-1 text-xs font-semibold text-black mb-3'>
-                    Business outcomes
+                <div className='relative z-10'>
+                  <div className='inline-block rounded-lg bg-primary/10 border border-primary/20 px-4 py-2 font-bold text-primary mb-6 text-sm uppercase tracking-widest'>
+                    Value Delivery
                   </div>
-                  <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+                  <ul className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     {selectedSubFeature.benefits.map((benefit, idx) => (
                       <li
                         key={idx}
-                        className='bg-white/4 border border-black/10 rounded-lg p-4'
+                        className='bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow'
                       >
-                        <div className='text-black font-medium'>{benefit}</div>
-                        <p className='text-black text-sm mt-1'>
+                        <div className='text-accent font-bold text-lg mb-2'>{benefit.replace('● ', '')}</div>
+                        <p className='text-slate-500 text-sm font-medium'>
                           {idx === 0
-                            ? "Measure impact with inventory turns, cycle time, and forecast accuracy."
-                            : ""}
+                            ? "Scale operations with confidence using data-driven insights and automated workflows."
+                            : "Accelerate your digital transformation journey with Pi Bi's enterprise tools."}
                         </p>
                       </li>
                     ))}

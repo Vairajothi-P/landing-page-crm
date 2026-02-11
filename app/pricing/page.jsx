@@ -8,15 +8,14 @@ export default function PricingPage() {
   return (
     <div
       id='pricing'
-      className='relative w-full min-h-screen bg-gradient-to-br from-gray-100 via-blue-50 to-indigo-50 text-gray-900 px-2 sm:px-8 lg:px-16 overflow-x-hidden'
+      className='relative w-full min-h-screen bg-transparent text-slate-900 px-2 sm:px-8 lg:px-16 overflow-x-hidden pb-20'
     >
       <Navbar />
 
       {/* Background Decorative Elements */}
-      <div className='absolute inset-0 pointer-events-none'>
-        <div className='absolute top-20 left-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl' />
-        <div className='absolute bottom-40 right-10 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl' />
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-200/10 rounded-full blur-3xl' />
+      <div className='absolute inset-0 pointer-events-none -z-10'>
+        <div className='absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl' />
+        <div className='absolute bottom-40 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl' />
       </div>
 
       <div className='relative max-w-7xl mx-auto mt-8'>
@@ -26,33 +25,24 @@ export default function PricingPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6 }}
-          className='relative text-center mb-20'
+          className='relative text-center mb-24'
         >
           {/* Back Button */}
           <button
             onClick={() => window.history.back()}
-            className='absolute left-0 top-14 bg-gradient-to-r from-sky-400 to-indigo-500 text-black flex items-center gap-2 px-4 py-2 rounded-full border border-black/20 hover:gap-3 transition-all cursor-pointer'
+            className='absolute left-0 top-2 bg-gradient-to-r from-secondary to-primary text-white flex items-center gap-2 px-6 py-2.5 rounded-full shadow-lg hover:shadow-primary/20 transition-all font-bold'
           >
             <span className='text-lg'>←</span>
             <span className='hidden sm:inline'>Back</span>
           </button>
 
-          {/* Icon */}
-          <div className='text-center'>
-            <img
-              src='https://img.icons8.com/fluency/96/price-tag.png'
-              alt='Pricing'
-              className='w-16 h-16 mx-auto'
-            />
-          </div>
-
           {/* Heading */}
-          <h1 className='text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-2'>
+          <h1 className='text-5xl md:text-7xl font-extrabold mb-8 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent leading-tight pb-2'>
             Pricing Plans
           </h1>
 
           {/* Description */}
-          <p className='text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed'>
+          <p className='text-slate-600 text-xl font-medium max-w-3xl mx-auto leading-relaxed'>
             Flexible plans designed for manufacturing teams at every stage.
             Start with the essentials and add capabilities as you scale.
           </p>
@@ -68,10 +58,10 @@ export default function PricingPage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className='mt-32'
         >
-          <div className='text-center mb-12'>
-            <div className='inline-block mb-4'>
+          <div className='text-center mb-16'>
+            <div className='inline-block mb-6 p-4 bg-primary/10 rounded-2xl'>
               <svg
-                className='w-12 h-12 mx-auto text-purple-400'
+                className='w-12 h-12 mx-auto text-primary'
                 fill='none'
                 viewBox='0 0 24 24'
                 stroke='currentColor'
@@ -79,31 +69,30 @@ export default function PricingPage() {
                 <path
                   strokeLinecap='round'
                   strokeLinejoin='round'
-                  strokeWidth={1.5}
+                  strokeWidth={2}
                   d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'
                 />
               </svg>
             </div>
-            <h2 className='text-4xl font-bold mb-4'>Add-Ons Marketplace</h2>
-            <p className='text-gray-600 text-lg max-w-3xl mx-auto mb-12'>
-              Separate purchase for Basic, optional for Professional/Ultimate as
-              noted.
+            <h2 className='text-4xl md:text-5xl font-extrabold text-accent mb-6'>Add-Ons Marketplace</h2>
+            <p className='text-slate-600 text-lg font-medium max-w-3xl mx-auto'>
+              Enhance your platform with specialized modules. Options vary by base plan.
             </p>
           </div>
 
           {/* CRM & HR Add-Ons Section */}
-          <div className='mb-16'>
-            <h3 className='text-2xl font-bold mb-6 text-blue-600'>
+          <div className='mb-20'>
+            <h3 className='text-2xl font-extrabold mb-8 text-secondary border-l-4 border-secondary pl-4 uppercase tracking-wider'>
               CRM & HR Add-Ons
             </h3>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
               <AddonBox
                 icon='🎯'
                 title='CRM Basic'
                 price='₹2,000'
                 period='/month'
                 description='Streamline client management, automate invoicing, and boost accounting efficiency effortlessly.'
-                note='Included in Professional, optional for Basic'
+                note='Included in Professional'
               />
               <AddonBox
                 icon='🎯'
@@ -111,7 +100,7 @@ export default function PricingPage() {
                 price='₹3,500'
                 period='/month'
                 description='Customer 360, Deal AI, Follow-Up Automation for complete customer insights.'
-                note='Included in Ultimate, optional otherwise'
+                note='Included in Ultimate'
               />
               <AddonBox
                 icon='👨‍💼'
@@ -138,11 +127,11 @@ export default function PricingPage() {
           </div>
 
           {/* Growth & Marketing Add-Ons Section */}
-          <div className='mb-16'>
-            <h3 className='text-2xl font-bold mb-6 text-purple-600'>
+          <div className='mb-20'>
+            <h3 className='text-2xl font-extrabold mb-8 text-primary border-l-4 border-primary pl-4 uppercase tracking-wider'>
               Growth & Marketing Add-Ons
             </h3>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
               <AddonBox
                 icon='📱'
                 title='Growth Booster Basic'
@@ -387,27 +376,33 @@ function AddonBox({ icon, title, price, period, description, note }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: false }}
       transition={{ duration: 0.4 }}
-      whileHover={{ y: -4 }}
-      className='rounded-2xl border border-gray-300/50 bg-gradient-to-br from-white/70 to-gray-50/30 backdrop-blur-lg p-6 hover:border-gray-400/50 hover:shadow-lg hover:shadow-purple-200/20 transition-all duration-300'
+      whileHover={{ y: -6 }}
+      className='rounded-3xl border border-slate-200 bg-white p-8 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-all duration-300 relative overflow-hidden group'
     >
-      <div className='flex items-start gap-4 mb-4'>
-        <div className='w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/15 to-purple-500/15 flex items-center justify-center shrink-0'>
+      <div className='absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full -mr-10 -mt-10 group-hover:bg-primary/10 transition-colors' />
+
+      <div className='flex items-start gap-5 mb-6 relative z-10'>
+        <div className='w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0 shadow-sm'>
           {getIconSVG(icon)}
         </div>
         <div className='flex-1'>
-          <h4 className='text-lg font-bold text-gray-900 mb-1'>{title}</h4>
+          <h4 className='text-xl font-bold text-accent mb-1 group-hover:text-secondary transition-colors'>{title}</h4>
           <div className='flex items-baseline gap-1'>
-            <span className='text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+            <span className='text-2xl font-extrabold text-primary'>
               {price}
             </span>
-            <span className='text-gray-500 text-sm'>{period}</span>
+            <span className='text-slate-500 text-sm font-bold'>{period}</span>
           </div>
         </div>
       </div>
-      <p className='text-gray-600 text-sm leading-relaxed mb-3'>
+      <p className='text-slate-600 text-md font-medium leading-relaxed mb-4 relative z-10'>
         {description}
       </p>
-      {note && <p className='text-xs text-gray-500 italic'>{note}</p>}
+      {note && (
+        <div className='inline-block px-3 py-1 rounded-md bg-slate-50 border border-slate-100 text-xs text-slate-500 font-bold italic relative z-10'>
+          {note}
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -478,7 +473,7 @@ function getIconSVG(emoji) {
   const iconMap = {
     "📄": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -493,7 +488,7 @@ function getIconSVG(emoji) {
     ),
     "📋": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -508,7 +503,7 @@ function getIconSVG(emoji) {
     ),
     "📦": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -523,7 +518,7 @@ function getIconSVG(emoji) {
     ),
     "🛒": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -538,7 +533,7 @@ function getIconSVG(emoji) {
     ),
     "💬": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -553,7 +548,7 @@ function getIconSVG(emoji) {
     ),
     "🤝": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -568,7 +563,7 @@ function getIconSVG(emoji) {
     ),
     "📊": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -583,7 +578,7 @@ function getIconSVG(emoji) {
     ),
     "💰": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -598,7 +593,7 @@ function getIconSVG(emoji) {
     ),
     "📈": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -613,7 +608,7 @@ function getIconSVG(emoji) {
     ),
     "💲": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -628,7 +623,7 @@ function getIconSVG(emoji) {
     ),
     "💳": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -643,7 +638,7 @@ function getIconSVG(emoji) {
     ),
     "🔧": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -664,7 +659,7 @@ function getIconSVG(emoji) {
     ),
     "📑": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -679,7 +674,7 @@ function getIconSVG(emoji) {
     ),
     "🎯": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -694,7 +689,7 @@ function getIconSVG(emoji) {
     ),
     "🔔": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -724,7 +719,7 @@ function getIconSVG(emoji) {
     ),
     "🏷️": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -739,7 +734,7 @@ function getIconSVG(emoji) {
     ),
     "📝": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -754,7 +749,7 @@ function getIconSVG(emoji) {
     ),
     "🔮": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -769,7 +764,7 @@ function getIconSVG(emoji) {
     ),
     "⚙️": (
       <svg
-        className='w-5 h-5 text-amber-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -790,7 +785,7 @@ function getIconSVG(emoji) {
     ),
     "🏭": (
       <svg
-        className='w-5 h-5 text-amber-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -805,7 +800,7 @@ function getIconSVG(emoji) {
     ),
     "🔄": (
       <svg
-        className='w-5 h-5 text-amber-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -820,7 +815,7 @@ function getIconSVG(emoji) {
     ),
     "🤖": (
       <svg
-        className='w-5 h-5 text-amber-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -835,7 +830,7 @@ function getIconSVG(emoji) {
     ),
     "📉": (
       <svg
-        className='w-5 h-5 text-amber-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -865,7 +860,7 @@ function getIconSVG(emoji) {
     ),
     "🔐": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -880,7 +875,7 @@ function getIconSVG(emoji) {
     ),
     "👥": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -895,7 +890,7 @@ function getIconSVG(emoji) {
     ),
     "📱": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -919,7 +914,7 @@ function getIconSVG(emoji) {
     ),
     "👨‍💼": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -934,7 +929,7 @@ function getIconSVG(emoji) {
     ),
     "🚀": (
       <svg
-        className='w-5 h-5 text-purple-400'
+        className='w-5 h-5 text-primary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -949,7 +944,7 @@ function getIconSVG(emoji) {
     ),
     "📧": (
       <svg
-        className='w-5 h-5 text-blue-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'
@@ -964,7 +959,7 @@ function getIconSVG(emoji) {
     ),
     "📢": (
       <svg
-        className='w-5 h-5 text-amber-400'
+        className='w-5 h-5 text-secondary'
         fill='none'
         viewBox='0 0 24 24'
         stroke='currentColor'

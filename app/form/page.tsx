@@ -136,7 +136,7 @@ export default function RequestDemo() {
 
   return (
     <>
-      <div className=' bg-sky-950 text-slate-100 antialiased'>
+      <div className='bg-transparent text-slate-100 antialiased'>
         <Navbar />
         <div
           style={{
@@ -148,20 +148,20 @@ export default function RequestDemo() {
           <div
             style={{
               backgroundColor: "#ffffff",
-              borderRadius: "16px",
-              boxShadow: "0 8px 24px rgba(0, 0, 0, 0.12)",
+              borderRadius: "24px",
+              boxShadow: "0 20px 50px rgba(13, 91, 145, 0.1)",
               padding: "48px",
-              border: "1px solid #f0f0f0",
+              border: "1px solid #e2e8f0",
             }}
           >
             <h1
               style={{
-                fontSize: "36px",
-                fontWeight: "700",
-                color: "#1a202c",
+                fontSize: "42px",
+                fontWeight: "800",
+                color: "#1A365D",
                 marginBottom: "12px",
                 textAlign: "center",
-                letterSpacing: "-0.5px",
+                letterSpacing: "-1px",
               }}
             >
               Request a Demo
@@ -169,13 +169,14 @@ export default function RequestDemo() {
             <p
               style={{
                 textAlign: "center",
-                color: "#718096",
+                color: "#64748b",
                 marginBottom: "40px",
-                fontSize: "16px",
+                fontSize: "17px",
                 lineHeight: "1.6",
+                fontWeight: "500",
               }}
             >
-              Fill out the form below and we'll get back to you soon.
+              Partner with Pi Bi to scale your operations. Fill out the form below.
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -205,17 +206,18 @@ export default function RequestDemo() {
                     padding: "14px 16px",
                     fontSize: "16px",
                     border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
+                    borderRadius: "12px",
                     boxSizing: "border-box",
                     transition: "all 0.3s ease",
                     fontFamily: "inherit",
                     outline: "none",
-                    color: "#1a202c",
+                    color: "#1A365D",
+                    fontWeight: "500",
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
+                    e.target.style.borderColor = "#2B9B7E";
                     e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
+                      "0 0 0 3px rgba(43, 155, 126, 0.1)";
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = "#e2e8f0";
@@ -250,17 +252,18 @@ export default function RequestDemo() {
                     padding: "14px 16px",
                     fontSize: "16px",
                     border: "2px solid #e2e8f0",
-                    borderRadius: "8px",
+                    borderRadius: "12px",
                     boxSizing: "border-box",
                     transition: "all 0.3s ease",
                     fontFamily: "inherit",
                     outline: "none",
-                    color: "#1a202c",
+                    color: "#1A365D",
+                    fontWeight: "500",
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#0070f3";
+                    e.target.style.borderColor = "#2B9B7E";
                     e.target.style.boxShadow =
-                      "0 0 0 3px rgba(0, 112, 243, 0.1)";
+                      "0 0 0 3px rgba(43, 155, 126, 0.1)";
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = "#e2e8f0";
@@ -288,20 +291,22 @@ export default function RequestDemo() {
                     onChange={(e) => setCountryCode(e.target.value)}
                     style={{
                       padding: "14px 16px",
-                      borderRadius: "8px",
+                      borderRadius: "12px",
                       border: "2px solid #e2e8f0",
                       fontSize: "16px",
-                      color: "#1a202c",
+                      color: "#1A365D",
+                      fontWeight: "500",
                       width: "160px",
                       boxSizing: "border-box",
                       transition: "all 0.3s ease",
                       fontFamily: "inherit",
                       outline: "none",
+                      backgroundColor: "white",
                     }}
                     onFocus={(e) => {
-                      e.target.style.borderColor = "#0070f3";
+                      e.target.style.borderColor = "#2B9B7E";
                       e.target.style.boxShadow =
-                        "0 0 0 3px rgba(0, 112, 243, 0.1)";
+                        "0 0 0 3px rgba(43, 155, 126, 0.1)";
                     }}
                     onBlur={(e) => {
                       e.target.style.borderColor = "#e2e8f0";
@@ -327,17 +332,18 @@ export default function RequestDemo() {
                       padding: "14px 16px",
                       fontSize: "16px",
                       border: "2px solid #e2e8f0",
-                      borderRadius: "8px",
+                      borderRadius: "12px",
                       boxSizing: "border-box",
                       transition: "all 0.3s ease",
                       fontFamily: "inherit",
                       outline: "none",
-                      color: "#1a202c",
+                      color: "#1A365D",
+                      fontWeight: "500",
                     }}
                     onFocus={(e) => {
-                      e.target.style.borderColor = "#0070f3";
+                      e.target.style.borderColor = "#2B9B7E";
                       e.target.style.boxShadow =
-                        "0 0 0 3px rgba(0, 112, 243, 0.1)";
+                        "0 0 0 3px rgba(43, 155, 126, 0.1)";
                     }}
                     onBlur={(e) => {
                       e.target.style.borderColor = "#e2e8f0";
@@ -485,40 +491,9 @@ export default function RequestDemo() {
               <button
                 type='submit'
                 disabled={loading}
-                onMouseEnter={(e) => {
-                  if (!loading) {
-                    e.currentTarget.style.backgroundColor = "#0056b3";
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 12px rgba(0, 112, 243, 0.4)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!loading) {
-                    e.currentTarget.style.backgroundColor = "#0070f3";
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 2px 8px rgba(0, 112, 243, 0.3)";
-                  }
-                }}
-                style={{
-                  width: "100%",
-                  padding: "16px 24px",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  color: "white",
-                  backgroundColor: loading ? "#cbd5e0" : "#0070f3",
-                  border: "none",
-                  borderRadius: "8px",
-                  cursor: loading ? "not-allowed" : "pointer",
-                  transition: "all 0.3s ease",
-                  boxShadow: loading
-                    ? "none"
-                    : "0 2px 8px rgba(0, 112, 243, 0.3)",
-                  transform: "translateY(0)",
-                }}
+                className='w-full py-4 rounded-xl font-bold text-lg text-white bg-gradient-to-r from-secondary to-primary shadow-lg hover:shadow-primary/20 transition-all disabled:bg-slate-300 disabled:cursor-not-allowed'
               >
-                {loading ? "Sending..." : "Send Demo Request"}
+                {loading ? "Processing..." : "Submit Demo Request"}
               </button>
             </form>
           </div>

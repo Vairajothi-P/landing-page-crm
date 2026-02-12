@@ -295,8 +295,21 @@ function PlanCard({
                 return (
                   <li
                     key={i}
-                    className='text-slate-700 text-sm leading-relaxed font-medium'
+                    className='flex gap-3 text-slate-700 text-sm leading-relaxed font-medium'
                   >
+                    <svg
+                      className='w-5 h-5 text-primary shrink-0 mt-0.5'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2.5}
+                        d='M5 13l4 4L19 7'
+                      />
+                    </svg>
                     <span>{itemText}</span>
                   </li>
                 );
@@ -318,7 +331,22 @@ function PlanCard({
                 key={idx}
                 className='rounded-xl border border-slate-200 bg-slate-50/50 p-4 hover:border-secondary/30 transition-all duration-300'
               >
-                <div className='flex items-start'>
+                <div className='flex items-start gap-3'>
+                  <div className='shrink-0 mt-0.5'>
+                    <svg
+                      className='w-5 h-5 text-secondary'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2.5}
+                        d='M5 13l4 4L19 7'
+                      />
+                    </svg>
+                  </div>
                   <div className='flex-1'>
                     <div className='flex items-baseline justify-between gap-2 mb-1'>
                       <h5 className='font-bold text-accent text-sm'>

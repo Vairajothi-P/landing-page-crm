@@ -26,7 +26,7 @@ const LAYERS: Layer[] = [
     id: "operations",
     title: "Operations Layer",
     description:
-      "Run core operations with precision—finance, inventory, purchasing, and production.",
+      "Run core operations with precision finance, inventory, purchasing, and production.",
     subFeatures: [
       { id: "accounting-finance", title: "Accounting & Finance" },
       { id: "Manufacturing-Operations", title: "Manufacturing Operations" },
@@ -64,7 +64,7 @@ const SUB_FEATURES: SubFeature[] = [
     id: "accounting-finance",
     title: "Accounting & Finance",
     description:
-      "Automate invoicing, expense tracking, and compliance, gain real-time financial insights, and improve accuracy in reporting and decision-making.",
+      "Automate invoicing, expense tracking, and compliance, gain real time financial insights, and improve accuracy in reporting and decision making.",
     image: "/acc.jpg",
     features: [
       "● Invoices & Quotations",
@@ -209,7 +209,7 @@ const SUB_FEATURES: SubFeature[] = [
     id: "GTM-Engine",
     title: "GTM Engine",
     description:
-      "Streamline go-to-market campaigns by launching ads across channels, optimizing budgets with AI, and tracking full-funnel performance in real time.",
+      "Streamline go to market campaigns by launching ads across channels, optimizing budgets with AI, and tracking full funnel performance in real time.",
     image: "/gtm.jpg",
     features: [
       "● Demand-Based Lead Reach-out ",
@@ -222,9 +222,9 @@ const SUB_FEATURES: SubFeature[] = [
       "● Revenue Forecasting & Pipeline Insights",
     ],
     benefits: [
-      "● Increase revenue predictability with AI-driven lead prioritization and deal scoring",
-      "● Reduce customer acquisition costs through automated, demand-based outreach",
-      "● Accelerate deal closures with timely follow-ups and predictive nurturing",
+      "● Increase revenue predictability with AI driven lead prioritization and deal scoring",
+      "● Reduce customer acquisition costs through automated, demand based outreach",
+      "● Accelerate deal closures with timely follow ups and predictive nurturing",
       "● Improve sales efficiency and ROI by focusing on high-value, high-probability opportunities",
     ],
     layer: "growth",
@@ -364,7 +364,7 @@ export default function FeaturesSection() {
             <h1 className='text-4xl md:text-5xl font-extrabold text-accent leading-tight'>Product Capabilities</h1>
             <p className='text-slate-600 mt-4 text-lg font-medium max-w-2xl mx-auto'>
               Explore how Pi Bi connects Operations, Management, and
-              Growth—built for modern enterprises.
+              Growth built for modern enterprises.
             </p>
           </div>
 

@@ -11,20 +11,20 @@ body,
 
 :root,
 [data-theme="light"] {
-  --background: #ffffff;
-  --foreground: #1a202c;
-  --brand-teal: #2B9B7E;
-  --brand-blue: #0D5B91;
-  --brand-dark-blue: #1A365D;
-  --card-border: #e2e8f0;
+  --background: #fdfdfd;
+  --foreground: #0f172a;
+  --brand-teal: #059669;
+  --brand-blue: #2563eb;
+  --brand-dark-blue: #1e293b;
+  --card-border: #f1f5f9;
 }
 
 [data-theme="dark"] {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --brand-teal: #3EB489;
-  --brand-blue: #3B82F6;
-  --brand-dark-blue: #93C5FD;
+  --background: #020617;
+  --foreground: #f8fafc;
+  --brand-teal: #10b981;
+  --brand-blue: #3b82f6;
+  --brand-dark-blue: #94a3b8;
   --card-border: #1e293b;
 }
 
@@ -39,19 +39,46 @@ body,
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100%;
-  /* Background pattern from the image */
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Modern Professional Background Theme */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
   background-image:
-    linear-gradient(30deg, #f8fafc 12%, transparent 12.5%, transparent 87%, #f8fafc 87.5%, #f8fafc),
-    linear-gradient(150deg, #f8fafc 12%, transparent 12.5%, transparent 87%, #f8fafc 87.5%, #f8fafc),
-    linear-gradient(30deg, #f8fafc 12%, transparent 12.5%, transparent 87%, #f8fafc 87.5%, #f8fafc),
-    linear-gradient(150deg, #f8fafc 12%, transparent 12.5%, transparent 87%, #f8fafc 87.5%, #f8fafc),
-    linear-gradient(60deg, #f1f5f9 25%, transparent 25.5%, transparent 75%, #f1f5f9 75%, #f1f5f9),
-    linear-gradient(60deg, #f1f5f9 25%, transparent 25.5%, transparent 75%, #f1f5f9 75%, #f1f5f9);
-  background-size: 80px 140px;
-  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(5, 150, 105, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(5, 150, 105, 0.03) 0px, transparent 50%);
+  opacity: 0.8;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.3;
+}
+
+[data-theme="dark"] body::after {
+  background-image: radial-gradient(#334155 0.5px, transparent 0.5px);
+  opacity: 0.4;
 }

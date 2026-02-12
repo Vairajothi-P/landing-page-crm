@@ -6,7 +6,7 @@ import { useState } from "react";
 const FEATURES = [
   {
     title: "Unified Customer Profiles",
-    desc: "See every customer touchpoint in one place — conversations, purchases, and lifecycle stage.",
+    desc: "See every customer touchpoint in one place conversations, purchases, and lifecycle stage.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -26,7 +26,7 @@ const FEATURES = [
   },
   {
     title: "Automated Campaigns",
-    desc: "Create behavior-driven email & SMS flows that run on autopilot.",
+    desc: "Create behavior driven email & SMS flows that run on autopilot.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -86,7 +86,7 @@ const FEATURES = [
   },
   {
     title: "Integrations",
-    desc: "Connect your stack — email, payments, analytics, and more.",
+    desc: "Connect your stack email, payments, analytics, and more.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -106,7 +106,7 @@ const FEATURES = [
   },
   {
     title: "GDPR & Security",
-    desc: "Enterprise-grade controls and compliance tools out of the box.",
+    desc: "Enterprise grade controls and compliance tools out of the box.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -233,10 +233,10 @@ export default function Featuressample({ fadeUp }) {
         >
           <motion.div variants={titleVariants}>
             <span className="inline-block px-4 py-2 rounded-full text-sm font-bold mb-4 bg-primary/10 text-primary border border-primary/20 uppercase tracking-widest">
-              Complete Marketing Suite
+              Modern Industry Platform
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-accent leading-tight">
-              Everything marketing teams need
+              Built for Modern Growth Teams
             </h2>
           </motion.div>
 
@@ -244,7 +244,7 @@ export default function Featuressample({ fadeUp }) {
             variants={subtitleVariants}
             className="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-600"
           >
-            From lead capture to nurture workflows and analytics — built to
+            From lead capture to nurture workflows and analytics built to
             scale with your business.
           </motion.p>
         </motion.div>

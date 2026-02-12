@@ -26,7 +26,7 @@ const HowItWorkss = [
     id: 2,
     title: "Unified Management",
     description:
-      "Centralize CRM, tasks, teams, and customers for real-time control and visibility",
+      "Centralize CRM, tasks, teams, and customers for real time control and visibility",
     icon: "📋",
     color: "#0D5B91", // Brand Blue
   },

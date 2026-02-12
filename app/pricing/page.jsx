@@ -231,8 +231,21 @@ function PlanCard({
                 return (
                   <li
                     key={i}
-                    className='text-gray-700 text-sm leading-relaxed'
+                    className='flex gap-3 text-gray-700 text-sm leading-relaxed'
                   >
+                    <svg
+                      className='w-5 h-5 text-blue-500 shrink-0 mt-0.5'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2.5}
+                        d='M5 13l4 4L19 7'
+                      />
+                    </svg>
                     <span>{itemText}</span>
                   </li>
                 );
@@ -254,7 +267,22 @@ function PlanCard({
                 key={idx}
                 className='rounded-lg border border-gray-300/50 bg-gradient-to-br from-gray-50/60 to-gray-100/30 p-4 hover:border-purple-300/50 transition-all duration-300'
               >
-                <div className='flex items-start'>
+                <div className='flex items-start gap-3'>
+                  <div className='shrink-0 mt-0.5'>
+                    <svg
+                      className='w-4 h-4 text-purple-500'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2.5}
+                        d='M5 13l4 4L19 7'
+                      />
+                    </svg>
+                  </div>
                   <div className='flex-1'>
                     <div className='flex items-baseline justify-between gap-2 mb-1'>
                       <h5 className='font-semibold text-gray-900 text-sm'>
@@ -331,7 +359,7 @@ function AddonsCard({ title, items }) {
                 strokeLinecap='round'
                 strokeLinejoin='round'
                 strokeWidth={2}
-                d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+                d='M5 13l4 4L19 7'
               />
             </svg>
             <span>{it}</span>
@@ -353,6 +381,21 @@ function AddonBox({ icon, title, price, period, description, note }) {
       className='rounded-3xl border border-slate-200 bg-white p-8 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-all duration-300 relative overflow-hidden group'
     >
       <div className='flex items-start gap-5 mb-6 relative z-10'>
+        <div className='w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0 shadow-sm'>
+          <svg
+            className='w-7 h-7 text-secondary'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2.5}
+              d='M5 13l4 4L19 7'
+            />
+          </svg>
+        </div>
         <div className='flex-1'>
           <h4 className='text-xl font-bold text-accent mb-1 group-hover:text-secondary transition-colors'>{title}</h4>
           <div className='flex items-baseline gap-1'>

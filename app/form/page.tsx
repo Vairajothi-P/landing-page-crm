@@ -498,8 +498,6 @@ export default function RequestDemo() {
             </form>
           </div>
         </div>
-
-        <Footer />
       </div>
     </>
   );

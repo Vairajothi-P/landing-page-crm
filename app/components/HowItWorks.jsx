@@ -59,95 +59,89 @@ const HowItWorkss = [
 export default function HowItWorks() {
   return (
     <div className='w-full py-16 px-6' id='how'>
-      <div className='max-w-3xl mx-auto'>
+      <div className='max-w-4xl mx-auto'>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className='text-center mb-16'
         >
-          <h2 className='text-5xl font-extrabold text-accent mb-6'>
+          <h2 className='text-4xl md:text-5xl font-extrabold text-accent mb-6'>
             Our Smart Workflow
           </h2>
-          <p className='text-xl text-slate-600 font-medium'>
+          <p className='text-lg md:text-xl text-slate-600 font-medium'>
             5 proven stages to transform your strategy into results
           </p>
         </motion.div>
 
         {/* Vertical Timeline */}
         <div className='relative'>
-          {/* Center Line */}
-          <div className='absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-200 via-primary/50 to-slate-200' />
+          {/* Center Line (Hidden on mobile, shown on desktop) */}
+          <div className='absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-200 via-primary/50 to-slate-200' />
 
           {/* Steps */}
-          <div className='space-y-20'>
+          <div className='space-y-12 md:space-y-20'>
             {HowItWorkss.map((step, index) => (
               <motion.div
                 key={step.id}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: false, margin: "-100px" }}
-                className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                  }`}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-100px" }}
+                className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
               >
-                {/* Content */}
-                <div className='flex-1'>
+                {/* Content Box */}
+                <div className='flex-1 w-full pl-16 md:pl-0'>
                   <motion.div
-                    whileHover={{ scale: 1.02, x: index % 2 === 0 ? 10 : -10 }}
-                    className='bg-white/80 backdrop-blur-sm border border-slate-200 rounded-2xl p-8 shadow-xl hover:border-primary/40 transition-all'
+                    whileHover={{ scale: 1.02 }}
+                    className='bg-white/80 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 md:p-8 shadow-xl hover:border-primary/40 transition-all'
                   >
                     <div className='flex items-center gap-4 mb-3'>
-                      <span className='text-3xl'>{step.icon}</span>
+                      <span className='text-2xl md:text-3xl'>{step.icon}</span>
                       <h3
-                        className='text-2xl font-bold'
+                        className='text-xl md:text-2xl font-bold'
                         style={{ color: step.color }}
                       >
                         {step.title}
                       </h3>
                     </div>
-                    <p className='text-slate-600 text-md font-medium'>{step.description}</p>
+                    <p className='text-slate-600 text-sm md:text-md font-medium leading-relaxed'>
+                      {step.description}
+                    </p>
                   </motion.div>
                 </div>
 
                 {/* Center Circle */}
-                <motion.div
-                  className='absolute left-1/2 transform -translate-x-1/2'
-                  whileInView={{ scale: 1 }}
-                  initial={{ scale: 0 }}
-                  transition={{ duration: 0.4 }}
-                  viewport={{ once: false, margin: "-100px" }}
-                >
+                <div className='absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-16 md:w-auto mt-6 md:mt-0'>
                   <motion.div
                     animate={{
-                      boxShadow: `0 0 25px ${step.color}66`,
+                      boxShadow: `0 0 20px ${step.color}44`,
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className='w-14 h-14 rounded-full flex items-center justify-center font-bold text-white z-10 border-4 shadow-lg'
+                    className='w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-white z-10 border-4 border-white shadow-lg shrink-0'
                     style={{
                       backgroundColor: step.color,
-                      borderColor: "#ffffff",
                     }}
                   >
                     {step.id}
                   </motion.div>
-                </motion.div>
+                </div>
 
-                {/* Empty space for alignment */}
-                <div className='flex-1' />
+                {/* Empty space for desktop alignment */}
+                <div className='hidden md:block flex-1' />
               </motion.div>
             ))}
           </div>
 
-          {/* Bottom decoration */}
+          {/* Bottom decoration (Hidden on mobile) */}
           <motion.div
             initial={{ opacity: 0, scaleY: 0 }}
             whileInView={{ opacity: 1, scaleY: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: false, margin: "-100px" }}
-            className='absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-12 w-0 h-0'
+            viewport={{ once: true }}
+            className='hidden md:block absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-12 w-0 h-0'
             style={{
               borderLeft: "8px solid transparent",
               borderRight: "8px solid transparent",
@@ -162,12 +156,12 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: false }}
-          className='text-center mt-16'
+          viewport={{ once: true }}
+          className='text-center mt-20'
         >
           <Link
             href="/form"
-            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-secondary to-primary text-white px-10 py-4 font-bold shadow-2xl hover:shadow-primary/30 transition transform hover:scale-105"
+            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-secondary to-primary text-white px-8 md:px-10 py-4 font-bold shadow-2xl hover:shadow-primary/30 transition transform hover:scale-105"
           >
             Start Your Growth Journey
           </Link>

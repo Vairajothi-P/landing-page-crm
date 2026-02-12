@@ -11,11 +11,11 @@ type SubFeature = {
   image: string; // placeholder path or URL
   features: string[];
   benefits: string[];
-  layer: "operations" | "management" | "growth";
+  layer: "operations" | "application" | "growth";
 };
 
 type Layer = {
-  id: "operations" | "management" | "growth";
+  id: "operations" | "application" | "growth";
   title: string;
   description: string;
   subFeatures: Pick<SubFeature, "id" | "title">[];
@@ -33,8 +33,8 @@ const LAYERS: Layer[] = [
     ],
   },
   {
-    id: "management",
-    title: "Management Layer",
+    id: "application",
+    title: "Application Layer",
     description:
       "Empower teams with CRM, HRMS, and project execution to deliver results faster.",
     subFeatures: [
@@ -133,7 +133,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Boost sales team productivity and accountability with integrated emails, goals, and campaign tracking",
       "● Enhance communication effectiveness using IVR, cloud telephony, and call recordings for better engagement and quality control",
     ],
-    layer: "management",
+    layer: "application",
   },
   {
     id: "hrms-payroll",
@@ -155,7 +155,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Improve employee transparency and satisfaction through self-service payslips, leave visibility, and attendance records",
       "● Stay audit-ready and compliant with built-in PF/ESI tax management and detailed payroll reports",
     ],
-    layer: "management",
+    layer: "application",
   },
   {
     id: "Task-Project-Management",
@@ -179,7 +179,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Reduce miscommunication and rework by sharing image and video attachments directly within tasks",
       "● Gain actionable project insights using progress reports to track performance and identify bottlenecks early",
     ],
-    layer: "management",
+    layer: "application",
   },
   {
     id: "Field-Service-Management",
@@ -203,7 +203,7 @@ const SUB_FEATURES: SubFeature[] = [
       "● Enhance customer satisfaction and trust with real-time service updates and feedback tracking",
       "● Increase operational visibility and control by monitoring service activities across locations in real time",
     ],
-    layer: "management",
+    layer: "application",
   },
   {
     id: "GTM-Engine",
@@ -348,32 +348,31 @@ export default function FeaturesSection() {
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className='mt-16 mb-12 flex flex-col sm:flex-row items-center gap-6'
+          className='mt-12 mb-12'
         >
           {/* Back Button */}
-          <button
-            onClick={() => window.history.back()}
-            className='flex px-6 py-2.5 rounded-full text-white items-center gap-2 bg-gradient-to-r from-secondary to-primary shadow-lg hover:shadow-primary/20 transition-all font-bold'
-          >
-            <span className='text-lg'>←</span>
-            Back
-          </button>
+          <div className="flex justify-start mb-8">
+            <button
+              onClick={() => window.history.back()}
+              className='flex px-6 py-2 rounded-full text-white items-center gap-2 bg-gradient-to-r from-secondary to-primary shadow-lg hover:shadow-primary/20 transition-all font-bold text-sm'
+            >
+              <span className='text-lg'>←</span>
+              Back
+            </button>
+          </div>
 
           {/* Heading */}
-          <div className='text-center flex-1'>
-            <h1 className='text-4xl md:text-5xl font-extrabold text-accent leading-tight'>Product Capabilities</h1>
-            <p className='text-slate-600 mt-4 text-lg font-medium max-w-2xl mx-auto'>
+          <div className='text-center'>
+            <h1 className='text-4xl md:text-6xl font-black text-accent leading-tight tracking-tight'>Product Capabilities</h1>
+            <p className='text-slate-500 mt-6 text-lg md:text-xl font-medium max-w-3xl mx-auto'>
               Explore how Pi Bi connects Operations, Management, and
               Growth built for modern enterprises.
             </p>
           </div>
-
-          {/* Spacer (keeps heading centered) */}
-          <div className='hidden sm:block w-[120px]' />
         </motion.div>
 
-        {/* Layer tabs */}
-        <div className='flex justify-center flex-wrap gap-4 mb-12'>
+        {/* Layer tabs (Equal size) */}
+        <div className='flex flex-col sm:flex-row justify-center gap-3 mb-12'>
           {LAYERS.map((layer) => {
             const isActive = activeLayer === layer.id;
             return (
@@ -384,10 +383,10 @@ export default function FeaturesSection() {
                   setSelectedSubFeatureId(null);
                 }}
                 className={[
-                  "px-8 py-3 rounded-full transition-all duration-300 text-sm font-bold shadow-sm",
+                  "flex-1 px-6 py-4 rounded-2xl transition-all duration-300 text-sm font-black shadow-sm",
                   isActive
-                    ? "bg-gradient-to-r from-secondary to-primary text-white shadow-lg shadow-primary/20 transform-gpu scale-105"
-                    : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-primary/30",
+                    ? "bg-gradient-to-r from-secondary to-primary text-white shadow-xl shadow-primary/20 transform-gpu md:scale-105"
+                    : "bg-white border border-slate-200 text-slate-500 hover:bg-slate-50 hover:border-primary/30",
                 ].join(" ")}
               >
                 {layer.title}
@@ -403,26 +402,27 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        {/* Sub-features grid */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16'>
+        {/* Sub-features grid (Aligned buttons) */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 mb-16'>
           {filteredSubFeatures.map((sf) => (
             <motion.button
               key={sf.id}
-              whileHover={{ scale: 1.02, y: -4 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.01, y: -4 }}
+              whileTap={{ scale: 0.99 }}
               onClick={() => setSelectedSubFeatureId(sf.id)}
-              className='text-left bg-white border border-slate-200 rounded-2xl p-6 transition-all shadow-lg hover:shadow-2xl hover:border-primary/40 group'
+              className='text-left bg-white border border-slate-200 rounded-[32px] p-8 transition-all shadow-xl hover:shadow-2xl hover:border-primary/40 group flex flex-col min-h-[220px]'
             >
-              <div className='flex items-center justify-between gap-3'>
-                <h4 className='text-xl font-bold text-accent group-hover:text-primary transition-colors'>{sf.title}</h4>
-                <span className='inline-flex items-center rounded-full px-5 py-2 text-xs font-bold bg-gradient-to-r from-secondary to-primary text-white shadow-md hover:shadow-primary/20 transition-all'>
+              <div className='flex-1'>
+                <h4 className='text-2xl font-black text-accent group-hover:text-primary transition-colors mb-4'>{sf.title}</h4>
+                <p className='text-slate-500 font-medium leading-relaxed line-clamp-3'>
+                  {SUB_FEATURES.find((s) => s.id === sf.id)?.description}
+                </p>
+              </div>
+              <div className='mt-8 flex justify-end'>
+                <span className='inline-flex items-center rounded-full px-8 py-3 text-sm font-black bg-gradient-to-r from-secondary to-primary text-white shadow-lg shadow-primary/20 transition-all group-hover:scale-105'>
                   View Details
                 </span>
               </div>
-              <p className='text-slate-600 mt-3 font-medium line-clamp-2'>
-                {/* Match description via look-up for consistency */}
-                {SUB_FEATURES.find((s) => s.id === sf.id)?.description}
-              </p>
             </motion.button>
           ))}
         </div>

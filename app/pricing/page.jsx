@@ -19,30 +19,32 @@ export default function PricingPage() {
       </div>
 
       <div className='relative max-w-7xl mx-auto mt-8'>
-        {/* Header */}
+        {/* Header (Structured to avoid overlap) */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className='relative text-center mb-24'
+          className='flex flex-col items-center mb-24'
         >
           {/* Back Button */}
-          <button
-            onClick={() => window.history.back()}
-            className='absolute left-0 top-2 bg-gradient-to-r from-secondary to-primary text-white flex items-center gap-2 px-6 py-2.5 rounded-full shadow-lg hover:shadow-primary/20 transition-all font-bold'
-          >
-            <span className='text-lg'>←</span>
-            <span className='hidden sm:inline'>Back</span>
-          </button>
+          <div className="w-full flex justify-start mb-8">
+            <button
+              onClick={() => window.history.back()}
+              className='bg-gradient-to-r from-secondary to-primary text-white flex items-center gap-2 px-6 py-2 rounded-full shadow-lg hover:shadow-primary/20 transition-all font-black text-sm'
+            >
+              <span className='text-lg'>←</span>
+              Back
+            </button>
+          </div>
 
           {/* Heading */}
-          <h1 className='text-5xl md:text-7xl font-extrabold mb-8 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent leading-tight pb-2'>
+          <h1 className='text-4xl sm:text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent leading-tight pb-2 text-center'>
             Pricing Plans
           </h1>
 
           {/* Description */}
-          <p className='text-slate-600 text-xl font-medium max-w-3xl mx-auto leading-relaxed'>
+          <p className='text-slate-500 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed text-center'>
             Flexible plans designed for manufacturing teams at every stage.
             Start with the essentials and add capabilities as you scale.
           </p>

@@ -138,44 +138,12 @@ export default function RequestDemo() {
     <>
       <div className='bg-transparent text-slate-100 antialiased'>
         <Navbar />
-        <div
-          style={{
-            maxWidth: "600px",
-            margin: "40px auto",
-            padding: "0 20px",
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "24px",
-              boxShadow: "0 20px 50px rgba(13, 91, 145, 0.1)",
-              padding: "48px",
-              border: "1px solid #e2e8f0",
-            }}
-          >
-            <h1
-              style={{
-                fontSize: "42px",
-                fontWeight: "800",
-                color: "#1A365D",
-                marginBottom: "12px",
-                textAlign: "center",
-                letterSpacing: "-1px",
-              }}
-            >
+        <div className="max-w-2xl mx-auto my-10 px-4 sm:px-6">
+          <div className="bg-white rounded-[32px] shadow-2xl shadow-primary/10 p-6 sm:p-12 border border-slate-200">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-accent mb-3 text-center tracking-tight leading-tight">
               Request a Demo
             </h1>
-            <p
-              style={{
-                textAlign: "center",
-                color: "#64748b",
-                marginBottom: "40px",
-                fontSize: "17px",
-                lineHeight: "1.6",
-                fontWeight: "500",
-              }}
-            >
+            <p className="text-center text-slate-600 mb-10 text-base sm:text-lg font-medium leading-relaxed max-w-md mx-auto">
               Partner with Pi Bi to scale your operations. Fill out the form below.
             </p>
 

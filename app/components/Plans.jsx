@@ -58,7 +58,6 @@ export default function Plans() {
               title: "CRM Basic Pack",
               price: "₹2,000/mo",
               description: "Lead Tracking, Customer Contacts, Deal Status",
-              icon: "🎯",
             },
             {
               title: "HRMS Basic",
@@ -94,7 +93,6 @@ export default function Plans() {
                 { text: "Bill of Materials (BOM)", icon: "📑" },
                 {
                   text: "Advanced Production Planning (Auto Resource Allocation)",
-                  icon: "🎯",
                 },
                 { text: "Real-Time Inventory Alerts", icon: "🔔" },
                 { text: "Sales and Purchsse approvals", icon: "✅" },
@@ -102,7 +100,7 @@ export default function Plans() {
                   text: "Price Lists (Automated Pricing Rules)",
                   icon: "🏷️",
                 },
-                { text: "GSTR Filing", icon: "📝" },
+                { text: "GSTR Filing" },
                 {
                   text: "Inventory Forecasting & Auto-Reordering",
                   icon: "🔮",
@@ -114,7 +112,6 @@ export default function Plans() {
               items: [
                 {
                   text: "CRM Basic (Included) — saves ₹2,000/mo vs. Basic + Add-On",
-                  icon: "🎯",
                 },
                 {
                   text: "Automated Workflows (Task reminders, approvals)",
@@ -197,7 +194,6 @@ export default function Plans() {
               items: [
                 {
                   text: "CRM Advanced (Customer 360, Deal AI, Follow-Up Automation) — saves ₹3,500/mo if purchased as add-on separately",
-                  icon: "🎯",
                 },
                 {
                   text: "HRMS Advanced (Payroll, Performance Reviews, Employee Analytics)",
@@ -270,9 +266,6 @@ function PlanCard({
       ) : null}
 
       <div className='relative mb-8'>
-        {/* Icon */}
-        <div className='mb-6'>{icon}</div>
-
         <h3 className='text-2xl font-bold mb-3 text-accent'>{title}</h3>
         <div className='flex items-baseline gap-2'>
           <span className='text-4xl font-extrabold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent'>
@@ -302,27 +295,8 @@ function PlanCard({
                 return (
                   <li
                     key={i}
-                    className='flex gap-3 text-slate-700 text-sm leading-relaxed font-medium'
+                    className='text-slate-700 text-sm leading-relaxed font-medium'
                   >
-                    {itemIcon ? (
-                      <div className='shrink-0 mt-0.5'>
-                        {getIconSVG(itemIcon)}
-                      </div>
-                    ) : (
-                      <svg
-                        className='w-5 h-5 text-primary shrink-0 mt-0.5'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2.5}
-                          d='M5 13l4 4L19 7'
-                        />
-                      </svg>
-                    )}
                     <span>{itemText}</span>
                   </li>
                 );
@@ -344,10 +318,7 @@ function PlanCard({
                 key={idx}
                 className='rounded-xl border border-slate-200 bg-slate-50/50 p-4 hover:border-secondary/30 transition-all duration-300'
               >
-                <div className='flex items-start gap-3'>
-                  <div className='shrink-0 mt-0.5'>
-                    {getIconSVG(addon.icon)}
-                  </div>
+                <div className='flex items-start'>
                   <div className='flex-1'>
                     <div className='flex items-baseline justify-between gap-2 mb-1'>
                       <h5 className='font-bold text-accent text-sm'>

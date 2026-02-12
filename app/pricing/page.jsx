@@ -87,7 +87,6 @@ export default function PricingPage() {
             </h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
               <AddonBox
-                icon='🎯'
                 title='CRM Basic'
                 price='₹2,000'
                 period='/month'
@@ -95,7 +94,6 @@ export default function PricingPage() {
                 note='Included in Professional'
               />
               <AddonBox
-                icon='🎯'
                 title='CRM Advanced'
                 price='₹3,500'
                 period='/month'
@@ -204,9 +202,6 @@ function PlanCard({
       ) : null}
 
       <div className='relative mb-8'>
-        {/* Icon */}
-        <div className='mb-6'>{icon}</div>
-
         <h3 className='text-2xl font-bold mb-3'>{title}</h3>
         <div className='flex items-baseline gap-2'>
           <span className='text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
@@ -236,27 +231,8 @@ function PlanCard({
                 return (
                   <li
                     key={i}
-                    className='flex gap-3 text-gray-700 text-sm leading-relaxed'
+                    className='text-gray-700 text-sm leading-relaxed'
                   >
-                    {itemIcon ? (
-                      <div className='shrink-0 mt-0.5'>
-                        {getIconSVG(itemIcon)}
-                      </div>
-                    ) : (
-                      <svg
-                        className='w-5 h-5 text-blue-500 shrink-0 mt-0.5'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2.5}
-                          d='M5 13l4 4L19 7'
-                        />
-                      </svg>
-                    )}
                     <span>{itemText}</span>
                   </li>
                 );
@@ -278,10 +254,7 @@ function PlanCard({
                 key={idx}
                 className='rounded-lg border border-gray-300/50 bg-gradient-to-br from-gray-50/60 to-gray-100/30 p-4 hover:border-purple-300/50 transition-all duration-300'
               >
-                <div className='flex items-start gap-3'>
-                  <div className='shrink-0 mt-0.5'>
-                    {getIconSVG(addon.icon)}
-                  </div>
+                <div className='flex items-start'>
                   <div className='flex-1'>
                     <div className='flex items-baseline justify-between gap-2 mb-1'>
                       <h5 className='font-semibold text-gray-900 text-sm'>
@@ -379,12 +352,7 @@ function AddonBox({ icon, title, price, period, description, note }) {
       whileHover={{ y: -6 }}
       className='rounded-3xl border border-slate-200 bg-white p-8 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-all duration-300 relative overflow-hidden group'
     >
-      <div className='absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full -mr-10 -mt-10 group-hover:bg-primary/10 transition-colors' />
-
       <div className='flex items-start gap-5 mb-6 relative z-10'>
-        <div className='w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0 shadow-sm'>
-          {getIconSVG(icon)}
-        </div>
         <div className='flex-1'>
           <h4 className='text-xl font-bold text-accent mb-1 group-hover:text-secondary transition-colors'>{title}</h4>
           <div className='flex items-baseline gap-1'>

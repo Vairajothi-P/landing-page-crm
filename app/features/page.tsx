@@ -90,7 +90,7 @@ const SUB_FEATURES: SubFeature[] = [
     title: "Manufacturing Operations ",
     description:
       "Monitor production, materials, and work orders in real time, optimize scheduling, reduce downtime, and control costs efficiently.",
-    image: "/manufacturing.jpg",
+    image: "/Manufacturing.jpg",
     features: [
       "● Work Orders",
       "● Bill of Materials (BOM)",

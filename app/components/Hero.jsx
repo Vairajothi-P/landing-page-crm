@@ -71,7 +71,7 @@ export default function Hero({ fadeUp }) {
           <div className="w-full aspect-4/3 rounded-2xl bg-white p-3 shadow-2xl border border-slate-200 relative z-10">
             <div className="relative w-full h-full rounded-xl overflow-hidden border border-slate-100">
               <Image
-                src="/hero2.jpg"
+                src="/hero1.jpg"
                 alt="Dashboard preview"
                 fill
                 className="object-cover"

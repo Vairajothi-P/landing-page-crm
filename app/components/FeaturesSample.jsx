@@ -236,7 +236,7 @@ export default function Featuressample({ fadeUp }) {
               Modern Industry Platform
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-accent leading-tight">
-              Built for Modern Growth Teams
+              Engineered for Autonomous Scale
             </h2>
           </motion.div>
 
@@ -264,7 +264,7 @@ export default function Featuressample({ fadeUp }) {
                 variants={itemVariants}
                 onHoverStart={() => setHoveredIndex(idx)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                className={`group relative p-8 rounded-2xl border transition-all duration-300 bg-white shadow-lg hover:shadow-2xl ${colors.border} ${colors.hoverBorder}`}
+                className={`group relative p-8 rounded-2xl border transition-all duration-300 bg-white shadow-lg hover:shadow-2xl h-full flex flex-col ${colors.border} ${colors.hoverBorder}`}
               >
                 {/* Animated background on hover */}
                 <motion.div
@@ -275,7 +275,7 @@ export default function Featuressample({ fadeUp }) {
                   transition={{ duration: 0.3 }}
                 />
 
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col h-full">
                   {/* Icon with subtle animation */}
                   <motion.div
                     animate={{
@@ -299,21 +299,9 @@ export default function Featuressample({ fadeUp }) {
                   </motion.h3>
 
                   {/* Description */}
-                  <p className="text-md leading-relaxed text-slate-600 font-medium">
+                  <p className="text-md leading-relaxed text-slate-600 font-medium flex-grow">
                     {feature.desc}
                   </p>
-
-                  {/* Interactive arrow indicator */}
-                  <motion.div
-                    className={`mt-6 flex items-center gap-2 text-sm font-bold ${colors.iconText}`}
-                    animate={{
-                      x: hoveredIndex === idx ? 8 : 0,
-                      opacity: hoveredIndex === idx ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    Learn more →
-                  </motion.div>
                 </div>
 
                 {/* Corner indicator */}

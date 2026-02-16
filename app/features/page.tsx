@@ -350,8 +350,8 @@ export default function FeaturesSection() {
           transition={{ duration: 0.6 }}
           className='mt-12 mb-12'
         >
-          {/* Back Button */}
-          <div className="flex justify-start mb-8">
+          {/* Back Button (Hidden on Mobile) */}
+          <div className="hidden md:flex justify-start mb-8">
             <button
               onClick={() => window.history.back()}
               className='flex px-6 py-2 rounded-full text-white items-center gap-2 bg-gradient-to-r from-secondary to-primary shadow-lg hover:shadow-primary/20 transition-all font-bold text-sm'

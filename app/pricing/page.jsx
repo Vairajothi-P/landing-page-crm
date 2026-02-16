@@ -27,8 +27,8 @@ export default function PricingPage() {
           transition={{ duration: 0.6 }}
           className='flex flex-col items-center mb-24'
         >
-          {/* Back Button */}
-          <div className="w-full flex justify-start mb-8">
+          {/* Back Button (Hidden on Mobile) */}
+          <div className="hidden md:flex w-full justify-start mb-8">
             <button
               onClick={() => window.history.back()}
               className='bg-gradient-to-r from-secondary to-primary text-white flex items-center gap-2 px-6 py-2 rounded-full shadow-lg hover:shadow-primary/20 transition-all font-black text-sm'
